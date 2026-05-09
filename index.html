@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sambandha Restaurant | Indian Cuisine in Satte, Japan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Sambandha</h1>
+                <p class="logo-subtitle">サンバンダ</p>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#reservations" class="nav-link">Reservations</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Sambandha</h2>
+            <p>Authentic Indian Cuisine in the Heart of Satte</p>
+            <button class="cta-button" onclick="document.getElementById('reservations').scrollIntoView({behavior: 'smooth'})">Reserve a Table</button>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2>Our Menu</h2>
+            <p class="section-subtitle">Authentic Indian Dishes Prepared with Love</p>
+
+            <div class="menu-filters">
+                <button class="filter-btn active" onclick="filterMenu('all')">All</button>
+                <button class="filter-btn" onclick="filterMenu('appetizers')">Appetizers</button>
+                <button class="filter-btn" onclick="filterMenu('curry')">Curries</button>
+                <button class="filter-btn" onclick="filterMenu('bread')">Breads</button>
+                <button class="filter-btn" onclick="filterMenu('biryani')">Biryani</button>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <!-- Appetizers -->
+                <div class="menu-item appetizers" data-category="appetizers">
+                    <h3>Samosa</h3>
+                    <p class="description">Crispy pastry triangles with spiced potato and peas filling</p>
+                    <p class="price">¥350</p>
+                </div>
+                <div class="menu-item appetizers" data-category="appetizers">
+                    <h3>Pakora</h3>
+                    <p class="description">Mixed vegetables in gram flour batter, deep fried</p>
+                    <p class="price">¥400</p>
+                </div>
+                <div class="menu-item appetizers" data-category="appetizers">
+                    <h3>Spring Rolls</h3>
+                    <p class="description">Crispy rolls filled with vegetables</p>
+                    <p class="price">¥380</p>
+                </div>
+
+                <!-- Curries -->
+                <div class="menu-item curry" data-category="curry">
+                    <h3>Butter Chicken</h3>
+                    <p class="description">Tender chicken in creamy tomato sauce with butter and spices</p>
+                    <p class="price">¥1,200</p>
+                </div>
+                <div class="menu-item curry" data-category="curry">
+                    <h3>Paneer Tikka Masala</h3>
+                    <p class="description">Indian cheese in aromatic tomato cream sauce</p>
+                    <p class="price">¥1,100</p>
+                </div>
+                <div class="menu-item curry" data-category="curry">
+                    <h3>Lamb Vindaloo</h3>
+                    <p class="description">Tender lamb in spicy and tangy sauce</p>
+                    <p class="price">¥1,400</p>
+                </div>
+                <div class="menu-item curry" data-category="curry">
+                    <h3>Chana Masala</h3>
+                    <p class="description">Chickpeas in aromatic tomato and onion sauce (Vegetarian)</p>
+                    <p class="price">¥850</p>
+                </div>
+
+                <!-- Breads -->
+                <div class="menu-item bread" data-category="bread">
+                    <h3>Naan</h3>
+                    <p class="description">Traditional Indian flatbread baked in tandoor</p>
+                    <p class="price">¥250</p>
+                </div>
+                <div class="menu-item bread" data-category="bread">
+                    <h3>Garlic Naan</h3>
+                    <p class="description">Naan topped with garlic and butter</p>
+                    <p class="price">¥300</p>
+                </div>
+                <div class="menu-item bread" data-category="bread">
+                    <h3>Roti</h3>
+                    <p class="description">Whole wheat Indian flatbread</p>
+                    <p class="price">¥200</p>
+                </div>
+
+                <!-- Biryani -->
+                <div class="menu-item biryani" data-category="biryani">
+                    <h3>Chicken Biryani</h3>
+                    <p class="description">Fragrant rice cooked with tender chicken and spices</p>
+                    <p class="price">¥1,300</p>
+                </div>
+                <div class="menu-item biryani" data-category="biryani">
+                    <h3>Vegetable Biryani</h3>
+                    <p class="description">Aromatic rice with assorted vegetables (Vegetarian)</p>
+                    <p class="price">¥950</p>
+                </div>
+                <div class="menu-item biryani" data-category="biryani">
+                    <h3>Lamb Biryani</h3>
+                    <p class="description">Fragrant basmati rice with tender lamb and aromatics</p>
+                    <p class="price">¥1,500</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2>About Sambandha</h2>
+                <p>Welcome to Sambandha Restaurant, where culinary traditions meet modern hospitality. Located in the heart of Satte, Saitama, we bring the authentic flavors of India to Japan.</p>
+
+                <p>Our name "Sambandha" means "connection" in Sanskrit, representing the connection between cultures, flavors, and people. Each dish is prepared with carefully selected spices and the finest ingredients, honoring traditional Indian cooking methods.</p>
+
+                <p>Whether you're seeking comfort in a beloved curry or exploring new taste sensations, our experienced chefs ensure every meal is a memorable journey through India's rich culinary heritage.</p>
+
+                <div class="about-details">
+                    <div class="detail-box">
+                        <h3>🌶️ Authentic Spices</h3>
+                        <p>Imported directly from India</p>
+                    </div>
+                    <div class="detail-box">
+                        <h3>👨‍🍳 Expert Chefs</h3>
+                        <p>Years of culinary experience</p>
+                    </div>
+                    <div class="detail-box">
+                        <h3>🍽️ Warm Ambiance</h3>
+                        <p>Cozy and welcoming atmosphere</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2>Gallery</h2>
+            <p class="section-subtitle">Experience the Warmth of Sambandha</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596040708189-3f5f6b5ba3a6?w=400&h=300&fit=crop" alt="Butter Chicken">
+                    <h3>Butter Chicken</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1585937421945-7e378daaf60f?w=400&h=300&fit=crop" alt="Biryani">
+                    <h3>Chicken Biryani</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1609501676725-7186f017a4b8?w=400&h=300&fit=crop" alt="Restaurant Interior">
+                    <h3>Restaurant Ambiance</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Tandoori Dishes">
+                    <h3>Tandoori Specialties</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=400&h=300&fit=crop" alt="Naan Bread">
+                    <h3>Fresh Naan Bread</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400&h=300&fit=crop" alt="Samosa">
+                    <h3>Appetizers</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservations Section -->
+    <section id="reservations" class="reservations-section">
+        <div class="container">
+            <h2>Make a Reservation</h2>
+            <p class="section-subtitle">Reserve Your Table</p>
+
+            <form class="reservation-form" id="reservationForm">
+                <div class="form-row">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-row">
+                    <input type="tel" placeholder="Phone Number" required>
+                    <input type="date" required>
+                </div>
+                <div class="form-row">
+                    <input type="time" required>
+                    <select required>
+                        <option value="">Number of Guests</option>
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5 Guests</option>
+                        <option value="6">6 Guests</option>
+                        <option value="7+">7+ Guests</option>
+                    </select>
+                </div>
+                <textarea placeholder="Special Requests or Dietary Requirements" rows="4"></textarea>
+                <button type="submit" class="submit-button">Reserve Table</button>
+            </form>
+
+            <p class="form-note">We'll confirm your reservation via email or phone</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
+                    <p>埼玉県幸手市東2-２０-40<br>Satte, Saitama 340-0114, Japan</p>
+                </div>
+                <div class="contact-info">
+                    <h3><i class="fas fa-phone"></i> Phone</h3>
+                    <p><a href="tel:0480442323">0480-44-2323</a></p>
+                </div>
+                <div class="contact-info">
+                    <h3><i class="fas fa-envelope"></i> Email</h3>
+                    <p><a href="mailto:sambandha2009@gmail.com">sambandha2009@gmail.com</a></p>
+                </div>
+                <div class="contact-info">
+                    <h3><i class="fas fa-clock"></i> Hours</h3>
+                    <p>Mon-Sun: 11:00 AM - 10:00 PM<br>Closed: TBD</p>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <h3>Send us a Message</h3>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="text" placeholder="Subject" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Sambandha Restaurant. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

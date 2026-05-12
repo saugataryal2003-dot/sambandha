@@ -19,8 +19,8 @@ bin-release/
 
 # Node
 node_modules/
-package.json
-package-lock.json
+.env
+.env.local
 
 # Screenshots / temp files
 preview-*.png

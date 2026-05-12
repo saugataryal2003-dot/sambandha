@@ -93,11 +93,51 @@ When a customer submits a contact form:
 - Make sure the server is running
 - Check that requests are being made to the correct URL (http://localhost:3000)
 
-## Files Modified
+## Admin Dashboard
 
-- `server.js` - New file with Express backend and email handling
-- `package.json` - New file with Node.js dependencies
-- `.env.example` - New file with environment variable template
-- `.gitignore` - Updated to include .env file
-- `script.js` - Updated to send forms to backend API instead of just logging
+Access the admin dashboard at: **http://localhost:3000/admin.html**
+
+### Features
+
+- 📊 **Dashboard Overview** - View statistics on reservations
+- 📋 **Reservation Management**
+  - View all reservations with full details
+  - Update reservation status (Pending, Confirmed, Completed, Cancelled)
+  - Delete reservations
+  - Search by customer name or email
+  - Auto-refresh every 30 seconds
+
+- 💬 **Contact Messages**
+  - View all contact form messages
+  - Read full message content
+  - Delete messages
+  - Search by customer name
+
+- 🔍 **Real-time Data**
+  - Statistics show pending, confirmed, and completed reservations
+  - Last updated timestamp
+  - Automatic refresh every 30 seconds
+
+## Database
+
+All reservations and contact messages are stored in `reservations.db` (SQLite).
+
+To inspect the database manually:
+```bash
+sqlite3 reservations.db
+.tables
+SELECT * FROM reservations;
+SELECT * FROM contacts;
+```
+
+## Files Created/Modified
+
+- `server.js` - Updated with SQLite database and API endpoints
+- `package.json` - Updated with sqlite3 dependency
+- `.env.example` - Environment variable template
+- `.gitignore` - Updated to protect .env file
+- `script.js` - Updated to send forms to backend API
+- `admin.html` - New admin dashboard interface
+- `admin-styles.css` - Dashboard styling
+- `admin.js` - Dashboard functionality
 - `SETUP.md` - This file (setup instructions)

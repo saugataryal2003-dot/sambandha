@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Sambandha Restaurant</title>
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Sambandha Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#reservations" class="nav-item active" data-section="reservations">
+                    📋 Reservations
+                </a>
+                <a href="#contacts" class="nav-item" data-section="contacts">
+                    💬 Contact Messages
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="admin-header">
+                <h1>Admin Dashboard</h1>
+                <p class="last-updated">Last updated: <span id="lastUpdated">--:--</span></p>
+            </header>
+
+            <!-- Reservations Section -->
+            <section id="reservations-section" class="section active">
+                <div class="section-header">
+                    <h2>Reservations</h2>
+                    <div class="controls">
+                        <input type="text" id="searchReservations" placeholder="Search by name or email...">
+                        <button id="refreshBtn" class="btn-refresh">🔄 Refresh</button>
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-card">
+                        <span class="stat-label">Total</span>
+                        <span class="stat-number" id="totalReservations">0</span>
+                    </div>
+                    <div class="stat-card pending">
+                        <span class="stat-label">Pending</span>
+                        <span class="stat-number" id="pendingReservations">0</span>
+                    </div>
+                    <div class="stat-card confirmed">
+                        <span class="stat-label">Confirmed</span>
+                        <span class="stat-number" id="confirmedReservations">0</span>
+                    </div>
+                    <div class="stat-card completed">
+                        <span class="stat-label">Completed</span>
+                        <span class="stat-number" id="completedReservations">0</span>
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="reservations-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Guests</th>
+                                <th>Status</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservationsTable">
+                            <tr><td colspan="10" class="empty-state">Loading reservations...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Contacts Section -->
+            <section id="contacts-section" class="section">
+                <div class="section-header">
+                    <h2>Contact Messages</h2>
+                    <div class="controls">
+                        <input type="text" id="searchContacts" placeholder="Search by name...">
+                        <button id="refreshContactsBtn" class="btn-refresh">🔄 Refresh</button>
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="contacts-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contactsTable">
+                            <tr><td colspan="7" class="empty-state">Loading contacts...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for reservation details -->
+    <div id="reservationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Reservation Details</h2>
+            <div id="modalBody">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for contact details -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contact Message</h2>
+            <div id="contactModalBody">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

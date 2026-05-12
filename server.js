@@ -3,10 +3,13 @@ const nodemailer = require('nodemailer');
 const sqlite3 = require('sqlite3').verbose();
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const fs = require('fs');
+const https = require('https');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const USE_HTTPS = process.env.USE_HTTPS === 'true';
 
 // Middleware
 app.use(cors());
@@ -271,7 +274,29 @@ app.delete('/api/contacts/:id', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-    console.log(`Admin Dashboard: http://localhost:${PORT}/admin.html`);
-});
+// Start server with HTTPS or HTTP
+if (USE_HTTPS && fs.existsSync(process.env.SSL_KEY_PATH) && fs.existsSync(process.env.SSL_CERT_PATH)) {
+    const httpsOptions = {
+        key: fs.readFileSync(process.env.SSL_KEY_PATH),
+        cert: fs.readFileSync(process.env.SSL_CERT_PATH)
+    };
+
+    https.createServer(httpsOptions, app).listen(443, () => {
+        console.log(`✓ HTTPS Server running on https://localhost`);
+        console.log(`✓ Admin Dashboard: https://localhost/admin.html`);
+    });
+
+    // Redirect HTTP to HTTPS
+    const httpApp = express();
+    httpApp.use((req, res) => {
+        res.redirect(`https://${req.headers.host}${req.url}`);
+    });
+    httpApp.listen(80, () => {
+        console.log(`✓ HTTP redirect server running on port 80`);
+    });
+} else {
+    app.listen(PORT, () => {
+        console.log(`✓ HTTP Server running on http://localhost:${PORT}`);
+        console.log(`✓ Admin Dashboard: http://localhost:${PORT}/admin.html`);
+    });
+}

@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 10 8 7;
+    --fg: 250 250 247;
+    --muted: 122 113 104;
+    --accent: 212 165 116;
+    --gold: 154 123 46;
+    --rule: 212 201 168;
+  }
+
+  html {
+    scroll-behavior: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-ink text-cream font-sans antialiased overflow-x-hidden;
+    background-color: #0A0807;
+    color: #FAFAF7;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: rgba(212, 165, 116, 0.4);
+    color: #FAFAF7;
+  }
+
+  /* Custom scrollbar (when not using Lenis) */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0807;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(212, 165, 116, 0.3);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 165, 116, 0.5);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-saffron-200 via-saffron-300 to-saffron-500 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-warm {
+    background: linear-gradient(135deg, #F5E5D0 0%, #D4A574 40%, #9A7B2E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glass {
+    @apply backdrop-blur-xl bg-white/[0.04] border border-white/[0.08];
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-2xl bg-black/40 border border-white/[0.06];
+  }
+
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.4'/></svg>");
+    opacity: 0.08;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgba(212, 165, 116, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(212, 165, 116, 0.06) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .mask-radial-fade {
+    mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
+  }
+
+  .mask-bottom-fade {
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+}
+
+/* Lenis */
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Marquee gradient mask */
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* Animated gradient backgrounds */
+.bg-animated-gradient {
+  background: linear-gradient(135deg, #1A1410 0%, #2A2420 25%, #1A1410 50%, #221A14 75%, #1A1410 100%);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+/* Spotlight effect */
+.spotlight {
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(212, 165, 116, 0.08),
+    transparent 40%
+  );
+}
+
+/* Premium underline animation */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.4s cubic-bezier(0.6, 0.6, 0, 1);
+}
+.link-underline:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}

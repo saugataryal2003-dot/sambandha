@@ -49,7 +49,7 @@ function showMenu(type) {
 
 // Reservation Form Submission
 const reservationForm = document.getElementById('reservationForm');
-reservationForm.addEventListener('submit', (e) => {
+reservationForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const formData = new FormData(reservationForm);
@@ -63,15 +63,32 @@ reservationForm.addEventListener('submit', (e) => {
         requests: formData.get('requests')
     };
 
-    // In production, this would send to a server
-    console.log('Reservation request:', data);
-    alert('Thank you for your reservation request! We will confirm shortly via email or phone.');
-    reservationForm.reset();
+    try {
+        const response = await fetch('/api/reservation', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert('Thank you for your reservation request! We will confirm shortly via email or phone.');
+            reservationForm.reset();
+        } else {
+            alert('Error: ' + (result.error || 'Failed to submit reservation'));
+        }
+    } catch (error) {
+        console.error('Reservation error:', error);
+        alert('Error submitting reservation. Please try again.');
+    }
 });
 
 // Contact Form Submission
 const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const formData = new FormData(contactForm);
@@ -82,10 +99,27 @@ contactForm.addEventListener('submit', (e) => {
         message: formData.get('message')
     };
 
-    // In production, this would send to a server
-    console.log('Contact message:', data);
-    alert('Thank you for your message! We will get back to you soon.');
-    contactForm.reset();
+    try {
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        } else {
+            alert('Error: ' + (result.error || 'Failed to send message'));
+        }
+    } catch (error) {
+        console.error('Contact form error:', error);
+        alert('Error sending message. Please try again.');
+    }
 });
 
 // Smooth scroll behavior for navigation

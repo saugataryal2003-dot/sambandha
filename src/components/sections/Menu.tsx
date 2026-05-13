@@ -56,23 +56,22 @@ export function Menu() {
         <div className="mb-16 flex flex-wrap items-end justify-between gap-6 md:mb-24">
           <div>
             <Reveal>
-              <p className="mb-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.25em] text-saffron-300">
+              <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
                 <span className="h-px w-8 bg-saffron-300" />
-                The Menu
+                メニュー
               </p>
             </Reveal>
-            <h2 className="font-display text-5xl font-light leading-[0.95] text-cream md:text-7xl lg:text-8xl">
-              <RevealText>Crafted dishes,</RevealText>
+            <h2 className="font-jp text-4xl font-light leading-[1.2] text-cream md:text-5xl lg:text-6xl">
+              <RevealText>心を込めた一皿、</RevealText>
               <br />
-              <RevealText delay={0.15} className="text-gradient-warm italic">
-                shared moments.
+              <RevealText delay={0.15} className="text-gradient-warm">
+                共に分かち合うひととき。
               </RevealText>
             </h2>
           </div>
           <Reveal delay={0.4} className="max-w-md">
-            <p className="text-base leading-relaxed text-cream/60 md:text-lg">
-              Every set is a journey. From the daily Classic to the flagship
-              Sambandha experience — six courses, two curries, one unforgettable meal.
+            <p className="font-jp text-base leading-relaxed text-cream/60 md:text-lg">
+              一つ一つのセットが旅のはじまり。デイリーのクラシックから旗艦のサンバンダ体験まで — 六種の料理、二種のカレー、忘れられないひととき。
             </p>
           </Reveal>
         </div>
@@ -83,12 +82,12 @@ export function Menu() {
           <BentoCard
             className="col-span-2 row-span-2 md:col-span-2 md:row-span-2 lg:col-span-3 lg:row-span-2"
             image={SIGNATURE_IMAGES.hero}
-            label="Lunch Menu"
-            labelJp="ランチ"
-            title="From ¥900"
+            label="ランチメニュー"
+            labelEn="Lunch"
+            title="¥900〜"
             href="/menus/lunch-menu.pdf"
             external
-            description="Four curated sets · open PDF"
+            description="4つの厳選セット · PDFを開く"
             priority
           />
 
@@ -96,18 +95,18 @@ export function Menu() {
           <BentoCard
             className="col-span-2 row-span-1 md:col-span-2 lg:col-span-3"
             image={SIGNATURE_IMAGES.tandoori}
-            label="Tandoori"
-            labelJp="タンドーリ"
-            title="Clay oven, charred to gold"
+            label="タンドーリ"
+            labelEn="Tandoori"
+            title="タンドール窯で香ばしく"
           />
 
           {/* Naan */}
           <BentoCard
             className="col-span-1 row-span-1 md:col-span-2 lg:col-span-2"
             image={SIGNATURE_IMAGES.naan}
-            label="Breads"
-            labelJp="ナン"
-            title="9 varieties"
+            label="ナン・パン類"
+            labelEn="Breads"
+            title="9種類"
             small
           />
 
@@ -115,9 +114,9 @@ export function Menu() {
           <BentoCard
             className="col-span-1 row-span-1 lg:col-span-1"
             image={SIGNATURE_IMAGES.curry}
-            label="Curries"
-            labelJp="カレー"
-            title="40+"
+            label="カレー"
+            labelEn="Curries"
+            title="40種以上"
             small
           />
         </div>
@@ -142,14 +141,14 @@ export function Menu() {
               }`}
             >
               {set.flagship && (
-                <div className="absolute right-4 top-4 flex items-center gap-1.5 rounded-full bg-saffron-300/20 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-saffron-200">
+                <div className="absolute right-4 top-4 flex items-center gap-1.5 rounded-full bg-saffron-300/20 px-2.5 py-1 font-jp text-[10px] font-semibold tracking-wider text-saffron-200">
                   <span className="h-1 w-1 rounded-full bg-saffron-200" />
-                  Flagship
+                  人気
                 </div>
               )}
-              <p className="font-jp text-xs text-cream/50">{set.nameJp}</p>
-              <h3 className="mt-2 font-display text-3xl font-light text-cream md:text-4xl">
-                {set.name}
+              <p className="text-xs uppercase tracking-wider text-cream/50">{set.name}</p>
+              <h3 className="mt-2 font-jp text-2xl font-light text-cream md:text-3xl">
+                {set.nameJp}
               </h3>
               <div className="mt-8 flex items-end justify-between">
                 <div>
@@ -167,11 +166,11 @@ export function Menu() {
         {/* CTA row */}
         <Reveal className="mt-16 flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/[0.08] bg-white/[0.02] p-8 md:flex-row md:p-10">
           <div>
-            <p className="font-display text-2xl font-light text-cream md:text-3xl">
-              Dinner & drinks menus available in-store
+            <p className="font-jp text-2xl font-light text-cream md:text-3xl">
+              ディナー・ドリンクメニューは店頭にてご覧いただけます
             </p>
-            <p className="mt-2 text-sm text-cream/60">
-              Call ahead for special arrangements or large parties.
+            <p className="mt-2 font-jp text-sm text-cream/60">
+              団体様や特別なご要望はお電話にてご相談ください。
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -182,8 +181,8 @@ export function Menu() {
               </span>
             </MagneticButton>
             <MagneticButton href="/menus/lunch-menu.pdf">
-              <span className="group inline-flex items-center gap-2 rounded-full bg-saffron-300 px-6 py-3 text-sm font-semibold text-ink transition hover:bg-saffron-200">
-                Open Lunch PDF
+              <span className="group inline-flex items-center gap-2 rounded-full bg-saffron-300 px-6 py-3 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
+                ランチPDFを開く
                 <ExternalLink className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
               </span>
             </MagneticButton>
@@ -198,7 +197,7 @@ interface BentoCardProps {
   className: string;
   image: string;
   label: string;
-  labelJp: string;
+  labelEn: string;
   title: string;
   description?: string;
   href?: string;
@@ -211,7 +210,7 @@ function BentoCard({
   className,
   image,
   label,
-  labelJp,
+  labelEn,
   title,
   description,
   href,
@@ -252,7 +251,7 @@ function BentoCard({
         }`}
       >
         <div className="flex items-center justify-between">
-          <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-saffron-300">
+          <p className="font-jp text-xs font-medium tracking-[0.2em] text-saffron-300">
             {label}
           </p>
           {href && (
@@ -262,16 +261,16 @@ function BentoCard({
           )}
         </div>
         <div>
-          <p className="font-jp text-xs text-cream/50">{labelJp}</p>
+          <p className="text-[10px] uppercase tracking-wider text-cream/50">{labelEn}</p>
           <h3
-            className={`mt-1 font-display font-light leading-tight text-cream ${
-              small ? 'text-xl md:text-2xl' : 'text-2xl md:text-4xl lg:text-5xl'
+            className={`mt-1 font-jp font-light leading-tight text-cream ${
+              small ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl lg:text-4xl'
             }`}
           >
             {title}
           </h3>
           {description && (
-            <p className="mt-2 text-xs text-cream/60 md:text-sm">{description}</p>
+            <p className="mt-2 font-jp text-xs text-cream/60 md:text-sm">{description}</p>
           )}
         </div>
       </div>

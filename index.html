@@ -48,84 +48,71 @@
 
             <div class="menu-filters">
                 <button class="filter-btn active" onclick="filterMenu('all')">All</button>
-                <button class="filter-btn" onclick="filterMenu('appetizers')">Appetizers</button>
-                <button class="filter-btn" onclick="filterMenu('curry')">Curries</button>
-                <button class="filter-btn" onclick="filterMenu('bread')">Breads</button>
-                <button class="filter-btn" onclick="filterMenu('biryani')">Biryani</button>
+                <button class="filter-btn" onclick="filterMenu('lunch')">Lunch ランチ</button>
+                <button class="filter-btn" onclick="filterMenu('dinner')">Dinner ディナー</button>
+                <button class="filter-btn" onclick="filterMenu('drinks')">Drinks ドリンク</button>
             </div>
 
             <div class="menu-grid" id="menuGrid">
-                <!-- Appetizers -->
-                <div class="menu-item appetizers" data-category="appetizers">
-                    <h3>Samosa</h3>
-                    <p class="description">Crispy pastry triangles with spiced potato and peas filling</p>
-                    <p class="price">¥350</p>
+                <!-- Lunch -->
+                <div class="menu-item lunch" data-category="lunch">
+                    <div class="menu-item-label">A</div>
+                    <h3>ダル(豆)カレーセット<br><span class="menu-en">Dal Curry Set</span></h3>
+                    <p class="description">サラダ、豆カレー、ナンまたはライス、お好きなドリンクを1種類<br>Salad, Dal Curry, Nan or Rice, Choice of One Drink</p>
+                    <p class="price">¥900 <span class="tax">(税込¥990)</span></p>
                 </div>
-                <div class="menu-item appetizers" data-category="appetizers">
-                    <h3>Pakora</h3>
-                    <p class="description">Mixed vegetables in gram flour batter, deep fried</p>
-                    <p class="price">¥400</p>
+                <div class="menu-item lunch" data-category="lunch">
+                    <div class="menu-item-label">B</div>
+                    <h3>野菜カレーセット<br><span class="menu-en">Vegetable Curry Set</span></h3>
+                    <p class="description">サラダ、野菜カレー、ナンまたはライス、お好きなドリンクを1種類<br>Salad, Vegetable Curry, Nan or Rice, Choice of One Drink</p>
+                    <p class="price">¥900 <span class="tax">(税込¥990)</span></p>
                 </div>
-                <div class="menu-item appetizers" data-category="appetizers">
-                    <h3>Spring Rolls</h3>
-                    <p class="description">Crispy rolls filled with vegetables</p>
-                    <p class="price">¥380</p>
+                <div class="menu-item lunch" data-category="lunch">
+                    <div class="menu-item-label">C</div>
+                    <h3>チキンカレーセット<br><span class="menu-en">Chicken Curry Set</span></h3>
+                    <p class="description">サラダ、チキンカレー、ナンまたはライス、お好きなドリンクを1種類<br>Salad, Chicken Curry, Nan or Rice, Choice of One Drink</p>
+                    <p class="price">¥900 <span class="tax">(税込¥990)</span></p>
                 </div>
-
-                <!-- Curries -->
-                <div class="menu-item curry" data-category="curry">
-                    <h3>Butter Chicken</h3>
-                    <p class="description">Tender chicken in creamy tomato sauce with butter and spices</p>
-                    <p class="price">¥1,200</p>
+                <div class="menu-item lunch" data-category="lunch">
+                    <div class="menu-item-label">D</div>
+                    <h3>ポークカレーセット<br><span class="menu-en">Pork Curry Set</span></h3>
+                    <p class="description">サラダ、ポークカレー、ナンまたはライス、お好きなドリンクを1種類<br>Salad, Pork Curry, Nan or Rice, Choice of One Drink</p>
+                    <p class="price">¥900 <span class="tax">(税込¥990)</span></p>
                 </div>
-                <div class="menu-item curry" data-category="curry">
-                    <h3>Paneer Tikka Masala</h3>
-                    <p class="description">Indian cheese in aromatic tomato cream sauce</p>
-                    <p class="price">¥1,100</p>
+                <div class="menu-item lunch" data-category="lunch">
+                    <div class="menu-item-label">E</div>
+                    <h3>シーフードカレーセット<br><span class="menu-en">Seafood Curry Set</span></h3>
+                    <p class="description">サラダ、シーフードカレー、ナンまたはライス、お好きなドリンクを1種類<br>Salad, Seafood Curry, Nan or Rice, Choice of One Drink</p>
+                    <p class="price">¥980 <span class="tax">(税込¥1,078)</span></p>
                 </div>
-                <div class="menu-item curry" data-category="curry">
-                    <h3>Lamb Vindaloo</h3>
-                    <p class="description">Tender lamb in spicy and tangy sauce</p>
-                    <p class="price">¥1,400</p>
-                </div>
-                <div class="menu-item curry" data-category="curry">
-                    <h3>Chana Masala</h3>
-                    <p class="description">Chickpeas in aromatic tomato and onion sauce (Vegetarian)</p>
-                    <p class="price">¥850</p>
+                <div class="menu-item lunch lunch-note" data-category="lunch">
+                    <h3>ランチオプション / Lunch Options</h3>
+                    <p class="description">ナンの変更 / Naan Upgrade: <strong>¥350</strong><br>ランチデザート / Lunch Dessert: <strong>¥200</strong></p>
+                    <p class="description" style="margin-top:10px;">🥤 ドリンクの選択 / Choice of Drink:<br>ラッシー・マンゴーラッシー・マンゴージュース・ウーロン茶・コーヒー(ホット/アイス)・チャイ(ホット/アイス)<br>Lassi, Mango Lassi, Mango Juice, Oolong Tea, Coffee, Chai</p>
                 </div>
 
-                <!-- Breads -->
-                <div class="menu-item bread" data-category="bread">
-                    <h3>Naan</h3>
-                    <p class="description">Traditional Indian flatbread baked in tandoor</p>
-                    <p class="price">¥250</p>
-                </div>
-                <div class="menu-item bread" data-category="bread">
-                    <h3>Garlic Naan</h3>
-                    <p class="description">Naan topped with garlic and butter</p>
-                    <p class="price">¥300</p>
-                </div>
-                <div class="menu-item bread" data-category="bread">
-                    <h3>Roti</h3>
-                    <p class="description">Whole wheat Indian flatbread</p>
-                    <p class="price">¥200</p>
+                <!-- Dinner - placeholder until PDF provided -->
+                <div class="menu-item dinner" data-category="dinner">
+                    <h3>Coming Soon</h3>
+                    <p class="description">Dinner menu coming soon. Please ask our staff for today's dinner options.</p>
+                    <p class="price"></p>
                 </div>
 
-                <!-- Biryani -->
-                <div class="menu-item biryani" data-category="biryani">
-                    <h3>Chicken Biryani</h3>
-                    <p class="description">Fragrant rice cooked with tender chicken and spices</p>
-                    <p class="price">¥1,300</p>
+                <!-- Drinks - placeholder until PDF provided -->
+                <div class="menu-item drinks" data-category="drinks">
+                    <h3>ラッシー / Lassi</h3>
+                    <p class="description">プレーンラッシー / Plain Lassi</p>
+                    <p class="price">included in lunch set</p>
                 </div>
-                <div class="menu-item biryani" data-category="biryani">
-                    <h3>Vegetable Biryani</h3>
-                    <p class="description">Aromatic rice with assorted vegetables (Vegetarian)</p>
-                    <p class="price">¥950</p>
+                <div class="menu-item drinks" data-category="drinks">
+                    <h3>マンゴーラッシー / Mango Lassi</h3>
+                    <p class="description">フレッシュマンゴーラッシー / Fresh Mango Lassi</p>
+                    <p class="price">included in lunch set</p>
                 </div>
-                <div class="menu-item biryani" data-category="biryani">
-                    <h3>Lamb Biryani</h3>
-                    <p class="description">Fragrant basmati rice with tender lamb and aromatics</p>
-                    <p class="price">¥1,500</p>
+                <div class="menu-item drinks" data-category="drinks">
+                    <h3>チャイ / Chai</h3>
+                    <p class="description">ホット / アイス — Hot or Iced Indian Spiced Tea</p>
+                    <p class="price">included in lunch set</p>
                 </div>
             </div>
         </div>

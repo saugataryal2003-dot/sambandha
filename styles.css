@@ -263,6 +263,59 @@ section h2 {
     to { opacity: 1; }
 }
 
+/* Menu HTML Display */
+.menu-html {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+}
+
+.menu-category {
+    margin-bottom: 50px;
+}
+
+.menu-category h3 {
+    color: var(--primary-color);
+    font-size: 22px;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu-item {
+    padding: 15px 0;
+    border-bottom: 1px dotted #ddd;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+}
+
+.item-name {
+    color: var(--primary-color);
+    font-weight: 500;
+    flex: 1;
+}
+
+.item-price {
+    color: var(--accent-color);
+    font-weight: bold;
+    white-space: nowrap;
+}
+
 /* About Section */
 .about-section {
     background-color: white;

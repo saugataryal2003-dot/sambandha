@@ -8,26 +8,26 @@ import { RESTAURANT } from '@/lib/utils';
 const INFO_BLOCKS = [
   {
     icon: MapPin,
-    label: 'Address',
+    label: '所在地',
     lines: [RESTAURANT.address, RESTAURANT.addressEn],
     href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(RESTAURANT.addressEn)}`,
   },
   {
     icon: Phone,
-    label: 'Phone',
+    label: 'お電話',
     lines: [RESTAURANT.phone],
     href: `tel:${RESTAURANT.phoneRaw}`,
   },
   {
     icon: Mail,
-    label: 'Email',
+    label: 'メール',
     lines: [RESTAURANT.email],
     href: `mailto:${RESTAURANT.email}`,
   },
   {
     icon: Clock,
-    label: 'Hours',
-    lines: ['Mon — Sun', '11:00 — 22:00'],
+    label: '営業時間',
+    lines: ['月 — 日', '11:00 — 22:00'],
   },
 ];
 
@@ -41,16 +41,16 @@ export function Contact() {
       <div className="container mx-auto max-w-7xl px-6">
         <div className="mb-12 md:mb-20">
           <Reveal>
-            <p className="mb-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.25em] text-saffron-300">
+            <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
               <span className="h-px w-8 bg-saffron-300" />
-              Contact
+              お問い合わせ
             </p>
           </Reveal>
-          <h2 className="font-display text-5xl font-light leading-[0.95] text-cream md:text-7xl lg:text-8xl">
-            <RevealText>Come find</RevealText>
+          <h2 className="font-jp text-4xl font-light leading-[1.2] text-cream md:text-5xl lg:text-6xl">
+            <RevealText>あなたの席を、</RevealText>
             <br />
-            <RevealText delay={0.15} className="text-gradient-warm italic">
-              your seat.
+            <RevealText delay={0.15} className="text-gradient-warm">
+              お探しください。
             </RevealText>
           </h2>
         </div>
@@ -80,7 +80,7 @@ export function Contact() {
                     <block.icon className="h-4 w-4" strokeWidth={1.6} />
                   </span>
                   <div>
-                    <p className="text-xs font-medium uppercase tracking-widest text-saffron-300/80">
+                    <p className="font-jp text-xs font-medium tracking-widest text-saffron-300/80">
                       {block.label}
                     </p>
                     <div className="mt-2 space-y-1">
@@ -89,7 +89,7 @@ export function Contact() {
                           key={j}
                           className={`text-sm leading-relaxed ${
                             j === 0 ? 'text-cream' : 'text-cream/50'
-                          } ${block.label === 'Address' && j === 0 ? 'font-jp' : ''}`}
+                          } font-jp`}
                         >
                           {line}
                         </p>
@@ -122,8 +122,8 @@ export function Contact() {
 
             <Reveal delay={0.5} className="mt-2">
               <MagneticButton href={`tel:${RESTAURANT.phoneRaw}`}>
-                <span className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-saffron-300 px-6 py-4 text-sm font-semibold text-ink transition hover:bg-saffron-200">
-                  Call to reserve
+                <span className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-saffron-300 px-6 py-4 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
+                  電話でご予約
                   <Phone className="h-4 w-4 transition group-hover:rotate-12" />
                 </span>
               </MagneticButton>

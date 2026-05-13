@@ -20,10 +20,10 @@ export const RESTAURANT = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: 'Home', href: '#home' },
-  { label: 'Menu', href: '#menu' },
-  { label: 'About', href: '#about' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'Reserve', href: '#reservations' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'ホーム', href: '#home' },
+  { label: 'メニュー', href: '#menu' },
+  { label: '私たちについて', href: '#about' },
+  { label: 'ギャラリー', href: '#gallery' },
+  { label: 'ご予約', href: '#reservations' },
+  { label: 'お問合せ', href: '#contact' },
 ] as const;

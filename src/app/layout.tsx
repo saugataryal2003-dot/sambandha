@@ -37,36 +37,37 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://sambandharestaurant.com'),
   title: {
-    default: 'Sambandha — Authentic Indian Cuisine in Satte, Saitama',
-    template: '%s · Sambandha',
+    default: 'サンバンダ — 埼玉県幸手市の本格インド料理レストラン',
+    template: '%s · サンバンダ',
   },
   description:
-    'An immersive Indian dining experience in the heart of Satte, Saitama. Sambandha — where ancient spices meet modern hospitality. Reserve a table today.',
+    '埼玉県幸手市にある本格インド料理レストラン「サンバンダ」。古代のスパイスと現代のおもてなしが融合する、本場の味をお届けします。ご予約はお電話にて。',
   keywords: [
-    'Indian restaurant Satte',
-    'Sambandha',
+    'インド料理 幸手',
     'サンバンダ',
-    'curry Saitama',
-    'authentic Indian cuisine Japan',
-    'tandoori Saitama',
-    'butter chicken Satte',
+    'Sambandha',
+    'カレー 埼玉',
+    '本格インド料理 日本',
+    'タンドリー 埼玉',
+    'バターチキン 幸手',
+    'ナン 埼玉',
   ],
-  authors: [{ name: 'Sambandha Restaurant' }],
-  creator: 'Sambandha Restaurant',
+  authors: [{ name: 'サンバンダ レストラン' }],
+  creator: 'サンバンダ レストラン',
   openGraph: {
     type: 'website',
-    locale: 'en_JP',
-    alternateLocale: 'ja_JP',
+    locale: 'ja_JP',
+    alternateLocale: 'en_US',
     url: 'https://sambandharestaurant.com',
-    siteName: 'Sambandha',
-    title: 'Sambandha — Authentic Indian Cuisine in Satte, Saitama',
+    siteName: 'サンバンダ',
+    title: 'サンバンダ — 埼玉県幸手市の本格インド料理',
     description:
-      'An immersive Indian dining experience. Ancient spices, modern hospitality, unforgettable meals.',
+      '本場インドの味を埼玉県幸手市で。古代のスパイスと温かいおもてなしで、忘れられない一皿をお届けします。',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sambandha — Authentic Indian Cuisine',
-    description: 'Where ancient spices meet modern hospitality. Satte, Saitama.',
+    title: 'サンバンダ — 本格インド料理',
+    description: '埼玉県幸手市の本格インド料理レストラン。古代のスパイスと温かいおもてなし。',
   },
   robots: {
     index: true,
@@ -88,7 +89,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang="ja"
       className={`${display.variable} ${sans.variable} ${jp.variable}`}
       suppressHydrationWarning
     >

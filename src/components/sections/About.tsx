@@ -8,27 +8,27 @@ import { Reveal, RevealText } from '@/components/ui/Reveal';
 const PILLARS = [
   {
     icon: Flame,
-    title: 'Authentic Spices',
-    titleJp: '本場のスパイス',
-    body: 'Imported directly from India, every blend honors traditional methods.',
+    title: '本場のスパイス',
+    titleEn: 'Authentic Spices',
+    body: 'インドから直輸入の香辛料。伝統製法を大切に、独自にブレンドしています。',
   },
   {
     icon: Sparkles,
-    title: 'Expert Chefs',
-    titleJp: 'シェフの技',
-    body: 'Decades of experience and a passion for craft in every dish.',
+    title: 'シェフの技',
+    titleEn: 'Expert Chefs',
+    body: '数十年の経験と情熱を込めて、一皿一皿丁寧にお作りしています。',
   },
   {
     icon: HeartHandshake,
-    title: 'Warm Hospitality',
-    titleJp: '温かいおもてなし',
-    body: 'A place where strangers leave as friends — that is Sambandha.',
+    title: '温かいおもてなし',
+    titleEn: 'Warm Hospitality',
+    body: 'はじめてのお客様も、お帰りには友人のように — それがサンバンダ。',
   },
   {
     icon: Leaf,
-    title: 'Fresh Daily',
-    titleJp: '毎日新鮮',
-    body: 'Hand-prepared, slow-cooked, never frozen — quality you can taste.',
+    title: '毎日新鮮',
+    titleEn: 'Fresh Daily',
+    body: '手作り、じっくり煮込み、冷凍は使いません。新鮮なおいしさをお届けします。',
   },
 ];
 
@@ -67,8 +67,8 @@ export function About() {
               <p className="font-display text-5xl font-light leading-none text-gradient-warm md:text-6xl">
                 15+
               </p>
-              <p className="mt-2 text-xs uppercase tracking-widest text-cream/50">
-                Years of craft
+              <p className="mt-2 font-jp text-xs tracking-widest text-cream/50">
+                年の歴史
               </p>
             </Reveal>
           </div>
@@ -76,31 +76,27 @@ export function About() {
           {/* Content */}
           <div className="lg:col-span-7">
             <Reveal>
-              <p className="mb-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.25em] text-saffron-300">
+              <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
                 <span className="h-px w-8 bg-saffron-300" />
-                Our Story
+                私たちの物語
               </p>
             </Reveal>
 
-            <h2 className="font-display text-5xl font-light leading-[1.05] text-cream md:text-6xl lg:text-7xl">
-              <RevealText>The connection</RevealText>
+            <h2 className="font-jp text-4xl font-light leading-[1.2] text-cream md:text-5xl lg:text-6xl">
+              <RevealText>文化を繋ぐ</RevealText>
               <br />
-              <RevealText delay={0.15} className="text-gradient-warm italic">
-                between cultures.
+              <RevealText delay={0.15} className="text-gradient-warm">
+                ご縁の場所。
               </RevealText>
             </h2>
 
-            <Reveal delay={0.3} className="mt-8 space-y-5 text-base leading-relaxed text-cream/70 md:text-lg">
+            <Reveal delay={0.3} className="mt-8 space-y-5 font-jp text-base leading-relaxed text-cream/70 md:text-lg">
               <p>
-                <span className="font-display text-saffron-300">&ldquo;Sambandha&rdquo;</span>{' '}
-                means &ldquo;connection&rdquo; in Sanskrit — the bond between cultures,
-                between flavors, between the people who gather around our tables.
+                <span className="text-saffron-300">「サンバンダ」</span>
+                とはサンスクリット語で「縁」を意味します — 文化と文化、味と味、そして食卓を囲む人々の繋がり。
               </p>
               <p>
-                Located in the heart of Satte, Saitama, we bring the authentic
-                flavors of India to Japan. Every dish is hand-prepared with
-                carefully selected spices and the finest ingredients, honoring
-                traditional methods passed down through generations.
+                埼玉県幸手市に佇むサンバンダでは、本場インドの味を日本にお届けしています。一皿一皿、厳選されたスパイスと食材を使い、代々受け継がれてきた伝統製法で、心を込めてお作りしています。
               </p>
             </Reveal>
 
@@ -122,11 +118,11 @@ export function About() {
                     className="h-5 w-5 text-saffron-300 transition-transform group-hover:scale-110"
                     strokeWidth={1.6}
                   />
-                  <h3 className="mt-4 font-display text-xl font-medium text-cream">
+                  <h3 className="mt-4 font-jp text-xl font-medium text-cream">
                     {pillar.title}
                   </h3>
-                  <p className="font-jp text-[11px] text-cream/40">{pillar.titleJp}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-cream/60">
+                  <p className="text-[11px] uppercase tracking-wider text-cream/40">{pillar.titleEn}</p>
+                  <p className="mt-2 font-jp text-sm leading-relaxed text-cream/60">
                     {pillar.body}
                   </p>
                 </motion.div>

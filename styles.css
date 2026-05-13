@@ -106,10 +106,10 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, rgba(42, 36, 32, 0.75) 0%, rgba(42, 36, 32, 0.5) 100%),
-        url('https://images.unsplash.com/photo-1517244683847-7456b63c5969?w=1600&h=900&fit=crop&q=80');
+    background: linear-gradient(135deg, rgba(42, 36, 32, 0.65) 0%, rgba(42, 36, 32, 0.45) 100%),
+        url('https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=1600&h=900&fit=crop&q=80');
     background-size: cover;
-    background-position: center top;
+    background-position: center;
     height: 650px;
     display: flex;
     align-items: center;

@@ -35,34 +35,17 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Menu Filter Functionality
-function filterMenu(category) {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const menuItems = document.querySelectorAll('.menu-item');
+// Menu PDF Button Functionality
+function showMenu(type) {
+    const btns = document.querySelectorAll('.menu-pdf-btn');
+    const panels = document.querySelectorAll('.pdf-panel');
 
-    // Update active filter button
-    filterBtns.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    btns.forEach(btn => btn.classList.remove('active'));
+    panels.forEach(panel => panel.classList.remove('active'));
 
-    // Filter menu items
-    menuItems.forEach(item => {
-        item.classList.remove('show');
-
-        if (category === 'all') {
-            item.classList.add('show');
-        } else if (item.classList.contains(category)) {
-            item.classList.add('show');
-        }
-    });
+    event.target.closest('.menu-pdf-btn').classList.add('active');
+    document.getElementById('menu-' + type).classList.add('active');
 }
-
-// Initialize menu with all items shown
-window.addEventListener('load', () => {
-    const menuItems = document.querySelectorAll('.menu-item');
-    menuItems.forEach(item => {
-        item.classList.add('show');
-    });
-});
 
 // Reservation Form Submission
 const reservationForm = document.getElementById('reservationForm');

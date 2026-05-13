@@ -46,86 +46,34 @@
             <h2>Our Menu</h2>
             <p class="section-subtitle">Authentic Indian Dishes Prepared with Love</p>
 
-            <div class="menu-filters">
-                <button class="filter-btn active" onclick="filterMenu('all')">All</button>
-                <button class="filter-btn" onclick="filterMenu('appetizers')">Appetizers</button>
-                <button class="filter-btn" onclick="filterMenu('curry')">Curries</button>
-                <button class="filter-btn" onclick="filterMenu('bread')">Breads</button>
-                <button class="filter-btn" onclick="filterMenu('biryani')">Biryani</button>
+            <div class="menu-buttons">
+                <button class="menu-pdf-btn active" onclick="window.open('menus/lunch-menu.pdf', '_blank')">
+                    LUNCH MENU<br><span>ランチ</span>
+                </button>
+                <button class="menu-pdf-btn" onclick="showMenu('dinner')">
+                    DINNER MENU<br><span>ディナー</span>
+                </button>
+                <button class="menu-pdf-btn" onclick="showMenu('drinks')">
+                    DRINK MENU<br><span>ドリンク</span>
+                </button>
             </div>
 
-            <div class="menu-grid" id="menuGrid">
-                <!-- Appetizers -->
-                <div class="menu-item appetizers" data-category="appetizers">
-                    <h3>Samosa</h3>
-                    <p class="description">Crispy pastry triangles with spiced potato and peas filling</p>
-                    <p class="price">¥350</p>
+            <div class="pdf-viewer" id="pdfViewer">
+                <div id="menu-dinner" class="pdf-panel active">
+                    <div class="menu-coming-soon">
+                        <p>🍽️</p>
+                        <h3>Dinner Menu</h3>
+                        <p>ディナーメニュー</p>
+                        <p>Please call us: <a href="tel:0480442323">0480-44-2323</a></p>
+                    </div>
                 </div>
-                <div class="menu-item appetizers" data-category="appetizers">
-                    <h3>Pakora</h3>
-                    <p class="description">Mixed vegetables in gram flour batter, deep fried</p>
-                    <p class="price">¥400</p>
-                </div>
-                <div class="menu-item appetizers" data-category="appetizers">
-                    <h3>Spring Rolls</h3>
-                    <p class="description">Crispy rolls filled with vegetables</p>
-                    <p class="price">¥380</p>
-                </div>
-
-                <!-- Curries -->
-                <div class="menu-item curry" data-category="curry">
-                    <h3>Butter Chicken</h3>
-                    <p class="description">Tender chicken in creamy tomato sauce with butter and spices</p>
-                    <p class="price">¥1,200</p>
-                </div>
-                <div class="menu-item curry" data-category="curry">
-                    <h3>Paneer Tikka Masala</h3>
-                    <p class="description">Indian cheese in aromatic tomato cream sauce</p>
-                    <p class="price">¥1,100</p>
-                </div>
-                <div class="menu-item curry" data-category="curry">
-                    <h3>Lamb Vindaloo</h3>
-                    <p class="description">Tender lamb in spicy and tangy sauce</p>
-                    <p class="price">¥1,400</p>
-                </div>
-                <div class="menu-item curry" data-category="curry">
-                    <h3>Chana Masala</h3>
-                    <p class="description">Chickpeas in aromatic tomato and onion sauce (Vegetarian)</p>
-                    <p class="price">¥850</p>
-                </div>
-
-                <!-- Breads -->
-                <div class="menu-item bread" data-category="bread">
-                    <h3>Naan</h3>
-                    <p class="description">Traditional Indian flatbread baked in tandoor</p>
-                    <p class="price">¥250</p>
-                </div>
-                <div class="menu-item bread" data-category="bread">
-                    <h3>Garlic Naan</h3>
-                    <p class="description">Naan topped with garlic and butter</p>
-                    <p class="price">¥300</p>
-                </div>
-                <div class="menu-item bread" data-category="bread">
-                    <h3>Roti</h3>
-                    <p class="description">Whole wheat Indian flatbread</p>
-                    <p class="price">¥200</p>
-                </div>
-
-                <!-- Biryani -->
-                <div class="menu-item biryani" data-category="biryani">
-                    <h3>Chicken Biryani</h3>
-                    <p class="description">Fragrant rice cooked with tender chicken and spices</p>
-                    <p class="price">¥1,300</p>
-                </div>
-                <div class="menu-item biryani" data-category="biryani">
-                    <h3>Vegetable Biryani</h3>
-                    <p class="description">Aromatic rice with assorted vegetables (Vegetarian)</p>
-                    <p class="price">¥950</p>
-                </div>
-                <div class="menu-item biryani" data-category="biryani">
-                    <h3>Lamb Biryani</h3>
-                    <p class="description">Fragrant basmati rice with tender lamb and aromatics</p>
-                    <p class="price">¥1,500</p>
+                <div id="menu-drinks" class="pdf-panel">
+                    <div class="menu-coming-soon">
+                        <p>🥤</p>
+                        <h3>Drink Menu</h3>
+                        <p>ドリンクメニュー</p>
+                        <p>Please call us: <a href="tel:0480442323">0480-44-2323</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -168,28 +116,28 @@
 
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1596040708189-3f5f6b5ba3a6?w=400&h=300&fit=crop" alt="Butter Chicken">
+                    <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600&h=400&fit=crop&q=80" alt="Butter Chicken">
                     <h3>Butter Chicken</h3>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1585937421945-7e378daaf60f?w=400&h=300&fit=crop" alt="Biryani">
+                    <img src="https://images.unsplash.com/photo-1585937421945-7e378daaf60f?w=600&h=400&fit=crop&q=80" alt="Biryani">
                     <h3>Chicken Biryani</h3>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1609501676725-7186f017a4b8?w=400&h=300&fit=crop" alt="Restaurant Interior">
-                    <h3>Restaurant Ambiance</h3>
+                    <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&h=400&fit=crop&q=80" alt="Indian Food Spread">
+                    <h3>Our Signature Dishes</h3>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Tandoori Dishes">
+                    <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&h=400&fit=crop&q=80" alt="Tandoori Dishes">
                     <h3>Tandoori Specialties</h3>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=400&h=300&fit=crop" alt="Naan Bread">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&h=400&fit=crop&q=80" alt="Naan Bread">
                     <h3>Fresh Naan Bread</h3>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400&h=300&fit=crop" alt="Samosa">
-                    <h3>Appetizers</h3>
+                    <img src="https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=600&h=400&fit=crop&q=80" alt="Indian Curry">
+                    <h3>Curry Selection</h3>
                 </div>
             </div>
         </div>

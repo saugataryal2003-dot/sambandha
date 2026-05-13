@@ -163,111 +163,104 @@ section h2 {
     background-color: var(--bg-light);
 }
 
-.menu-filters {
+.menu-buttons {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     flex-wrap: wrap;
 }
 
-.filter-btn {
-    padding: 10px 25px;
+.menu-pdf-btn {
+    padding: 18px 35px;
     border: 2px solid var(--primary-color);
     background-color: transparent;
     color: var(--primary-color);
     cursor: pointer;
-    border-radius: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
     transition: all 0.3s ease;
-    font-weight: 500;
+    text-align: center;
+    min-width: 180px;
 }
 
-.filter-btn:hover,
-.filter-btn.active {
+.menu-pdf-btn span {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-top: 4px;
+    opacity: 0.7;
+}
+
+.menu-pdf-btn:hover,
+.menu-pdf-btn.active {
     background-color: var(--primary-color);
     color: var(--text-light);
 }
 
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.menu-item {
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.pdf-panel {
     display: none;
-}
-
-.menu-item.show {
-    display: block;
     animation: fadeIn 0.3s ease;
 }
 
-.menu-item h3 {
-    color: var(--primary-color);
-    margin-bottom: 10px;
-    font-size: 20px;
+.pdf-panel.active {
+    display: block;
 }
 
-.menu-item .description {
-    color: #666;
-    margin-bottom: 15px;
-    font-size: 14px;
-}
-
-.menu-item .price {
-    color: var(--accent-color);
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.menu-item .tax {
-    font-size: 12px;
-    color: #999;
-    font-weight: normal;
-}
-
-.menu-item .menu-en {
-    font-size: 14px;
-    color: #888;
-    font-weight: normal;
-}
-
-.menu-item-label {
-    display: inline-block;
+.pdf-open-btn {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    padding: 12px 30px;
     background-color: var(--accent-color);
     color: white;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 28px;
+    text-decoration: none;
+    border-radius: 5px;
     font-weight: bold;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s ease;
+}
+
+.pdf-open-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.menu-coming-soon {
+    text-align: center;
+    padding: 80px 20px;
+    background: white;
+    border-radius: 8px;
+}
+
+.menu-coming-soon p:first-child {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.menu-coming-soon h3 {
+    font-size: 24px;
+    color: var(--primary-color);
     margin-bottom: 10px;
 }
 
-.lunch-note {
-    background-color: #fdf8f3;
-    border-left: 4px solid var(--accent-color);
+.menu-coming-soon p {
+    color: #666;
+    margin-bottom: 10px;
 }
 
-.menu-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+.menu-coming-soon a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* About Section */

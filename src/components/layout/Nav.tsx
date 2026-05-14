@@ -77,7 +77,7 @@ export function Nav() {
                   <a
                     href={link.href}
                     className={cn(
-                      'relative rounded-full px-4 py-1.5 text-sm font-medium transition-colors',
+                      'relative rounded-full px-4 py-1.5 font-jp text-sm font-medium transition-colors',
                       isActive ? 'text-cream' : 'text-cream/60 hover:text-cream'
                     )}
                   >
@@ -105,9 +105,9 @@ export function Nav() {
             </a>
             <a
               href="#reservations"
-              className="hidden items-center gap-2 rounded-full bg-saffron-300 px-4 py-1.5 text-xs font-semibold text-ink transition hover:bg-saffron-200 md:inline-flex"
+              className="hidden items-center gap-2 rounded-full bg-saffron-300 px-4 py-1.5 font-jp text-xs font-semibold text-ink transition hover:bg-saffron-200 md:inline-flex"
             >
-              Reserve
+              ご予約
             </a>
             <button
               type="button"
@@ -155,7 +155,7 @@ export function Nav() {
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block font-display text-4xl font-light text-cream/90 transition hover:text-saffron-300 sm:text-5xl"
+                    className="block font-jp text-4xl font-light text-cream/90 transition hover:text-saffron-300 sm:text-5xl"
                   >
                     {link.label}
                   </a>
@@ -178,9 +178,9 @@ export function Nav() {
                 <a
                   href="#reservations"
                   onClick={() => setOpen(false)}
-                  className="rounded-full bg-saffron-300 px-6 py-2.5 text-sm font-semibold text-ink"
+                  className="rounded-full bg-saffron-300 px-6 py-2.5 font-jp text-sm font-semibold text-ink"
                 >
-                  Reserve a table
+                  ご予約
                 </a>
               </motion.li>
             </motion.ul>

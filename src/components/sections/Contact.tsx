@@ -80,7 +80,7 @@ export function Contact() {
                     <block.icon className="h-4 w-4" strokeWidth={1.6} />
                   </span>
                   <div>
-                    <p className="text-xs font-medium uppercase tracking-widest text-saffron-300/80">
+                    <p className="font-jp text-xs font-medium tracking-widest text-saffron-300/80">
                       {block.label}
                     </p>
                     <div className="mt-2 space-y-1">
@@ -89,7 +89,7 @@ export function Contact() {
                           key={j}
                           className={`text-sm leading-relaxed ${
                             j === 0 ? 'text-cream' : 'text-cream/50'
-                          } ${block.label === 'Address' && j === 0 ? 'font-jp' : ''}`}
+                          } font-jp`}
                         >
                           {line}
                         </p>
@@ -122,8 +122,8 @@ export function Contact() {
 
             <Reveal delay={0.5} className="mt-2">
               <MagneticButton href={`tel:${RESTAURANT.phoneRaw}`}>
-                <span className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-saffron-300 px-6 py-4 text-sm font-semibold text-ink transition hover:bg-saffron-200">
-                  Call to reserve
+                <span className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-saffron-300 px-6 py-4 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
+                  電話でご予約
                   <Phone className="h-4 w-4 transition group-hover:rotate-12" />
                 </span>
               </MagneticButton>

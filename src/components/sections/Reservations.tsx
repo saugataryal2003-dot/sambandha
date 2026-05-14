@@ -30,22 +30,22 @@ export function Reservations() {
       <div className="container relative mx-auto max-w-5xl px-6">
         <div className="mb-12 text-center md:mb-16">
           <Reveal>
-            <p className="mb-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.25em] text-saffron-300">
+            <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
               <span className="h-px w-8 bg-saffron-300" />
-              Reservations
+              ご予約
               <span className="h-px w-8 bg-saffron-300" />
             </p>
           </Reveal>
-          <h2 className="font-display text-5xl font-light leading-[0.95] text-cream md:text-7xl">
-            <RevealText>Reserve your</RevealText>
+          <h2 className="font-jp text-4xl font-light leading-[1.2] text-cream md:text-5xl lg:text-6xl">
+            <RevealText>素敵な夜を、</RevealText>
             <br />
-            <RevealText delay={0.15} className="text-gradient-warm italic">
-              evening.
+            <RevealText delay={0.15} className="text-gradient-warm">
+              ご予約ください。
             </RevealText>
           </h2>
           <Reveal delay={0.3} className="mx-auto mt-6 max-w-md">
-            <p className="text-base leading-relaxed text-cream/60">
-              Book a table and we&apos;ll confirm by phone or email within hours.
+            <p className="font-jp text-base leading-relaxed text-cream/60">
+              ご予約後、お電話またはメールにてご確認の連絡をいたします。
             </p>
           </Reveal>
         </div>
@@ -64,23 +64,23 @@ export function Reservations() {
                 >
                   <Field
                     icon={<User className="h-4 w-4" />}
-                    label="Your name"
+                    label="お名前"
                     name="name"
                     type="text"
                     required
-                    placeholder="Full name"
+                    placeholder="山田 太郎"
                   />
                   <Field
                     icon={<Mail className="h-4 w-4" />}
-                    label="Email"
+                    label="メールアドレス"
                     name="email"
                     type="email"
                     required
-                    placeholder="you@email.com"
+                    placeholder="example@email.com"
                   />
                   <Field
                     icon={<Phone className="h-4 w-4" />}
-                    label="Phone"
+                    label="電話番号"
                     name="phone"
                     type="tel"
                     required
@@ -88,29 +88,29 @@ export function Reservations() {
                   />
                   <Field
                     icon={<Users className="h-4 w-4" />}
-                    label="Party size"
+                    label="人数"
                     name="guests"
                     type="select"
                     required
                   >
-                    <option value="">Number of guests</option>
+                    <option value="">人数を選択</option>
                     {[1, 2, 3, 4, 5, 6].map((n) => (
                       <option key={n} value={n}>
-                        {n} {n === 1 ? 'guest' : 'guests'}
+                        {n}名様
                       </option>
                     ))}
-                    <option value="7+">7+ guests</option>
+                    <option value="7+">7名様以上</option>
                   </Field>
                   <Field
                     icon={<Calendar className="h-4 w-4" />}
-                    label="Date"
+                    label="ご来店日"
                     name="date"
                     type="date"
                     required
                   />
                   <Field
                     icon={<Clock className="h-4 w-4" />}
-                    label="Time"
+                    label="時間"
                     name="time"
                     type="time"
                     required
@@ -118,26 +118,26 @@ export function Reservations() {
                   <div className="md:col-span-2">
                     <Field
                       icon={<MessageSquare className="h-4 w-4" />}
-                      label="Special requests"
+                      label="ご要望"
                       name="requests"
                       type="textarea"
-                      placeholder="Dietary needs, allergies, occasion..."
+                      placeholder="アレルギー、特別なご要望、記念日など..."
                     />
                   </div>
 
                   <div className="md:col-span-2 mt-2 flex flex-col items-center justify-between gap-4 sm:flex-row">
-                    <p className="text-xs text-cream/50">
-                      We&apos;ll confirm your reservation by phone or email.
+                    <p className="font-jp text-xs text-cream/50">
+                      ご予約後、お電話またはメールにてご確認いたします。
                     </p>
                     <MagneticButton strength={0.2}>
                       <button
                         type="submit"
                         disabled={submitting}
-                        className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-saffron-300 px-8 py-3.5 text-sm font-semibold text-ink transition hover:bg-saffron-200 disabled:opacity-60"
+                        className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-saffron-300 px-8 py-3.5 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200 disabled:opacity-60"
                       >
                         <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
                         <span className="relative">
-                          {submitting ? 'Sending...' : 'Reserve Table'}
+                          {submitting ? '送信中...' : '予約する'}
                         </span>
                       </button>
                     </MagneticButton>
@@ -165,12 +165,11 @@ export function Reservations() {
                       <Check className="h-7 w-7 text-saffron-300" strokeWidth={2.5} />
                     </motion.div>
                   </div>
-                  <h3 className="mt-6 font-display text-3xl font-light text-cream md:text-4xl">
-                    Reservation received.
+                  <h3 className="mt-6 font-jp text-3xl font-light text-cream md:text-4xl">
+                    ご予約を承りました。
                   </h3>
-                  <p className="mt-3 max-w-md text-sm leading-relaxed text-cream/60">
-                    Thank you — we&apos;ll be in touch shortly to confirm your
-                    booking by phone or email.
+                  <p className="mt-3 max-w-md font-jp text-sm leading-relaxed text-cream/60">
+                    ありがとうございます。確認のため、お電話またはメールにて間もなくご連絡いたします。
                   </p>
                 </motion.div>
               )}
@@ -206,7 +205,7 @@ function Field({
 
   return (
     <label className="relative block">
-      <span className="mb-2 block text-xs font-medium uppercase tracking-wider text-cream/50">
+      <span className="mb-2 block font-jp text-xs font-medium tracking-wider text-cream/50">
         {label}
         {required && <span className="ml-1 text-saffron-300">*</span>}
       </span>

@@ -21,6 +21,9 @@ bin-release/
 node_modules/
 .env
 .env.local
+.next/
+next-env.d.ts
+out/
 
 # Next.js
 .next/

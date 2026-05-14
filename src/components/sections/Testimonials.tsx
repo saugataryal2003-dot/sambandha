@@ -7,21 +7,21 @@ import { Reveal } from '@/components/ui/Reveal';
 const REVIEWS = [
   {
     quote:
-      'The Sambandha Set is a journey — every plate tells a story, every spice has intention. The best Indian food in Saitama.',
-    author: 'Yuki Tanaka',
-    role: 'Regular guest',
+      'サンバンダセットは料理の旅です。一皿一皿に物語があり、スパイスの一つひとつに思いが込められています。埼玉で一番のインド料理。',
+    author: '田中 由紀',
+    role: '常連のお客様',
   },
   {
     quote:
-      'Tandoori chicken that rivals what I had in Delhi. Warm service, generous portions. We come back every other week.',
-    author: 'Marcus Chen',
-    role: 'Food blogger',
+      'タンドリーチキンは、まるでデリで食べた本場の味。温かい接客と、たっぷりとした盛り付け。月に何度も通っています。',
+    author: 'マーカス・チェン',
+    role: 'フードブロガー',
   },
   {
     quote:
-      'Authentic flavors that feel made with love. The butter chicken alone is worth the trip from Tokyo.',
-    author: 'Aoi Kobayashi',
-    role: 'First-time visitor',
+      '愛情を込めて作られた本場の味。バターチキンだけでも、東京から足を運ぶ価値があります。',
+    author: '小林 葵',
+    role: '初めてのご来店',
   },
 ];
 
@@ -34,16 +34,16 @@ export function Testimonials() {
       <div className="container mx-auto max-w-7xl px-6">
         <div className="mb-12 text-center md:mb-16">
           <Reveal>
-            <p className="mb-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.25em] text-saffron-300">
+            <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
               <span className="h-px w-8 bg-saffron-300" />
-              Guest Voices
+              お客様の声
               <span className="h-px w-8 bg-saffron-300" />
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="font-display text-4xl font-light leading-[1.05] text-cream md:text-6xl">
-              Stories from{' '}
-              <span className="text-gradient-warm italic">our table.</span>
+            <h2 className="font-jp text-3xl font-light leading-[1.2] text-cream md:text-5xl">
+              食卓から生まれた、{' '}
+              <span className="text-gradient-warm">物語。</span>
             </h2>
           </Reveal>
         </div>
@@ -66,14 +66,14 @@ export function Testimonials() {
                 className="h-7 w-7 text-saffron-300/40 transition-colors group-hover:text-saffron-300/60"
                 strokeWidth={1.5}
               />
-              <blockquote className="mt-5 text-base leading-relaxed text-cream/80 md:text-lg">
-                &ldquo;{review.quote}&rdquo;
+              <blockquote className="mt-5 font-jp text-base leading-relaxed text-cream/80 md:text-lg">
+                「{review.quote}」
               </blockquote>
               <figcaption className="mt-6 border-t border-white/[0.06] pt-5">
-                <p className="font-display text-base font-medium text-cream">
+                <p className="font-jp text-base font-medium text-cream">
                   {review.author}
                 </p>
-                <p className="mt-0.5 text-xs uppercase tracking-wider text-cream/40">
+                <p className="mt-0.5 font-jp text-xs tracking-wider text-cream/40">
                   {review.role}
                 </p>
               </figcaption>

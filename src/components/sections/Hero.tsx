@@ -64,7 +64,7 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-saffron-300 opacity-75" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-saffron-300" />
           </span>
-          Open today · 11:00 — 22:00
+          <span className="font-jp">本日営業中</span> · 11:00 — 22:00
         </motion.div>
 
         <motion.h1
@@ -89,10 +89,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.55, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-8 max-w-xl text-balance text-base font-light leading-relaxed text-cream/70 md:text-lg"
+          className="mt-8 max-w-xl text-balance font-jp text-base font-light leading-relaxed text-cream/70 md:text-lg"
         >
-          A connection of cultures. Ancient spices, modern hospitality —
-          authentic Indian cuisine in the heart of Satte, Saitama.
+          文化の縁。古代のスパイス、現代のおもてなし — 埼玉県幸手市にある本格インド料理。
         </motion.p>
 
         <motion.div
@@ -102,15 +101,15 @@ export function Hero() {
           className="mt-12 flex flex-col items-center gap-4 sm:flex-row"
         >
           <MagneticButton href="#reservations" strength={0.3}>
-            <span className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-saffron-300 px-8 py-3.5 text-sm font-semibold text-ink transition hover:bg-saffron-200">
+            <span className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-saffron-300 px-8 py-3.5 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-              <span className="relative">Reserve a Table</span>
+              <span className="relative">ご予約</span>
             </span>
           </MagneticButton>
 
           <MagneticButton href="#menu" strength={0.25}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-8 py-3.5 text-sm font-medium text-cream backdrop-blur transition hover:border-white/30 hover:bg-white/[0.06]">
-              Explore Menu
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-8 py-3.5 font-jp text-sm font-medium text-cream backdrop-blur transition hover:border-white/30 hover:bg-white/[0.06]">
+              メニューを見る
             </span>
           </MagneticButton>
         </motion.div>
@@ -129,7 +128,7 @@ export function Hero() {
                 className="h-3 w-3 fill-saffron-300 text-saffron-300"
               />
             ))}
-            <span className="ml-2 text-cream/60">Trusted by locals since 2009</span>
+            <span className="ml-2 font-jp text-cream/60">2009年より地元の皆様に愛されて</span>
           </div>
         </motion.div>
       </motion.div>
@@ -146,7 +145,7 @@ export function Hero() {
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           className="flex flex-col items-center gap-2 text-xs uppercase tracking-widest text-cream/40"
         >
-          <span>Scroll</span>
+          <span className="font-jp">スクロール</span>
           <ArrowDown className="h-3 w-3" />
         </motion.div>
       </motion.div>

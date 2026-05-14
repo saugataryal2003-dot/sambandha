@@ -16,9 +16,8 @@ export function Footer() {
               Sambandha
             </h3>
             <p className="mt-2 font-jp text-base text-saffron-300/80">サンバンダ</p>
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-cream/60">
-              A connection between cultures and flavors. Authentic Indian cuisine,
-              hand-prepared with imported spices and timeless tradition.
+            <p className="mt-6 max-w-sm font-jp text-sm leading-relaxed text-cream/60">
+              文化と味の繋がり。インドから直輸入したスパイスと、変わらぬ伝統で、心を込めて手作りした本場のインド料理。
             </p>
 
             <div className="mt-8 flex gap-3">
@@ -43,8 +42,8 @@ export function Footer() {
 
           <div className="grid gap-10 sm:grid-cols-2 md:col-span-7">
             <div className="space-y-5">
-              <h4 className="text-xs font-medium uppercase tracking-widest text-saffron-300/80">
-                Visit
+              <h4 className="font-jp text-xs font-medium tracking-widest text-saffron-300/80">
+                ご来店
               </h4>
               <div className="flex items-start gap-3 text-sm text-cream/70">
                 <MapPin className="mt-0.5 h-4 w-4 flex-none text-saffron-300/60" />
@@ -63,8 +62,8 @@ export function Footer() {
             </div>
 
             <div className="space-y-5">
-              <h4 className="text-xs font-medium uppercase tracking-widest text-saffron-300/80">
-                Contact
+              <h4 className="font-jp text-xs font-medium tracking-widest text-saffron-300/80">
+                お問い合わせ
               </h4>
               <a
                 href={`tel:${RESTAURANT.phoneRaw}`}
@@ -92,11 +91,11 @@ export function Footer() {
           className="mt-16 border-t border-white/[0.06] pt-8"
         >
           <div className="flex flex-col items-center justify-between gap-3 text-xs text-cream/40 sm:flex-row">
-            <p>&copy; {new Date().getFullYear()} Sambandha Restaurant. All rights reserved.</p>
-            <p className="flex items-center gap-2">
-              <span className="font-jp">幸手市</span>
+            <p>&copy; {new Date().getFullYear()} <span className="font-jp">サンバンダ レストラン</span>. All rights reserved.</p>
+            <p className="flex items-center gap-2 font-jp">
+              <span>埼玉県幸手市にて</span>
               <span aria-hidden>·</span>
-              <span>Crafted with care in Satte, Saitama</span>
+              <span>心を込めて</span>
             </p>
           </div>
         </motion.div>

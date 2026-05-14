@@ -10,7 +10,7 @@ const INFO_BLOCKS = [
     icon: MapPin,
     label: '所在地',
     lines: [RESTAURANT.address, RESTAURANT.addressEn],
-    href: `https://maps.app.goo.gl/k229jdwM5bdmvF9SA?g_st=ic`,
+    href: `https://maps.app.goo.gl/jRHQbbAxDAqAJ2az5?g_st=ic`,
   },
   {
     icon: Phone,

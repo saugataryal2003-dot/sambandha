@@ -121,10 +121,6 @@ const DRINKS_DATA: DrinkSection[] = [
   },
 ];
 
-export const metadata = {
-  title: 'ドリンクメニュー',
-};
-
 function DrinkItem({ item, index }: { item: DrinkItem; index: number }) {
   return (
     <motion.div

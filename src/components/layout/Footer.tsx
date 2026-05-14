@@ -23,7 +23,9 @@ export function Footer() {
 
             <div className="mt-8 flex gap-3">
               <a
-                href="#"
+                href="https://www.instagram.com/sambandharestaurant?igsh=Y3hoMTYwbXZud2t2&utm_source=qr"
+                target="_blank"
+                rel="noreferrer"
                 aria-label="Instagram"
                 className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-cream/70 transition hover:border-saffron-300/40 hover:text-saffron-300"
               >

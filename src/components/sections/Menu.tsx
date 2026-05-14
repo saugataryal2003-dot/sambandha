@@ -167,11 +167,11 @@ export function Menu() {
         {/* CTA row */}
         <Reveal className="mt-16 flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/[0.08] bg-white/[0.02] p-8 md:flex-row md:p-10">
           <div>
-            <p className="font-display text-2xl font-light text-cream md:text-3xl">
-              Dinner & drinks menus available in-store
+            <p className="font-jp text-2xl font-light text-cream md:text-3xl">
+              本格インド料理と共に、世界の味わいを
             </p>
-            <p className="mt-2 text-sm text-cream/60">
-              Call ahead for special arrangements or large parties.
+            <p className="mt-2 font-jp text-sm text-cream/60">
+              豊富なドリンクメニューをご用意しています。団体様や特別なご要望はお電話にてご相談ください。
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -181,9 +181,19 @@ export function Menu() {
                 {RESTAURANT.phone}
               </span>
             </MagneticButton>
+            <MagneticButton href="/menu/drinks">
+              <span className="group inline-flex items-center gap-2 rounded-full bg-saffron-300 px-6 py-3 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
+                ドリンクメニュー
+=======
+            <MagneticButton href="/menu/drinks">
+              <span className="group inline-flex items-center gap-2 rounded-full bg-saffron-300 px-6 py-3 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
+                ドリンクメニュー
+                <ExternalLink className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
+              </span>
+            </MagneticButton>
             <MagneticButton href="/menus/lunch-menu.pdf">
-              <span className="group inline-flex items-center gap-2 rounded-full bg-saffron-300 px-6 py-3 text-sm font-semibold text-ink transition hover:bg-saffron-200">
-                Open Lunch PDF
+              <span className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm font-medium text-cream backdrop-blur transition hover:border-white/30 hover:bg-white/[0.06]">
+                ランチメニュー
                 <ExternalLink className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
               </span>
             </MagneticButton>

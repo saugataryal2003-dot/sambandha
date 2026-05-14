@@ -184,10 +184,6 @@ export function Menu() {
             <MagneticButton href="/menu/drinks">
               <span className="group inline-flex items-center gap-2 rounded-full bg-saffron-300 px-6 py-3 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
                 ドリンクメニュー
-=======
-            <MagneticButton href="/menu/drinks">
-              <span className="group inline-flex items-center gap-2 rounded-full bg-saffron-300 px-6 py-3 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
-                ドリンクメニュー
                 <ExternalLink className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
               </span>
             </MagneticButton>

@@ -121,8 +121,27 @@ export function Menu() {
           />
         </div>
 
+        {/* Lunch Menu Section */}
+        <div className="mt-20 md:mt-28">
+          <Reveal>
+            <div className="mb-12 text-center">
+              <p className="mb-3 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
+                <span className="h-px w-8 bg-saffron-300" />
+                ランチメニュー
+                <span className="h-px w-8 bg-saffron-300" />
+              </p>
+              <h3 className="font-jp text-3xl font-light text-cream md:text-4xl">
+                ランチセット
+              </h3>
+              <p className="font-jp text-sm text-cream/60 mt-2">
+                毎日 11:00 — 17:00 でご提供
+              </p>
+            </div>
+          </Reveal>
+        </div>
+
         {/* Lunch sets grid */}
-        <div className="mt-20 grid gap-3 md:mt-28 md:grid-cols-2 md:gap-4 lg:grid-cols-4">
+        <div className="grid gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-4">
           {LUNCH_SETS.map((set, i) => (
             <motion.div
               key={set.name}

@@ -55,7 +55,7 @@ export function Reservations() {
       // Import emailjs dynamically
       const emailjs = await import('emailjs-com');
 
-      // Send restaurant notification
+      // Send restaurant notification (REQUIRED)
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_RESTAURANT_TEMPLATE_ID,
@@ -65,17 +65,21 @@ export function Reservations() {
         }
       );
 
-      // Send customer confirmation
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_CUSTOMER_TEMPLATE_ID,
-        templateParams
-      );
+      // Send customer confirmation (OPTIONAL - don't fail if it doesn't work)
+      try {
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_CUSTOMER_TEMPLATE_ID,
+          templateParams
+        );
+      } catch (customerEmailError) {
+        console.warn('Customer confirmation email failed, but reservation was sent to restaurant', customerEmailError);
+      }
 
       setSubmitting(false);
       setSubmitted(true);
     } catch (error) {
-      console.error('Failed to send email:', error);
+      console.error('Failed to send reservation to restaurant:', error);
       setSubmitting(false);
       alert('申し訳ございません。送信に失敗しました。お電話でお問い合わせください。');
     }

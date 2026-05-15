@@ -22,6 +22,7 @@ export const RESTAURANT = {
 export const NAV_LINKS = [
   { label: 'ホーム', href: '#home' },
   { label: 'メニュー', href: '#menu' },
+  { label: 'ランチ', href: '/menu/lunch' },
   { label: '私たちについて', href: '#about' },
   { label: 'ギャラリー', href: '#gallery' },
   { label: 'ご予約', href: '#reservations' },

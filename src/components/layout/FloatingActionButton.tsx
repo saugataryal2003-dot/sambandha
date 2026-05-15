@@ -4,10 +4,16 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Calendar, X, Menu as MenuIcon } from 'lucide-react';
 import { RESTAURANT } from '@/lib/utils';
+import { useLang } from '@/lib/i18n';
 
 export function FloatingActionButton() {
+  const { lang } = useLang();
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
+
+  const labels = lang === 'ja'
+    ? { call: '電話で予約', form: 'フォーム予約', lunch: 'ランチメニュー' }
+    : { call: 'Call to Book', form: 'Reserve Online', lunch: 'Lunch Menu' };
 
   useEffect(() => {
     const onScroll = () => {
@@ -38,7 +44,7 @@ export function FloatingActionButton() {
               className="flex items-center gap-3 rounded-full bg-saffron-300 px-5 py-3 font-jp text-sm font-semibold text-ink shadow-lg shadow-saffron-500/40"
             >
               <Phone className="h-5 w-5" />
-              <span>電話で予約</span>
+              <span>{labels.call}</span>
             </motion.a>
 
             <motion.a
@@ -49,7 +55,7 @@ export function FloatingActionButton() {
               className="flex items-center gap-3 rounded-full bg-white px-5 py-3 font-jp text-sm font-semibold text-ink shadow-lg shadow-black/30"
             >
               <Calendar className="h-5 w-5" />
-              <span>フォーム予約</span>
+              <span>{labels.form}</span>
             </motion.a>
 
             <motion.a
@@ -59,7 +65,7 @@ export function FloatingActionButton() {
               className="flex items-center gap-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 px-5 py-3 font-jp text-sm font-semibold text-cream shadow-lg shadow-black/30"
             >
               <MenuIcon className="h-5 w-5" />
-              <span>ランチメニュー</span>
+              <span>{labels.lunch}</span>
             </motion.a>
           </motion.div>
         )}

@@ -4,35 +4,19 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Sparkles, Flame, HeartHandshake, Leaf } from 'lucide-react';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
+import { useLang } from '@/lib/i18n';
 
-const PILLARS = [
-  {
-    icon: Flame,
-    title: '本場のスパイス',
-    titleEn: 'Authentic Spices',
-    body: 'インドから直輸入の香辛料。伝統製法を大切に、独自にブレンドしています。',
-  },
-  {
-    icon: Sparkles,
-    title: 'シェフの技',
-    titleEn: 'Expert Chefs',
-    body: '数十年の経験と情熱を込めて、一皿一皿丁寧にお作りしています。',
-  },
-  {
-    icon: HeartHandshake,
-    title: '温かいおもてなし',
-    titleEn: 'Warm Hospitality',
-    body: 'はじめてのお客様も、お帰りには友人のように — それがサンバンダ。',
-  },
-  {
-    icon: Leaf,
-    title: '毎日新鮮',
-    titleEn: 'Fresh Daily',
-    body: '手作り、じっくり煮込み、冷凍は使いません。新鮮なおいしさをお届けします。',
-  },
-];
+const PILLAR_ICONS = [Flame, Sparkles, HeartHandshake, Leaf];
+const PILLAR_KEYS = ['spices', 'chefs', 'hospitality', 'fresh'] as const;
 
 export function About() {
+  const { t } = useLang();
+  const PILLARS = PILLAR_KEYS.map((key, i) => ({
+    icon: PILLAR_ICONS[i],
+    title: t.about.pillars[key].title,
+    titleEn: t.about.pillars[key].subtitle,
+    body: t.about.pillars[key].body,
+  }));
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -52,7 +36,7 @@ export function About() {
             >
               <img
                 src="/images/naan-hero.jpg"
-                alt="サンバンダ名物の巨大ナン"
+                alt={t.about.naanBadge}
                 className="h-full w-full object-cover"
                 loading="lazy"
                 onError={(e) => {
@@ -63,8 +47,8 @@ export function About() {
               <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 rounded-xl bg-ink/80 px-4 py-3 backdrop-blur">
                 <span className="text-2xl">🫓</span>
                 <div>
-                  <p className="font-jp text-sm font-semibold text-saffron-300">名物 巨大ナン</p>
-                  <p className="font-jp text-xs text-cream/60">お客様に愛される、大きくてふわふわのナン</p>
+                  <p className="font-jp text-sm font-semibold text-saffron-300">{t.about.naanBadge}</p>
+                  <p className="font-jp text-xs text-cream/60">{t.about.naanCaption}</p>
                 </div>
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
@@ -79,7 +63,7 @@ export function About() {
                 15+
               </p>
               <p className="mt-2 font-jp text-xs tracking-widest text-cream/50">
-                年の歴史
+                {t.about.yearsLabel}
               </p>
             </Reveal>
           </div>
@@ -89,26 +73,24 @@ export function About() {
             <Reveal>
               <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
                 <span className="h-px w-8 bg-saffron-300" />
-                私たちの物語
+                {t.about.eyebrow}
               </p>
             </Reveal>
 
             <h2 className="font-jp text-4xl font-light leading-[1.2] text-cream md:text-5xl lg:text-6xl">
-              <RevealText>文化を繋ぐ</RevealText>
+              <RevealText>{t.about.title1}</RevealText>
               <br />
               <RevealText delay={0.15} className="text-gradient-warm">
-                ご縁の場所。
+                {t.about.title2}
               </RevealText>
             </h2>
 
             <Reveal delay={0.3} className="mt-8 space-y-5 font-jp text-base leading-relaxed text-cream/70 md:text-lg">
               <p>
-                <span className="text-saffron-300">「サンバンダ」</span>
-                とはサンスクリット語で「縁」を意味します — 文化と文化、味と味、そして食卓を囲む人々の繋がり。
+                <span className="text-saffron-300">{t.about.p1Prefix}</span>
+                {t.about.p1}
               </p>
-              <p>
-                埼玉県幸手市に佇むサンバンダでは、本場インドの味を日本にお届けしています。一皿一皿、厳選されたスパイスと食材を使い、代々受け継がれてきた伝統製法で、心を込めてお作りしています。
-              </p>
+              <p>{t.about.p2}</p>
             </Reveal>
 
             <div className="mt-12 grid gap-4 sm:grid-cols-2">

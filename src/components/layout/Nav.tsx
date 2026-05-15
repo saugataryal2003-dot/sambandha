@@ -2,20 +2,32 @@
 
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Globe } from 'lucide-react';
 import { NAV_LINKS, RESTAURANT } from '@/lib/utils';
 import { cn } from '@/lib/utils';
+import { useLang } from '@/lib/i18n';
 
 export function Nav() {
+  const { lang, setLang, t } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+
+  const navLinks = [
+    { label: t.nav.home, href: '#home' },
+    { label: t.nav.menu, href: '#menu' },
+    { label: t.nav.lunch, href: '/menu/lunch' },
+    { label: t.nav.about, href: '#about' },
+    { label: t.nav.gallery, href: '#gallery' },
+    { label: t.nav.reservations, href: '#reservations' },
+    { label: t.nav.contact, href: '#contact' },
+  ];
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 30);
 
-      const sections = NAV_LINKS.map((l) => l.href.slice(1));
+      const sections = navLinks.map((l) => l.href.slice(1));
       for (const id of sections) {
         const el = document.getElementById(id);
         if (!el) continue;
@@ -69,7 +81,7 @@ export function Nav() {
           </a>
 
           <ul className="hidden items-center gap-1 lg:flex">
-            {NAV_LINKS.map((link) => {
+            {navLinks.map((link) => {
               const id = link.href.slice(1);
               const isActive = activeSection === id;
               return (
@@ -96,6 +108,15 @@ export function Nav() {
           </ul>
 
           <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setLang(lang === 'ja' ? 'en' : 'ja')}
+              aria-label="Toggle language"
+              className="flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-cream/70 transition hover:border-saffron-300/40 hover:text-saffron-300"
+            >
+              <Globe className="h-3.5 w-3.5" />
+              <span className="font-medium">{lang === 'ja' ? 'EN' : '日本語'}</span>
+            </button>
             <a
               href={`tel:${RESTAURANT.phoneRaw}`}
               className="hidden items-center gap-2 rounded-full border border-white/10 px-3.5 py-1.5 text-xs font-medium text-cream/80 transition hover:border-saffron-300/40 hover:text-saffron-300 sm:flex"
@@ -107,7 +128,7 @@ export function Nav() {
               href="#reservations"
               className="hidden items-center gap-2 rounded-full bg-saffron-300 px-4 py-1.5 font-jp text-xs font-semibold text-ink transition hover:bg-saffron-200 md:inline-flex"
             >
-              ご予約
+              {t.nav.reserve}
             </a>
             <button
               type="button"
@@ -143,7 +164,7 @@ export function Nav() {
               }}
               className="relative flex h-full flex-col items-center justify-center gap-2 px-6"
             >
-              {NAV_LINKS.map((link) => (
+              {navLinks.map((link) => (
                 <motion.li
                   key={link.href}
                   variants={{
@@ -180,8 +201,19 @@ export function Nav() {
                   onClick={() => setOpen(false)}
                   className="rounded-full bg-saffron-300 px-6 py-2.5 font-jp text-sm font-semibold text-ink"
                 >
-                  ご予約
+                  {t.nav.reserve}
                 </a>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLang(lang === 'ja' ? 'en' : 'ja');
+                    setOpen(false);
+                  }}
+                  className="mt-2 flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-xs text-cream/70"
+                >
+                  <Globe className="h-3.5 w-3.5" />
+                  <span>{lang === 'ja' ? 'Switch to English' : '日本語に切替'}</span>
+                </button>
               </motion.li>
             </motion.ul>
           </motion.div>

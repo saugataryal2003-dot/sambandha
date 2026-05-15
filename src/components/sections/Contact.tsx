@@ -4,39 +4,43 @@ import { MapPin, Phone, Mail, Clock, Car } from 'lucide-react';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import { RESTAURANT } from '@/lib/utils';
-
-const INFO_BLOCKS = [
-  {
-    icon: MapPin,
-    label: '所在地',
-    lines: [RESTAURANT.address, RESTAURANT.addressEn],
-    href: `https://maps.app.goo.gl/jRHQbbAxDAqAJ2az5?g_st=ic`,
-  },
-  {
-    icon: Phone,
-    label: 'お電話',
-    lines: [RESTAURANT.phone],
-    href: `tel:${RESTAURANT.phoneRaw}`,
-  },
-  {
-    icon: Clock,
-    label: '営業時間',
-    lines: [RESTAURANT.hoursLunch, RESTAURANT.hoursDinner, '毎日営業 · Open Daily'],
-  },
-  {
-    icon: Car,
-    label: '駐車場',
-    lines: [RESTAURANT.parking, RESTAURANT.parkingEn],
-  },
-  {
-    icon: Mail,
-    label: 'メール',
-    lines: [RESTAURANT.email],
-    href: `mailto:${RESTAURANT.email}`,
-  },
-];
+import { useLang } from '@/lib/i18n';
 
 export function Contact() {
+  const { t, lang } = useLang();
+  const INFO_BLOCKS = [
+    {
+      icon: MapPin,
+      label: t.contact.labels.address,
+      lines: lang === 'ja' ? [RESTAURANT.address, RESTAURANT.addressEn] : [RESTAURANT.addressEn, RESTAURANT.address],
+      href: `https://maps.app.goo.gl/jRHQbbAxDAqAJ2az5?g_st=ic`,
+    },
+    {
+      icon: Phone,
+      label: t.contact.labels.phone,
+      lines: [RESTAURANT.phone],
+      href: `tel:${RESTAURANT.phoneRaw}`,
+    },
+    {
+      icon: Clock,
+      label: t.contact.labels.hours,
+      lines: lang === 'ja'
+        ? [RESTAURANT.hoursLunch, RESTAURANT.hoursDinner, t.contact.openDaily]
+        : [RESTAURANT.hoursLunchEn, RESTAURANT.hoursDinnerEn, t.contact.openDaily],
+    },
+    {
+      icon: Car,
+      label: t.contact.labels.parking,
+      lines: lang === 'ja' ? [RESTAURANT.parking, RESTAURANT.parkingEn] : [RESTAURANT.parkingEn, RESTAURANT.parking],
+    },
+    {
+      icon: Mail,
+      label: t.contact.labels.email,
+      lines: [RESTAURANT.email],
+      href: `mailto:${RESTAURANT.email}`,
+    },
+  ];
+
   const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(
     RESTAURANT.addressEn
   )}&output=embed`;
@@ -48,14 +52,14 @@ export function Contact() {
           <Reveal>
             <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
               <span className="h-px w-8 bg-saffron-300" />
-              お問い合わせ
+              {t.contact.eyebrow}
             </p>
           </Reveal>
           <h2 className="font-jp text-4xl font-light leading-[1.2] text-cream md:text-5xl lg:text-6xl">
-            <RevealText>あなたの席を、</RevealText>
+            <RevealText>{t.contact.title1}</RevealText>
             <br />
             <RevealText delay={0.15} className="text-gradient-warm">
-              お探しください。
+              {t.contact.title2}
             </RevealText>
           </h2>
         </div>
@@ -128,7 +132,7 @@ export function Contact() {
             <Reveal delay={0.5} className="mt-2">
               <MagneticButton href={`tel:${RESTAURANT.phoneRaw}`}>
                 <span className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-saffron-300 px-6 py-4 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
-                  電話でご予約
+                  {t.contact.bookByPhone}
                   <Phone className="h-4 w-4 transition group-hover:rotate-12" />
                 </span>
               </MagneticButton>

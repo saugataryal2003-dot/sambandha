@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown, Star } from 'lucide-react';
 import { MagneticButton } from '@/components/ui/MagneticButton';
+import { useLang } from '@/lib/i18n';
 
 const FOOD_IMAGES = [
   '/images/naan-hero.jpg',
@@ -12,6 +13,7 @@ const FOOD_IMAGES = [
 ];
 
 export function Hero() {
+  const { t } = useLang();
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -64,7 +66,7 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-saffron-300 opacity-75" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-saffron-300" />
           </span>
-          <span className="font-jp">本日営業中</span> · ランチ 11:00 / ディナー 17:00
+          <span className="font-jp">{t.hero.badge}</span> · {t.hero.hours}
         </motion.div>
 
         <motion.h1
@@ -82,7 +84,7 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 1.4, ease: [0.22, 1, 0.36, 1] }}
           className="mt-2 font-jp text-base font-light text-saffron-300/90 md:text-lg"
         >
-          サンバンダ — 縁
+          {t.hero.jpName}
         </motion.p>
 
         <motion.p
@@ -91,7 +93,7 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 1.55, ease: [0.22, 1, 0.36, 1] }}
           className="mt-8 max-w-xl text-balance font-jp text-base font-light leading-relaxed text-cream/70 md:text-lg"
         >
-          文化の縁。古代のスパイス、現代のおもてなし — 埼玉県幸手市にある本格インド料理。
+          {t.hero.tagline}
         </motion.p>
 
         <motion.div
@@ -103,19 +105,19 @@ export function Hero() {
           <MagneticButton href="tel:0480442323" strength={0.3}>
             <span className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-saffron-300 px-8 py-3.5 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-              <span className="relative">📞 今すぐ予約</span>
+              <span className="relative">{t.hero.bookNow}</span>
             </span>
           </MagneticButton>
 
           <MagneticButton href="#reservations" strength={0.3}>
             <span className="inline-flex items-center gap-2 rounded-full border border-saffron-300/40 bg-saffron-300/10 px-8 py-3.5 font-jp text-sm font-medium text-cream backdrop-blur transition hover:border-saffron-300/60 hover:bg-saffron-300/20">
-              フォーム予約
+              {t.hero.reserveForm}
             </span>
           </MagneticButton>
 
           <MagneticButton href="/menu/lunch" strength={0.25}>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-8 py-3.5 font-jp text-sm font-medium text-cream backdrop-blur transition hover:border-white/30 hover:bg-white/[0.06]">
-              ランチメニュー
+              {t.hero.lunchMenu}
             </span>
           </MagneticButton>
         </motion.div>
@@ -134,7 +136,7 @@ export function Hero() {
                 className="h-3 w-3 fill-saffron-300 text-saffron-300"
               />
             ))}
-            <span className="ml-2 font-jp text-cream/60">2009年より地元の皆様に愛されて</span>
+            <span className="ml-2 font-jp text-cream/60">{t.hero.rating}</span>
           </div>
         </motion.div>
       </motion.div>
@@ -151,7 +153,7 @@ export function Hero() {
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           className="flex flex-col items-center gap-2 text-xs uppercase tracking-widest text-cream/40"
         >
-          <span className="font-jp">スクロール</span>
+          <span className="font-jp">{t.hero.scroll}</span>
           <ArrowDown className="h-3 w-3" />
         </motion.div>
       </motion.div>

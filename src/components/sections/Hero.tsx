@@ -100,16 +100,22 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 1.7, ease: [0.22, 1, 0.36, 1] }}
           className="mt-12 flex flex-col items-center gap-4 sm:flex-row"
         >
-          <MagneticButton href="#reservations" strength={0.3}>
+          <MagneticButton href="tel:0480442323" strength={0.3}>
             <span className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-saffron-300 px-8 py-3.5 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-              <span className="relative">ご予約</span>
+              <span className="relative">📞 今すぐ予約</span>
             </span>
           </MagneticButton>
 
-          <MagneticButton href="#menu" strength={0.25}>
+          <MagneticButton href="#reservations" strength={0.3}>
+            <span className="inline-flex items-center gap-2 rounded-full border border-saffron-300/40 bg-saffron-300/10 px-8 py-3.5 font-jp text-sm font-medium text-cream backdrop-blur transition hover:border-saffron-300/60 hover:bg-saffron-300/20">
+              フォーム予約
+            </span>
+          </MagneticButton>
+
+          <MagneticButton href="/menu/lunch" strength={0.25}>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-8 py-3.5 font-jp text-sm font-medium text-cream backdrop-blur transition hover:border-white/30 hover:bg-white/[0.06]">
-              メニューを見る
+              ランチメニュー
             </span>
           </MagneticButton>
         </motion.div>

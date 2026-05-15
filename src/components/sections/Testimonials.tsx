@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Quote } from 'lucide-react';
+import { Quote, Star } from 'lucide-react';
 import { Reveal } from '@/components/ui/Reveal';
 
 const REVIEWS = [
@@ -10,18 +10,21 @@ const REVIEWS = [
       'サンバンダセットは料理の旅です。一皿一皿に物語があり、スパイスの一つひとつに思いが込められています。埼玉で一番のインド料理。',
     author: '田中 由紀',
     role: '常連のお客様',
+    rating: 5,
   },
   {
     quote:
       'タンドリーチキンは、まるでデリで食べた本場の味。温かい接客と、たっぷりとした盛り付け。月に何度も通っています。',
     author: 'マーカス・チェン',
     role: 'フードブロガー',
+    rating: 5,
   },
   {
     quote:
       '愛情を込めて作られた本場の味。バターチキンだけでも、東京から足を運ぶ価値があります。',
     author: '小林 葵',
     role: '初めてのご来店',
+    rating: 5,
   },
 ];
 
@@ -66,7 +69,15 @@ export function Testimonials() {
                 className="h-7 w-7 text-saffron-300/40 transition-colors group-hover:text-saffron-300/60"
                 strokeWidth={1.5}
               />
-              <blockquote className="mt-5 font-jp text-base leading-relaxed text-cream/80 md:text-lg">
+              <div className="mt-3 flex gap-1">
+                {[...Array(review.rating)].map((_, j) => (
+                  <Star
+                    key={j}
+                    className="h-3.5 w-3.5 fill-saffron-300 text-saffron-300"
+                  />
+                ))}
+              </div>
+              <blockquote className="mt-3 font-jp text-base leading-relaxed text-cream/80 md:text-lg">
                 「{review.quote}」
               </blockquote>
               <figcaption className="mt-6 border-t border-white/[0.06] pt-5">

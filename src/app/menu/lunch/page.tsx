@@ -80,7 +80,7 @@ function LunchSetCard({ set, index }: { set: LunchSet; index: number }) {
           </p>
           <p className="font-jp text-xs text-cream/40">{set.tax}</p>
         </div>
-        <p className="font-jp text-xs text-cream/50">毎日 11:00〜17:00</p>
+        <p className="font-jp text-xs text-cream/50">毎日 11:00〜15:00</p>
       </div>
     </motion.div>
   );
@@ -102,12 +102,14 @@ export default function LunchMenuPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="font-jp text-5xl md:text-6xl font-light leading-[1.1] text-cream mb-6">
-              毎日 11:00〜17:00<span className="text-gradient-warm">ランチサービス</span>
+              毎日 11:00〜15:00<br />
+              <span className="text-gradient-warm">ランチサービス</span>
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="font-jp text-lg text-cream/60 max-w-2xl">
-              本格インド料理をお手頃価格で。厳選されたスパイスと、丁寧に作られた料理で、特別なランチタイムをお過ごしください。
+              幸手市で15年以上愛され続ける本格インド料理をお手頃価格で。<br />
+              名物の<span className="text-saffron-300">巨大ナン</span>と、本場のカレーをお楽しみください。
             </p>
           </Reveal>
         </div>
@@ -137,9 +139,12 @@ export default function LunchMenuPage() {
                   <p className="font-jp text-xs font-medium tracking-widest text-saffron-300/80 mb-3">
                     営業時間
                   </p>
-                  <p className="font-jp text-lg text-cream">月 — 日</p>
+                  <p className="font-jp text-lg text-cream">毎日営業</p>
                   <p className="font-jp text-2xl font-light text-cream mt-2">
-                    11:00 — 17:00
+                    11:00 — 15:00
+                  </p>
+                  <p className="font-jp text-xs text-cream/50 mt-2">
+                    ランチタイム
                   </p>
                 </div>
                 <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-8">

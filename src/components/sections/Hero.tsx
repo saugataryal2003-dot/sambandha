@@ -6,7 +6,7 @@ import { ArrowDown, Star } from 'lucide-react';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 
 const FOOD_IMAGES = [
-  'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=900&q=80',
+  '/images/naan-hero.jpg',
   'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=900&q=80',
   'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=900&q=80',
 ];
@@ -64,7 +64,7 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-saffron-300 opacity-75" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-saffron-300" />
           </span>
-          <span className="font-jp">本日営業中</span> · 11:00 — 22:00
+          <span className="font-jp">本日営業中</span> · ランチ 11:00 / ディナー 17:00
         </motion.div>
 
         <motion.h1
@@ -100,16 +100,22 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 1.7, ease: [0.22, 1, 0.36, 1] }}
           className="mt-12 flex flex-col items-center gap-4 sm:flex-row"
         >
-          <MagneticButton href="#reservations" strength={0.3}>
+          <MagneticButton href="tel:0480442323" strength={0.3}>
             <span className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-saffron-300 px-8 py-3.5 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-              <span className="relative">ご予約</span>
+              <span className="relative">📞 今すぐ予約</span>
             </span>
           </MagneticButton>
 
-          <MagneticButton href="#menu" strength={0.25}>
+          <MagneticButton href="#reservations" strength={0.3}>
+            <span className="inline-flex items-center gap-2 rounded-full border border-saffron-300/40 bg-saffron-300/10 px-8 py-3.5 font-jp text-sm font-medium text-cream backdrop-blur transition hover:border-saffron-300/60 hover:bg-saffron-300/20">
+              フォーム予約
+            </span>
+          </MagneticButton>
+
+          <MagneticButton href="/menu/lunch" strength={0.25}>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-8 py-3.5 font-jp text-sm font-medium text-cream backdrop-blur transition hover:border-white/30 hover:bg-white/[0.06]">
-              メニューを見る
+              ランチメニュー
             </span>
           </MagneticButton>
         </motion.div>
@@ -212,9 +218,12 @@ function FloatingCards({
       >
         <img
           src={FOOD_IMAGES[0]}
-          alt=""
+          alt="サンバンダ名物の巨大ナン"
           className="h-full w-full object-cover"
           loading="lazy"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=900&q=80';
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
       </motion.div>

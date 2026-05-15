@@ -55,8 +55,9 @@ export function Footer() {
               <div className="flex items-start gap-3 text-sm text-cream/70">
                 <Clock className="mt-0.5 h-4 w-4 flex-none text-saffron-300/60" />
                 <div>
-                  <p className="text-cream">{RESTAURANT.hours}</p>
-                  <p className="mt-1 text-cream/50">{RESTAURANT.hoursDetailed}</p>
+                  <p className="font-jp text-cream">{RESTAURANT.hoursLunch}</p>
+                  <p className="mt-0.5 font-jp text-cream">{RESTAURANT.hoursDinner}</p>
+                  <p className="mt-1 font-jp text-cream/50">毎日営業 · Open Daily</p>
                 </div>
               </div>
             </div>

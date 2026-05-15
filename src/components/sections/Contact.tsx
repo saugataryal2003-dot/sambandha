@@ -1,6 +1,6 @@
 'use client';
 
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Car } from 'lucide-react';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import { RESTAURANT } from '@/lib/utils';
@@ -19,15 +19,20 @@ const INFO_BLOCKS = [
     href: `tel:${RESTAURANT.phoneRaw}`,
   },
   {
+    icon: Clock,
+    label: '営業時間',
+    lines: [RESTAURANT.hoursLunch, RESTAURANT.hoursDinner, '毎日営業 · Open Daily'],
+  },
+  {
+    icon: Car,
+    label: '駐車場',
+    lines: [RESTAURANT.parking, RESTAURANT.parkingEn],
+  },
+  {
     icon: Mail,
     label: 'メール',
     lines: [RESTAURANT.email],
     href: `mailto:${RESTAURANT.email}`,
-  },
-  {
-    icon: Clock,
-    label: '営業時間',
-    lines: ['月 — 日', '11:00 — 22:00'],
   },
 ];
 

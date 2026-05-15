@@ -15,8 +15,14 @@ export const RESTAURANT = {
   phone: '0480-44-2323',
   phoneRaw: '0480442323',
   email: 'sambandha2009@gmail.com',
-  hours: '11:00 — 22:00',
-  hoursDetailed: 'Mon — Sun · 11:00 AM — 10:00 PM',
+  hours: 'ランチ 11:00-15:00 ／ ディナー 17:00-22:00',
+  hoursLunch: 'ランチ: 11:00 — 15:00',
+  hoursDinner: 'ディナー: 17:00 — 22:00',
+  hoursLunchEn: 'Lunch: 11:00 AM — 3:00 PM',
+  hoursDinnerEn: 'Dinner: 5:00 PM — 10:00 PM',
+  hoursDetailed: '毎日営業 · Open Daily',
+  parking: '無料駐車場あり（5台分・徒歩すぐ）',
+  parkingEn: 'Free parking available nearby (5 spaces)',
 } as const;
 
 export const NAV_LINKS = [

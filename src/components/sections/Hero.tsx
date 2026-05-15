@@ -64,7 +64,7 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-saffron-300 opacity-75" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-saffron-300" />
           </span>
-          <span className="font-jp">本日営業中</span> · 11:00 — 22:00
+          <span className="font-jp">本日営業中</span> · ランチ 11:00 / ディナー 17:00
         </motion.div>
 
         <motion.h1

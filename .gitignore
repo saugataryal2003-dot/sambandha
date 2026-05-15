@@ -33,3 +33,6 @@ next-env.d.ts
 # Screenshots / temp files
 preview-*.png
 screenshot.js
+
+# TypeScript incremental build cache
+*.tsbuildinfo

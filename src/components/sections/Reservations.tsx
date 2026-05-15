@@ -1,22 +1,84 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Clock, Users, Mail, Phone, User, MessageSquare, Check } from 'lucide-react';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 
+// EmailJS configuration
+const EMAILJS_SERVICE_ID = 'service_ncicd3l';
+const EMAILJS_RESTAURANT_TEMPLATE_ID = 'template_r9t0j18';
+const EMAILJS_CUSTOMER_TEMPLATE_ID = 'template_7s34lfl';
+const EMAILJS_PUBLIC_KEY = 'oGLloXm5AnlPxHD6p';
+const RESTAURANT_EMAIL = 'sambandha2009@gmail.com';
+
 export function Reservations() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
+  useEffect(() => {
+    // Initialize EmailJS
+    if (typeof window !== 'undefined') {
+      import('emailjs-com').then((emailjs) => {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+      });
+    }
+  }, []);
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
-    // Simulate small delay for UX (production would send to a server / email service)
-    await new Promise((r) => setTimeout(r, 700));
-    setSubmitting(false);
-    setSubmitted(true);
+
+    try {
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+
+      const customerName = formData.get('name') as string;
+      const customerEmail = formData.get('email') as string;
+      const customerPhone = formData.get('phone') as string;
+      const guestCount = formData.get('guests') as string;
+      const reservationDate = formData.get('date') as string;
+      const reservationTime = formData.get('time') as string;
+      const customerRequests = (formData.get('requests') as string) || 'なし';
+
+      const templateParams = {
+        customer_name: customerName,
+        customer_email: customerEmail,
+        customer_phone: customerPhone,
+        guest_count: guestCount,
+        reservation_date: reservationDate,
+        reservation_time: reservationTime,
+        customer_requests: customerRequests,
+      };
+
+      // Import emailjs dynamically
+      const emailjs = await import('emailjs-com');
+
+      // Send restaurant notification
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_RESTAURANT_TEMPLATE_ID,
+        {
+          ...templateParams,
+          to_email: RESTAURANT_EMAIL,
+        }
+      );
+
+      // Send customer confirmation
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_CUSTOMER_TEMPLATE_ID,
+        templateParams
+      );
+
+      setSubmitting(false);
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      setSubmitting(false);
+      alert('申し訳ございません。送信に失敗しました。お電話でお問い合わせください。');
+    }
   };
 
   return (

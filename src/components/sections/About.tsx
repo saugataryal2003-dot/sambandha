@@ -51,11 +51,22 @@ export function About() {
               className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/[0.08]"
             >
               <img
-                src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=900&q=80"
-                alt="A spread of Sambandha dishes"
+                src="/images/naan-hero.jpg"
+                alt="サンバンダ名物の巨大ナン"
                 className="h-full w-full object-cover"
                 loading="lazy"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=900&q=80';
+                }}
               />
+              {/* Naan badge */}
+              <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 rounded-xl bg-ink/80 px-4 py-3 backdrop-blur">
+                <span className="text-2xl">🫓</span>
+                <div>
+                  <p className="font-jp text-sm font-semibold text-saffron-300">名物 巨大ナン</p>
+                  <p className="font-jp text-xs text-cream/60">お客様に愛される、大きくてふわふわのナン</p>
+                </div>
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
             </motion.div>
 

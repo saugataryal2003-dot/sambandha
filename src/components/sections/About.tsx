@@ -35,13 +35,10 @@ export function About() {
               className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/[0.08]"
             >
               <img
-                src="/images/naan-hero.jpg"
+                src="/images/naan.jpg"
                 alt={t.about.naanBadge}
                 className="h-full w-full object-cover"
                 loading="lazy"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=900&q=80';
-                }}
               />
               {/* Naan badge */}
               <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 rounded-xl bg-ink/80 px-4 py-3 backdrop-blur">

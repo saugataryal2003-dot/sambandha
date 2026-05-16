@@ -5,6 +5,7 @@ import { ArrowUpRight, ExternalLink, Phone } from 'lucide-react';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import { RESTAURANT } from '@/lib/utils';
+import { useLang } from '@/lib/i18n';
 
 const LUNCH_SETS = [
   {
@@ -46,6 +47,17 @@ const SIGNATURE_IMAGES = {
 };
 
 export function Menu() {
+  const { t, lang } = useLang();
+  const lunchLabel = lang === 'ja' ? 'ランチセット' : 'Lunch Sets';
+  const lunchHours = lang === 'ja' ? '毎日 11:00 — 15:00 でご提供' : 'Available daily 11:00 — 15:00';
+  const flagshipBadge = lang === 'ja' ? '人気' : 'Popular';
+  const ctaTitle = lang === 'ja' ? '本格インド料理と共に、世界の味わいを' : 'Authentic Indian cuisine, flavors of the world';
+  const ctaDesc = lang === 'ja'
+    ? '豊富なドリンクメニューをご用意しています。団体様や特別なご要望はお電話にてご相談ください。'
+    : 'A wide variety of drinks available. For groups or special requests, please call us.';
+  const drinksLabel = lang === 'ja' ? 'ドリンクメニュー' : 'Drinks Menu';
+  const lunchPdfLabel = lang === 'ja' ? 'ランチメニュー' : 'Lunch Menu (PDF)';
+
   return (
     <section id="menu" className="relative overflow-hidden bg-ink py-24 md:py-36">
       {/* Background accents */}
@@ -58,20 +70,20 @@ export function Menu() {
             <Reveal>
               <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
                 <span className="h-px w-8 bg-saffron-300" />
-                メニュー
+                {t.menu.eyebrow}
               </p>
             </Reveal>
             <h2 className="font-jp text-4xl font-light leading-[1.2] text-cream md:text-5xl lg:text-6xl">
-              <RevealText>心を込めた一皿、</RevealText>
+              <RevealText>{t.menu.title1}</RevealText>
               <br />
               <RevealText delay={0.15} className="text-gradient-warm">
-                共に分かち合うひととき。
+                {t.menu.title2}
               </RevealText>
             </h2>
           </div>
           <Reveal delay={0.4} className="max-w-md">
             <p className="font-jp text-base leading-relaxed text-cream/60 md:text-lg">
-              一つ一つのセットが旅のはじまり。デイリーのクラシックから旗艦のサンバンダ体験まで — 六種の料理、二種のカレー、忘れられないひととき。
+              {t.menu.description}
             </p>
           </Reveal>
         </div>
@@ -82,12 +94,12 @@ export function Menu() {
           <BentoCard
             className="col-span-2 row-span-2 md:col-span-2 md:row-span-2 lg:col-span-3 lg:row-span-2"
             image={SIGNATURE_IMAGES.hero}
-            label="ランチメニュー"
-            labelEn="Lunch"
-            title="¥900〜"
+            label={t.menu.lunch.label}
+            labelEn={t.menu.lunch.labelEn}
+            title={t.menu.lunch.title}
             href="/menus/lunch-menu.pdf"
             external
-            description="4つの厳選セット · PDFを開く"
+            description={t.menu.lunch.desc}
             priority
           />
 
@@ -95,18 +107,18 @@ export function Menu() {
           <BentoCard
             className="col-span-2 row-span-1 md:col-span-2 lg:col-span-3"
             image={SIGNATURE_IMAGES.tandoori}
-            label="タンドーリ"
-            labelEn="Tandoori"
-            title="タンドール窯で香ばしく"
+            label={t.menu.tandoori.label}
+            labelEn={t.menu.tandoori.labelEn}
+            title={t.menu.tandoori.title}
           />
 
           {/* Naan */}
           <BentoCard
             className="col-span-1 row-span-1 md:col-span-2 lg:col-span-2"
             image={SIGNATURE_IMAGES.naan}
-            label="ナン・パン類"
-            labelEn="Breads"
-            title="9種類"
+            label={t.menu.naan.label}
+            labelEn={t.menu.naan.labelEn}
+            title={t.menu.naan.title}
             small
           />
 
@@ -114,9 +126,9 @@ export function Menu() {
           <BentoCard
             className="col-span-1 row-span-1 lg:col-span-1"
             image={SIGNATURE_IMAGES.curry}
-            label="カレー"
-            labelEn="Curries"
-            title="40種以上"
+            label={t.menu.curry.label}
+            labelEn={t.menu.curry.labelEn}
+            title={t.menu.curry.title}
             small
           />
         </div>
@@ -127,14 +139,14 @@ export function Menu() {
             <div className="mb-12 text-center">
               <p className="mb-3 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
                 <span className="h-px w-8 bg-saffron-300" />
-                ランチメニュー
+                {t.menu.lunch.label}
                 <span className="h-px w-8 bg-saffron-300" />
               </p>
               <h3 className="font-jp text-3xl font-light text-cream md:text-4xl">
-                ランチセット
+                {lunchLabel}
               </h3>
               <p className="font-jp text-sm text-cream/60 mt-2">
-                毎日 11:00 — 17:00 でご提供
+                {lunchHours}
               </p>
             </div>
           </Reveal>
@@ -162,12 +174,12 @@ export function Menu() {
               {set.flagship && (
                 <div className="absolute right-4 top-4 flex items-center gap-1.5 rounded-full bg-saffron-300/20 px-2.5 py-1 font-jp text-[10px] font-semibold tracking-wider text-saffron-200">
                   <span className="h-1 w-1 rounded-full bg-saffron-200" />
-                  人気
+                  {flagshipBadge}
                 </div>
               )}
               <p className="text-xs uppercase tracking-wider text-cream/50">{set.name}</p>
               <h3 className="mt-2 font-jp text-2xl font-light text-cream md:text-3xl">
-                {set.nameJp}
+                {lang === 'ja' ? set.nameJp : set.name}
               </h3>
               <div className="mt-8 flex items-end justify-between">
                 <div>
@@ -186,10 +198,10 @@ export function Menu() {
         <Reveal className="mt-16 flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/[0.08] bg-white/[0.02] p-8 md:flex-row md:p-10">
           <div>
             <p className="font-jp text-2xl font-light text-cream md:text-3xl">
-              本格インド料理と共に、世界の味わいを
+              {ctaTitle}
             </p>
             <p className="mt-2 font-jp text-sm text-cream/60">
-              豊富なドリンクメニューをご用意しています。団体様や特別なご要望はお電話にてご相談ください。
+              {ctaDesc}
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -201,13 +213,13 @@ export function Menu() {
             </MagneticButton>
             <MagneticButton href="/menu/drinks">
               <span className="group inline-flex items-center gap-2 rounded-full bg-saffron-300 px-6 py-3 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
-                ドリンクメニュー
+                {drinksLabel}
                 <ExternalLink className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
               </span>
             </MagneticButton>
             <MagneticButton href="/menus/lunch-menu.pdf">
               <span className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm font-medium text-cream backdrop-blur transition hover:border-white/30 hover:bg-white/[0.06]">
-                ランチメニュー
+                {lunchPdfLabel}
                 <ExternalLink className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
               </span>
             </MagneticButton>

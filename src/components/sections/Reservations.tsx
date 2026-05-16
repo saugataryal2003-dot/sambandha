@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Clock, Users, Mail, Phone, User, MessageSquare, Check } from 'lucide-react';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
 import { MagneticButton } from '@/components/ui/MagneticButton';
+import { useLang } from '@/lib/i18n';
 
 // EmailJS configuration
 const EMAILJS_SERVICE_ID = 'service_ncicd3l';
@@ -14,8 +15,61 @@ const EMAILJS_PUBLIC_KEY = 'oGLloXm5AnlPxHD6p';
 const RESTAURANT_EMAIL = 'sambandha2009@gmail.com';
 
 export function Reservations() {
+  const { t, lang } = useLang();
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+
+  const labels = lang === 'ja' ? {
+    eyebrow: 'ご予約',
+    title1: '素敵な夜を、',
+    title2: 'ご予約ください。',
+    intro: 'ご予約後、お電話またはメールにてご確認の連絡をいたします。',
+    name: 'お名前',
+    namePh: '山田 太郎',
+    email: 'メールアドレス',
+    phone: '電話番号',
+    phonePh: '000-0000-0000',
+    guests: '人数',
+    guestsPh: '人数を選択',
+    guestsUnit: (n: number) => `${n}名様`,
+    guestsMore: '7名様以上',
+    date: 'ご来店日',
+    time: '時間',
+    requests: 'ご要望',
+    requestsPh: 'アレルギー、特別なご要望、記念日など...',
+    confirmNote: 'ご予約後、お電話またはメールにてご確認いたします。',
+    submitting: '送信中...',
+    submit: '予約する',
+    successTitle: 'ご予約を承りました。',
+    successBody: 'ありがとうございます。確認のため、お電話またはメールにて間もなくご連絡いたします。',
+    none: 'なし',
+    errorAlert: '申し訳ございません。送信に失敗しました。お電話でお問い合わせください。',
+  } : {
+    eyebrow: 'Reservations',
+    title1: 'Reserve your',
+    title2: 'wonderful evening.',
+    intro: 'After you reserve, we will confirm by phone or email.',
+    name: 'Name',
+    namePh: 'John Smith',
+    email: 'Email Address',
+    phone: 'Phone Number',
+    phonePh: '000-0000-0000',
+    guests: 'Party Size',
+    guestsPh: 'Select party size',
+    guestsUnit: (n: number) => `${n} ${n === 1 ? 'guest' : 'guests'}`,
+    guestsMore: '7+ guests',
+    date: 'Date',
+    time: 'Time',
+    requests: 'Special Requests',
+    requestsPh: 'Allergies, special requests, anniversary, etc...',
+    confirmNote: 'After you reserve, we will confirm by phone or email.',
+    submitting: 'Sending...',
+    submit: 'Reserve',
+    successTitle: 'Your reservation is received.',
+    successBody: 'Thank you. We will contact you shortly by phone or email to confirm.',
+    none: 'None',
+    errorAlert: 'Sorry, the message could not be sent. Please call us instead.',
+  };
 
   useEffect(() => {
     // Initialize EmailJS
@@ -40,7 +94,7 @@ export function Reservations() {
       const guestCount = formData.get('guests') as string;
       const reservationDate = formData.get('date') as string;
       const reservationTime = formData.get('time') as string;
-      const customerRequests = (formData.get('requests') as string) || 'なし';
+      const customerRequests = (formData.get('requests') as string) || labels.none;
 
       const templateParams = {
         customer_name: customerName,
@@ -81,7 +135,7 @@ export function Reservations() {
     } catch (error) {
       console.error('Failed to send reservation to restaurant:', error);
       setSubmitting(false);
-      alert('申し訳ございません。送信に失敗しました。お電話でお問い合わせください。');
+      alert(labels.errorAlert);
     }
   };
 
@@ -98,20 +152,20 @@ export function Reservations() {
           <Reveal>
             <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
               <span className="h-px w-8 bg-saffron-300" />
-              ご予約
+              {labels.eyebrow}
               <span className="h-px w-8 bg-saffron-300" />
             </p>
           </Reveal>
           <h2 className="font-jp text-4xl font-light leading-[1.2] text-cream md:text-5xl lg:text-6xl">
-            <RevealText>素敵な夜を、</RevealText>
+            <RevealText>{labels.title1}</RevealText>
             <br />
             <RevealText delay={0.15} className="text-gradient-warm">
-              ご予約ください。
+              {labels.title2}
             </RevealText>
           </h2>
           <Reveal delay={0.3} className="mx-auto mt-6 max-w-md">
             <p className="font-jp text-base leading-relaxed text-cream/60">
-              ご予約後、お電話またはメールにてご確認の連絡をいたします。
+              {labels.intro}
             </p>
           </Reveal>
         </div>
@@ -130,15 +184,15 @@ export function Reservations() {
                 >
                   <Field
                     icon={<User className="h-4 w-4" />}
-                    label="お名前"
+                    label={labels.name}
                     name="name"
                     type="text"
                     required
-                    placeholder="山田 太郎"
+                    placeholder={labels.namePh}
                   />
                   <Field
                     icon={<Mail className="h-4 w-4" />}
-                    label="メールアドレス"
+                    label={labels.email}
                     name="email"
                     type="email"
                     required
@@ -146,37 +200,37 @@ export function Reservations() {
                   />
                   <Field
                     icon={<Phone className="h-4 w-4" />}
-                    label="電話番号"
+                    label={labels.phone}
                     name="phone"
                     type="tel"
                     required
-                    placeholder="000-0000-0000"
+                    placeholder={labels.phonePh}
                   />
                   <Field
                     icon={<Users className="h-4 w-4" />}
-                    label="人数"
+                    label={labels.guests}
                     name="guests"
                     type="select"
                     required
                   >
-                    <option value="">人数を選択</option>
+                    <option value="">{labels.guestsPh}</option>
                     {[1, 2, 3, 4, 5, 6].map((n) => (
                       <option key={n} value={n}>
-                        {n}名様
+                        {labels.guestsUnit(n)}
                       </option>
                     ))}
-                    <option value="7+">7名様以上</option>
+                    <option value="7+">{labels.guestsMore}</option>
                   </Field>
                   <Field
                     icon={<Calendar className="h-4 w-4" />}
-                    label="ご来店日"
+                    label={labels.date}
                     name="date"
                     type="date"
                     required
                   />
                   <Field
                     icon={<Clock className="h-4 w-4" />}
-                    label="時間"
+                    label={labels.time}
                     name="time"
                     type="time"
                     required
@@ -184,16 +238,16 @@ export function Reservations() {
                   <div className="md:col-span-2">
                     <Field
                       icon={<MessageSquare className="h-4 w-4" />}
-                      label="ご要望"
+                      label={labels.requests}
                       name="requests"
                       type="textarea"
-                      placeholder="アレルギー、特別なご要望、記念日など..."
+                      placeholder={labels.requestsPh}
                     />
                   </div>
 
                   <div className="md:col-span-2 mt-2 flex flex-col items-center justify-between gap-4 sm:flex-row">
                     <p className="font-jp text-xs text-cream/50">
-                      ご予約後、お電話またはメールにてご確認いたします。
+                      {labels.confirmNote}
                     </p>
                     <MagneticButton strength={0.2}>
                       <button
@@ -203,7 +257,7 @@ export function Reservations() {
                       >
                         <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
                         <span className="relative">
-                          {submitting ? '送信中...' : '予約する'}
+                          {submitting ? labels.submitting : labels.submit}
                         </span>
                       </button>
                     </MagneticButton>
@@ -232,10 +286,10 @@ export function Reservations() {
                     </motion.div>
                   </div>
                   <h3 className="mt-6 font-jp text-3xl font-light text-cream md:text-4xl">
-                    ご予約を承りました。
+                    {labels.successTitle}
                   </h3>
                   <p className="mt-3 max-w-md font-jp text-sm leading-relaxed text-cream/60">
-                    ありがとうございます。確認のため、お電話またはメールにて間もなくご連絡いたします。
+                    {labels.successBody}
                   </p>
                 </motion.div>
               )}

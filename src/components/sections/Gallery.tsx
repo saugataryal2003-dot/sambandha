@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Instagram } from 'lucide-react';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
+import { useLang } from '@/lib/i18n';
 
 const PHOTOS = [
   {
@@ -45,6 +46,11 @@ const PHOTOS = [
 ];
 
 export function Gallery() {
+  const { lang } = useLang();
+  const eyebrow = lang === 'ja' ? 'ギャラリー' : 'Gallery';
+  const title1 = lang === 'ja' ? '五感で味わう、' : 'A feast for';
+  const title2 = lang === 'ja' ? '至福のひととき。' : 'the senses.';
+  const igLabel = lang === 'ja' ? 'インスタグラムをフォロー' : 'Follow on Instagram';
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -58,29 +64,31 @@ export function Gallery() {
         <div className="mb-16 flex flex-wrap items-end justify-between gap-6 md:mb-20">
           <div>
             <Reveal>
-              <p className="mb-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.25em] text-saffron-300">
+              <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
                 <span className="h-px w-8 bg-saffron-300" />
-                Gallery
+                {eyebrow}
               </p>
             </Reveal>
             <motion.h2
               style={{ x: headlineX }}
-              className="font-display text-5xl font-light leading-[0.95] text-cream md:text-7xl lg:text-8xl"
+              className={`${lang === 'ja' ? 'font-jp' : 'font-display'} text-5xl font-light leading-[0.95] text-cream md:text-7xl lg:text-8xl`}
             >
-              <RevealText>A feast for</RevealText>
+              <RevealText>{title1}</RevealText>
               <br />
               <RevealText delay={0.15} className="text-gradient-warm italic">
-                the senses.
+                {title2}
               </RevealText>
             </motion.h2>
           </div>
           <Reveal delay={0.3}>
             <a
-              href="#"
+              href="https://www.instagram.com/sambandharestaurant?igsh=Y3hoMTYwbXZud2t2&utm_source=qr"
+              target="_blank"
+              rel="noreferrer"
               className="group inline-flex items-center gap-2 text-sm font-medium text-cream/70 transition hover:text-saffron-300"
             >
               <Instagram className="h-4 w-4" />
-              Follow on Instagram
+              {igLabel}
               <span className="h-px w-6 bg-current transition-all group-hover:w-10" />
             </a>
           </Reveal>

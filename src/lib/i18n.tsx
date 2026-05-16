@@ -78,6 +78,38 @@ interface TranslationShape {
     heart1: string;
     heart2: string;
   };
+  menu: {
+    eyebrow: string;
+    title1: string;
+    title2: string;
+    description: string;
+    lunch: { label: string; labelEn: string; title: string; desc: string };
+    tandoori: { label: string; labelEn: string; title: string; desc: string };
+    naan: { label: string; labelEn: string; title: string; desc: string };
+    curry: { label: string; labelEn: string; title: string; desc: string };
+    dine: { label: string; labelEn: string; title: string; desc: string };
+  };
+  testimonials: {
+    eyebrow: string;
+    title: string;
+    badge: string;
+    writeReview: string;
+  };
+  reservations: {
+    eyebrow: string;
+    title1: string;
+    title2: string;
+    nameLabel: string;
+    emailLabel: string;
+    phoneLabel: string;
+    dateLabel: string;
+    timeLabel: string;
+    guestsLabel: string;
+    messageLabel: string;
+    submit: string;
+    success: string;
+    error: string;
+  };
   common: {
     switchLang: string;
   };
@@ -152,6 +184,38 @@ export const translations: Record<Lang, TranslationShape> = {
       heart1: '埼玉県幸手市にて',
       heart2: '心を込めて',
     },
+    menu: {
+      eyebrow: 'メニュー',
+      title1: '心を込めた一皿、',
+      title2: '共に分かち合うひととき。',
+      description: '一つ一つのセットが旅のはじまり。デイリーのクラシックから旗艦のサンバンダ体験まで — 六種の料理、二種のカレー、忘れられないひととき。',
+      lunch: { label: 'ランチメニュー', labelEn: 'Lunch', title: '¥900〜', desc: '4つの厳選セット' },
+      tandoori: { label: 'タンドーリ', labelEn: 'Tandoori', title: 'タンドール窯で香ばしく', desc: '本格タンドール焼き' },
+      naan: { label: 'ナン', labelEn: 'Naan', title: '名物 巨大ナン', desc: '焼き立てのふわふわナン' },
+      curry: { label: 'カレー', labelEn: 'Curry', title: '本場のカレー', desc: 'インド産スパイス使用' },
+      dine: { label: 'ディナー', labelEn: 'Dinner', title: 'フルメニュー', desc: '豊富なコース選択' },
+    },
+    testimonials: {
+      eyebrow: 'お客様の声',
+      title: '地元で15年以上、愛され続ける味。',
+      badge: '幸手市インド料理 No.1 評価',
+      writeReview: 'レビューを書く',
+    },
+    reservations: {
+      eyebrow: 'ご予約フォーム',
+      title1: 'ご予約いただき',
+      title2: 'ありがとうございます。',
+      nameLabel: 'お名前',
+      emailLabel: 'メールアドレス',
+      phoneLabel: 'お電話番号',
+      dateLabel: 'ご来店日',
+      timeLabel: 'ご来店時間',
+      guestsLabel: 'ご人数',
+      messageLabel: 'ご要望・アレルギーなど',
+      submit: '予約を確定する',
+      success: 'ご予約ありがとうございます',
+      error: '申し訳ございません。送信に失敗しました。お電話でお問い合わせください。',
+    },
     common: {
       switchLang: 'EN',
     },
@@ -223,6 +287,38 @@ export const translations: Record<Lang, TranslationShape> = {
       rights: 'All rights reserved.',
       heart1: 'Made in Satte, Saitama',
       heart2: 'With love',
+    },
+    menu: {
+      eyebrow: 'Menu',
+      title1: 'Dishes made with heart,',
+      title2: 'moments meant to be shared.',
+      description: 'Every set is the beginning of a journey. From our daily Classic to the flagship Sambandha experience — six dishes, two curries, an unforgettable moment.',
+      lunch: { label: 'Lunch Menu', labelEn: 'ランチ', title: 'From ¥900', desc: '4 curated sets' },
+      tandoori: { label: 'Tandoori', labelEn: 'タンドーリ', title: 'Charred in clay ovens', desc: 'Authentic tandoor grilling' },
+      naan: { label: 'Naan', labelEn: 'ナン', title: 'Signature Giant Naan', desc: 'Fresh, fluffy, baked to order' },
+      curry: { label: 'Curry', labelEn: 'カレー', title: 'Authentic Indian Curry', desc: 'Made with Indian spices' },
+      dine: { label: 'Dinner', labelEn: 'ディナー', title: 'Full Menu', desc: 'Extensive course selection' },
+    },
+    testimonials: {
+      eyebrow: 'Customer Reviews',
+      title: 'Loved by locals for over 15 years.',
+      badge: '#1 Rated Indian Restaurant in Satte',
+      writeReview: 'Write a Review',
+    },
+    reservations: {
+      eyebrow: 'Reservation Form',
+      title1: 'Thank you for',
+      title2: 'choosing Sambandha.',
+      nameLabel: 'Name',
+      emailLabel: 'Email Address',
+      phoneLabel: 'Phone Number',
+      dateLabel: 'Date of Visit',
+      timeLabel: 'Time',
+      guestsLabel: 'Number of Guests',
+      messageLabel: 'Special Requests / Allergies',
+      submit: 'Confirm Reservation',
+      success: 'Thank you for your reservation',
+      error: 'Sorry, the message could not be sent. Please call us instead.',
     },
     common: {
       switchLang: '日本語',

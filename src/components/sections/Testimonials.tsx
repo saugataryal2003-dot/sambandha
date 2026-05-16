@@ -90,7 +90,7 @@ export function Testimonials() {
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
-            <div className="mt-6 inline-flex items-center gap-3 rounded-full border border-saffron-300/30 bg-saffron-300/5 px-5 py-2">
+            <div className="glass-card-light mt-6 inline-flex items-center gap-3 px-5 py-2">
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
                   <Star
@@ -118,7 +118,7 @@ export function Testimonials() {
                 delay: i * 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 transition-colors hover:border-white/15 hover:bg-white/[0.04]"
+              className="group relative overflow-hidden rounded-2xl glass-card-light p-6 transition-all duration-300 hover:glass-card-medium hover:-translate-y-1 hover:shadow-ios-md"
             >
               <div className="flex items-center justify-between">
                 <Quote

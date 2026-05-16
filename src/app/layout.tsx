@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, Inter, Noto_Sans_JP } from 'next/font/google';
 import './globals.css';
+import '@/styles/ios-design-system.css';
 import { SmoothScroll } from '@/components/layout/SmoothScroll';
 import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';

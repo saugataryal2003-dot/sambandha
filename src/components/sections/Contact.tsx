@@ -84,7 +84,7 @@ export function Contact() {
           <div className="grid gap-4 lg:col-span-5">
             {INFO_BLOCKS.map((block, i) => {
               const content = (
-                <div className="flex items-start gap-4 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 transition-colors group-hover:border-white/15 group-hover:bg-white/[0.04]">
+                <div className="glass-card-light flex items-start gap-4 p-6 transition-all duration-300 group-hover:glass-card-medium group-hover:-translate-y-1 group-hover:shadow-ios-md">
                   <span className="grid h-10 w-10 flex-none place-items-center rounded-xl bg-saffron-300/10 text-saffron-300 ring-1 ring-saffron-300/20">
                     <block.icon className="h-4 w-4" strokeWidth={1.6} />
                   </span>

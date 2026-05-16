@@ -60,7 +60,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs font-medium tracking-wide text-cream/70 backdrop-blur"
+          className="glass-card-light mb-8 inline-flex items-center gap-2 px-4 py-1.5 text-xs font-medium tracking-wide text-cream/70"
         >
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-saffron-300 opacity-75" />
@@ -103,20 +103,20 @@ export function Hero() {
           className="mt-12 flex flex-col items-center gap-4 sm:flex-row"
         >
           <MagneticButton href="tel:0480442323" strength={0.3}>
-            <span className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-saffron-300 px-8 py-3.5 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
+            <span className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-saffron-300 to-saffron-400 px-8 py-3.5 font-jp text-sm font-semibold text-ink transition-all duration-300 hover:shadow-lg hover:shadow-saffron-500/40 hover:-translate-y-0.5">
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
               <span className="relative">{t.hero.bookNow}</span>
             </span>
           </MagneticButton>
 
           <MagneticButton href="#reservations" strength={0.3}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-saffron-300/40 bg-saffron-300/10 px-8 py-3.5 font-jp text-sm font-medium text-cream backdrop-blur transition hover:border-saffron-300/60 hover:bg-saffron-300/20">
+            <span className="glass-card-medium inline-flex items-center gap-2 px-8 py-3.5 font-jp text-sm font-medium text-cream transition-all duration-300 hover:glass-card-strong hover:-translate-y-0.5">
               {t.hero.reserveForm}
             </span>
           </MagneticButton>
 
           <MagneticButton href="/menu/lunch" strength={0.25}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-8 py-3.5 font-jp text-sm font-medium text-cream backdrop-blur transition hover:border-white/30 hover:bg-white/[0.06]">
+            <span className="glass-card-light inline-flex items-center gap-2 px-8 py-3.5 font-jp text-sm font-medium text-cream transition-all duration-300 hover:glass-card-medium hover:-translate-y-0.5">
               {t.hero.lunchMenu}
             </span>
           </MagneticButton>
@@ -216,7 +216,7 @@ function FloatingCards({
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.4, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute left-[4%] top-[18%] h-44 w-32 overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-black/50 lg:h-56 lg:w-40"
+        className="absolute left-[4%] top-[18%] h-44 w-32 overflow-hidden rounded-3xl border border-white/20 shadow-ios-lg lg:h-56 lg:w-40"
       >
         <img
           src={FOOD_IMAGES[0]}

@@ -54,7 +54,7 @@ export function About() {
             {/* Stats card */}
             <Reveal
               delay={0.3}
-              className="absolute -bottom-8 -right-4 z-10 max-w-[200px] rounded-2xl border border-white/[0.08] bg-ink/90 p-5 shadow-2xl shadow-black/40 backdrop-blur-xl md:-right-8 md:max-w-[240px] md:p-6"
+              className="absolute -bottom-8 -right-4 z-10 max-w-[200px] rounded-2xl border border-white/[0.08] bg-ink/90 p-5 shadow-ios-xl backdrop-blur-xl md:-right-8 md:max-w-[240px] md:p-6"
             >
               <p className="font-display text-5xl font-light leading-none text-gradient-warm md:text-6xl">
                 15+

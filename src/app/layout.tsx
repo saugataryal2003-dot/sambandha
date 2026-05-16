@@ -7,6 +7,8 @@ import { Footer } from '@/components/layout/Footer';
 import { ScrollProgress } from '@/components/layout/ScrollProgress';
 import { CursorGlow } from '@/components/layout/CursorGlow';
 import { FloatingActionButton } from '@/components/layout/FloatingActionButton';
+import { LanguageProvider } from '@/lib/i18n';
+import { LanguageSelector } from '@/components/layout/LanguageSelector';
 
 const display = Cormorant_Garamond({
   subsets: ['latin'],
@@ -176,14 +178,17 @@ export default function RootLayout({
             }),
           }}
         />
-        <SmoothScroll>
-          <ScrollProgress />
-          <CursorGlow />
-          <Nav />
-          <main className="relative">{children}</main>
-          <Footer />
-          <FloatingActionButton />
-        </SmoothScroll>
+        <LanguageProvider>
+          <LanguageSelector />
+          <SmoothScroll>
+            <ScrollProgress />
+            <CursorGlow />
+            <Nav />
+            <main className="relative">{children}</main>
+            <Footer />
+            <FloatingActionButton />
+          </SmoothScroll>
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { Instagram, Facebook, Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { RESTAURANT } from '@/lib/utils';
+import { useLang } from '@/lib/i18n';
 
 export function Footer() {
+  const { t, lang } = useLang();
   return (
     <footer className="relative overflow-hidden border-t border-white/[0.06] bg-ink">
       <div className="pointer-events-none absolute -top-40 left-1/2 h-[400px] w-[800px] -translate-x-1/2 bg-gradient-radial from-saffron-500/10 to-transparent blur-3xl" />
@@ -17,7 +19,7 @@ export function Footer() {
             </h3>
             <p className="mt-2 font-jp text-base text-saffron-300/80">サンバンダ</p>
             <p className="mt-6 max-w-sm font-jp text-sm leading-relaxed text-cream/60">
-              文化と味の繋がり。インドから直輸入したスパイスと、変わらぬ伝統で、心を込めて手作りした本場のインド料理。
+              {t.footer.tagline}
             </p>
 
             <div className="mt-8 flex gap-3">
@@ -43,28 +45,28 @@ export function Footer() {
           <div className="grid gap-10 sm:grid-cols-2 md:col-span-7">
             <div className="space-y-5">
               <h4 className="font-jp text-xs font-medium tracking-widest text-saffron-300/80">
-                ご来店
+                {t.footer.visit}
               </h4>
               <div className="flex items-start gap-3 text-sm text-cream/70">
                 <MapPin className="mt-0.5 h-4 w-4 flex-none text-saffron-300/60" />
                 <div>
-                  <p className="font-jp text-cream">{RESTAURANT.address}</p>
-                  <p className="mt-1 text-cream/50">{RESTAURANT.addressEn}</p>
+                  <p className="font-jp text-cream">{lang === 'ja' ? RESTAURANT.address : RESTAURANT.addressEn}</p>
+                  <p className="mt-1 text-cream/50">{lang === 'ja' ? RESTAURANT.addressEn : RESTAURANT.address}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 text-sm text-cream/70">
                 <Clock className="mt-0.5 h-4 w-4 flex-none text-saffron-300/60" />
                 <div>
-                  <p className="font-jp text-cream">{RESTAURANT.hoursLunch}</p>
-                  <p className="mt-0.5 font-jp text-cream">{RESTAURANT.hoursDinner}</p>
-                  <p className="mt-1 font-jp text-cream/50">毎日営業 · Open Daily</p>
+                  <p className="font-jp text-cream">{lang === 'ja' ? RESTAURANT.hoursLunch : RESTAURANT.hoursLunchEn}</p>
+                  <p className="mt-0.5 font-jp text-cream">{lang === 'ja' ? RESTAURANT.hoursDinner : RESTAURANT.hoursDinnerEn}</p>
+                  <p className="mt-1 font-jp text-cream/50">{t.footer.openDaily}</p>
                 </div>
               </div>
             </div>
 
             <div className="space-y-5">
               <h4 className="font-jp text-xs font-medium tracking-widest text-saffron-300/80">
-                お問い合わせ
+                {t.footer.contact}
               </h4>
               <a
                 href={`tel:${RESTAURANT.phoneRaw}`}
@@ -92,11 +94,11 @@ export function Footer() {
           className="mt-16 border-t border-white/[0.06] pt-8"
         >
           <div className="flex flex-col items-center justify-between gap-3 text-xs text-cream/40 sm:flex-row">
-            <p>&copy; {new Date().getFullYear()} <span className="font-jp">サンバンダ レストラン</span>. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} <span className="font-jp">{lang === 'ja' ? 'サンバンダ レストラン' : 'Sambandha Restaurant'}</span>. {t.footer.rights}</p>
             <p className="flex items-center gap-2 font-jp">
-              <span>埼玉県幸手市にて</span>
+              <span>{t.footer.heart1}</span>
               <span aria-hidden>·</span>
-              <span>心を込めて</span>
+              <span>{t.footer.heart2}</span>
             </p>
           </div>
         </motion.div>

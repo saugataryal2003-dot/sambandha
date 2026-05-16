@@ -1,13 +1,15 @@
-/* iOS 18 Design System for Sambandha */
+/* iOS 26 Design System for Sambandha */
 
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap');
+/* SF Pro is Apple's system font — available natively on Apple devices.
+   On non-Apple devices, Helvetica Neue / Arial serve as the fallback.
+   This matches exactly what iOS uses across all UI. */
 
 /* ==================== Typography ==================== */
 :root {
-  /* Font families */
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Karla', sans-serif;
-  --font-jp: 'Noto Sans JP', sans-serif;
+  /* Apple SF Pro system font stack — identical to what iOS uses */
+  --font-sf:    -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  --font-sf-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  --font-jp:    'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
 
   /* Font sizes - iOS scaled */
   --text-xs: 0.75rem;
@@ -66,20 +68,31 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-sf);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Headings use Playfair Display */
+/* Headings use SF Pro Display — same as iOS system UI */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 500;
+  font-family: var(--font-sf-display);
+  font-weight: 300;
+  letter-spacing: -0.02em;
 }
 
-/* Japanese text optimization */
+/* Japanese text — Hiragino on Apple, Noto Sans JP on other platforms */
 .font-jp {
-  font-family: var(--font-jp), 'Karla', sans-serif;
-  letter-spacing: 0.02em;
+  font-family: var(--font-jp);
+  letter-spacing: 0.01em;
+}
+
+/* Override all display/sans fonts with SF Pro */
+.font-display, .font-sans {
+  font-family: var(--font-sf-display);
+  font-weight: 300;
+  letter-spacing: -0.02em;
 }
 
 /* ==================== Glassmorphism Components ==================== */

@@ -33,7 +33,7 @@ export function Nav() {
     } else {
       animate(x, 0, { type: 'spring', stiffness: 300, damping: 28 });
     }
-  }, [x, router]);
+  }, [router]);
 
   const handleLogoClick = useCallback(() => {
     if (isSubPage) {

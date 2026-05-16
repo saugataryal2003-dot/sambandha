@@ -8,40 +8,34 @@ import { useLang } from '@/lib/i18n';
 
 const PHOTOS = [
   {
-    src: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=900&q=80',
+    src: '/images/naan.jpg',
+    title: 'Giant Naan',
+    titleJp: '巨大ナン',
+    rowSpan: 2,
+  },
+  {
+    src: '/images/butter-chicken.jpg',
     title: 'Butter Chicken',
     titleJp: 'バターチキン',
+    rowSpan: 1,
+  },
+  {
+    src: '/images/palak-paneer.jpg',
+    title: 'Palak Paneer',
+    titleJp: 'パラックパニール',
+    rowSpan: 1,
+  },
+  {
+    src: '/images/hero-spread.jpg',
+    title: 'Sambandha Spread',
+    titleJp: 'サンバンダ盛り合わせ',
     rowSpan: 2,
   },
   {
-    src: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=900&q=80',
-    title: 'Tandoori Mixed',
-    titleJp: 'タンドリー',
-    rowSpan: 1,
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=900&q=80',
-    title: 'Garlic Naan',
-    titleJp: 'ガーリックナン',
-    rowSpan: 1,
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=900&q=80',
-    title: 'House Curry',
-    titleJp: '本日のカレー',
+    src: '/images/tandoori-chicken.jpg',
+    title: 'Tandoori Chicken',
+    titleJp: 'タンドリーチキン',
     rowSpan: 2,
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=900&q=80',
-    title: 'Chicken Biryani',
-    titleJp: 'チキンビリヤニ',
-    rowSpan: 1,
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=900&q=80',
-    title: 'Tasting Spread',
-    titleJp: 'おまかせ',
-    rowSpan: 1,
   },
 ];
 

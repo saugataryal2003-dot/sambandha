@@ -7,9 +7,9 @@ import { MagneticButton } from '@/components/ui/MagneticButton';
 import { useLang } from '@/lib/i18n';
 
 const FOOD_IMAGES = [
-  '/images/naan-hero.jpg',
-  'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=900&q=80',
-  'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=900&q=80',
+  '/images/naan.jpg',
+  '/images/hero-spread.jpg',
+  '/images/butter-chicken.jpg',
 ];
 
 export function Hero() {
@@ -223,9 +223,6 @@ function FloatingCards({
           alt="サンバンダ名物の巨大ナン"
           className="h-full w-full object-cover"
           loading="lazy"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=900&q=80';
-          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
       </motion.div>

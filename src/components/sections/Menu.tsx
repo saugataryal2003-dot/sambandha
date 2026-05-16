@@ -39,11 +39,11 @@ const LUNCH_SETS = [
 ];
 
 const SIGNATURE_IMAGES = {
-  hero: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=1200&q=80',
-  lunch: 'https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=900&q=80',
-  tandoori: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=900&q=80',
-  naan: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=900&q=80',
-  curry: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=900&q=80',
+  hero: '/images/hero-spread.jpg',
+  lunch: '/images/hero-spread.jpg',
+  tandoori: '/images/tandoori-chicken.jpg',
+  naan: '/images/naan.jpg',
+  curry: '/images/butter-chicken.jpg',
 };
 
 export function Menu() {

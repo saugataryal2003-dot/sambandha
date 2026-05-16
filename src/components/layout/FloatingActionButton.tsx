@@ -52,7 +52,7 @@ export function FloatingActionButton() {
               onClick={() => setOpen(false)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-3 rounded-full bg-white px-5 py-3 font-jp text-sm font-semibold text-ink shadow-lg shadow-black/30"
+              className="flex items-center gap-3 rounded-full bg-white px-5 py-3 font-jp text-sm font-semibold text-ink shadow-lg shadow-ink/30"
             >
               <Calendar className="h-5 w-5" />
               <span>{labels.form}</span>
@@ -62,7 +62,7 @@ export function FloatingActionButton() {
               href="/menu/lunch"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 px-5 py-3 font-jp text-sm font-semibold text-cream shadow-lg shadow-black/30"
+              className="flex items-center gap-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 px-5 py-3 font-jp text-sm font-semibold text-cream shadow-lg shadow-ink/30"
             >
               <MenuIcon className="h-5 w-5" />
               <span>{labels.lunch}</span>

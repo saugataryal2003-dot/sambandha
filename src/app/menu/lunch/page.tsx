@@ -115,6 +115,12 @@ export default function LunchMenuPage() {
     reserveCall: 'お気軽にお電話ください',
     note: 'ランチセット以外のメニューもご用意しております。詳しくはお店までお問い合わせください。',
     noteEn: 'All lunch sets are available daily from 11:00 to 15:00.',
+    pdfEyebrow: '公式メニュー',
+    pdfTitle: 'ランチメニュー PDF',
+    pdfSubtitle: 'お店のメニューをそのままご覧いただけます',
+    pdfOpen: '新しいタブで開く',
+    pdfDownload: 'ダウンロード',
+    pdfFallback: 'PDFを表示できない場合は、こちらをクリックしてください。',
   } : {
     eyebrow: 'Lunch Menu',
     title1: 'Daily 11:00 — 15:00',
@@ -133,6 +139,12 @@ export default function LunchMenuPage() {
     reserveCall: 'please give us a call',
     note: 'We also offer dinner and à la carte menus. Contact us for details.',
     noteEn: 'All lunch sets are available daily from 11:00 to 15:00.',
+    pdfEyebrow: 'Official Menu',
+    pdfTitle: 'Lunch Menu PDF',
+    pdfSubtitle: 'View our printed in-store menu',
+    pdfOpen: 'Open in new tab',
+    pdfDownload: 'Download',
+    pdfFallback: 'Can\'t see the PDF? Click here to open it.',
   };
 
   return (
@@ -171,6 +183,69 @@ export default function LunchMenuPage() {
               <LunchSetCard key={set.nameJp} set={set} index={i} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* PDF menu section */}
+      <section className="py-20 md:py-28 border-t border-white/[0.06]">
+        <div className="container mx-auto max-w-5xl px-6">
+          <Reveal>
+            <div className="mb-10 text-center">
+              <p className="mb-3 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
+                <span className="h-px w-8 bg-saffron-300" />
+                {labels.pdfEyebrow}
+                <span className="h-px w-8 bg-saffron-300" />
+              </p>
+              <h2 className="font-jp text-3xl md:text-4xl font-light text-cream">
+                {labels.pdfTitle}
+              </h2>
+              <p className="font-jp text-sm text-cream/60 mt-2">
+                {labels.pdfSubtitle}
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02]">
+              <object
+                data="/menus/lunch-menu.pdf#view=FitH"
+                type="application/pdf"
+                className="block h-[80vh] min-h-[600px] w-full"
+                aria-label={labels.pdfTitle}
+              >
+                <div className="flex h-[400px] items-center justify-center p-8 text-center">
+                  <a
+                    href="/menus/lunch-menu.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-jp text-saffron-300 underline"
+                  >
+                    {labels.pdfFallback}
+                  </a>
+                </div>
+              </object>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="/menus/lunch-menu.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-saffron-300 px-6 py-3 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200"
+              >
+                {labels.pdfOpen}
+              </a>
+              <a
+                href="/menus/lunch-menu.pdf"
+                download
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 font-jp text-sm font-medium text-cream backdrop-blur transition hover:border-white/30 hover:bg-white/[0.06]"
+              >
+                {labels.pdfDownload}
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 

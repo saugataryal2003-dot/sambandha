@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
 import { useLang } from '@/lib/i18n';
+import { HomeButton } from '@/components/layout/HomeButton';
 
 interface LunchSet {
   name: string;
@@ -149,6 +150,7 @@ export default function LunchMenuPage() {
 
   return (
     <main className="min-h-screen bg-ink">
+      <HomeButton />
       {/* Hero section */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <div className="pointer-events-none absolute inset-0 grid-lines opacity-20" />

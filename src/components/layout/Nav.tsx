@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X, Phone, Globe } from 'lucide-react';
-import { NAV_LINKS, RESTAURANT } from '@/lib/utils';
+import { RESTAURANT } from '@/lib/utils';
 import { cn } from '@/lib/utils';
 import { useLang } from '@/lib/i18n';
 

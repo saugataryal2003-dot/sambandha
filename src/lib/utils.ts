@@ -25,12 +25,3 @@ export const RESTAURANT = {
   parkingEn: 'Free parking available nearby (5 spaces)',
 } as const;
 
-export const NAV_LINKS = [
-  { label: 'ホーム', href: '#home' },
-  { label: 'メニュー', href: '#menu' },
-  { label: 'ランチ', href: '/menu/lunch' },
-  { label: '私たちについて', href: '#about' },
-  { label: 'ギャラリー', href: '#gallery' },
-  { label: 'ご予約', href: '#reservations' },
-  { label: 'お問合せ', href: '#contact' },
-] as const;

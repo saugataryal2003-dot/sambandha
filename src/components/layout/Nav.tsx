@@ -1,17 +1,47 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState, useCallback } from 'react';
+import { AnimatePresence, motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import { Menu, X, Phone, Globe } from 'lucide-react';
 import { RESTAURANT } from '@/lib/utils';
 import { cn } from '@/lib/utils';
 import { useLang } from '@/lib/i18n';
+import { useRouter, usePathname } from 'next/navigation';
+
+const DRAG_THRESHOLD = 100;
 
 export function Nav() {
   const { lang, setLang, t } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const router = useRouter();
+  const pathname = usePathname();
+  const isSubPage = pathname !== '/';
+
+  const x = useMotionValue(0);
+  const trailOpacity = useTransform(x, [-DRAG_THRESHOLD, -30, 0], [1, 0.4, 0]);
+  const chipScale = useTransform(x, [-DRAG_THRESHOLD, 0], [0.85, 1]);
+  const overlayOpacity = useTransform(x, [-DRAG_THRESHOLD, 0], [0.4, 0]);
+
+  const handleDragEnd = useCallback(() => {
+    if (x.get() < -DRAG_THRESHOLD) {
+      animate(x, -600, {
+        type: 'spring', stiffness: 200, damping: 30,
+        onComplete: () => { router.push('/'); x.set(0); },
+      });
+    } else {
+      animate(x, 0, { type: 'spring', stiffness: 300, damping: 28 });
+    }
+  }, [x, router]);
+
+  const handleLogoClick = useCallback(() => {
+    if (isSubPage) {
+      router.push('/');
+    } else {
+      document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [isSubPage, router]);
 
   const navLinks = [
     { label: t.nav.home, href: '#home' },
@@ -65,20 +95,47 @@ export function Nav() {
         )}
       >
         <nav className="flex items-center justify-between px-5 py-3 md:px-7 md:py-3.5">
-          <a href="#home" className="group flex items-center gap-3">
-            <div className="relative h-9 w-9 overflow-hidden rounded-full ring-1 ring-saffron-300/30 transition group-hover:ring-saffron-300/60">
+          {/* Logo — draggable S circle + static text */}
+          <div className="group flex items-center gap-3">
+            {/* Overlay dims page during drag on sub-pages */}
+            {isSubPage && (
+              <motion.div
+                className="pointer-events-none fixed inset-0 z-40 bg-ink"
+                style={{ opacity: overlayOpacity }}
+                aria-hidden
+              />
+            )}
+            {/* "← Home" trail that appears while dragging */}
+            <motion.span
+              style={{ opacity: trailOpacity }}
+              className="pointer-events-none absolute left-12 font-jp text-xs text-cream/70 select-none"
+              aria-hidden
+            >
+              ← Home
+            </motion.span>
+            {/* Draggable S circle */}
+            <motion.button
+              drag="x"
+              dragConstraints={{ left: -600, right: 0 }}
+              dragElastic={{ left: 0.15, right: 0.05 }}
+              style={{ x, scale: chipScale }}
+              onDragEnd={handleDragEnd}
+              onClick={handleLogoClick}
+              aria-label={isSubPage ? 'Drag left or tap to go home' : 'Scroll to top'}
+              className="relative h-9 w-9 cursor-grab overflow-hidden rounded-full ring-1 ring-saffron-300/30 transition hover:ring-saffron-300/60 active:cursor-grabbing"
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-saffron-200 via-saffron-300 to-saffron-500" />
               <span className="relative flex h-full w-full items-center justify-center font-display text-base font-bold text-ink">
                 S
               </span>
-            </div>
+            </motion.button>
             <div className="hidden flex-col leading-none sm:flex">
               <span className="font-display text-lg font-medium tracking-wide text-cream">
                 Sambandha
               </span>
               <span className="font-jp text-[10px] text-cream/50">サンバンダ</span>
             </div>
-          </a>
+          </div>
 
           <ul className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => {

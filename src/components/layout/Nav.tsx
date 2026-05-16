@@ -16,7 +16,7 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const router = useRouter();
-  const pathname = usePathname();
+  const pathname = usePathname() || '/';
   const isSubPage = pathname !== '/';
 
   const x = useMotionValue(0);

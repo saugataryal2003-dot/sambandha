@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Sparkles, Flame, HeartHandshake, Leaf } from 'lucide-react';
+import { Sparkles, Flame, HeartHandshake, Leaf, Wheat } from 'lucide-react';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
 import { useLang } from '@/lib/i18n';
 
@@ -42,7 +42,7 @@ export function About() {
               />
               {/* Naan badge */}
               <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 rounded-xl bg-ink/80 px-4 py-3 backdrop-blur">
-                <span className="text-2xl">🫓</span>
+                <Wheat className="h-5 w-5 flex-none text-saffron-300" strokeWidth={1.5} />
                 <div>
                   <p className="font-jp text-sm font-semibold text-saffron-300">{t.about.naanBadge}</p>
                   <p className="font-jp text-xs text-cream/60">{t.about.naanCaption}</p>

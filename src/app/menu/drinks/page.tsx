@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
-import { SwipeHome } from '@/components/layout/SwipeHome';
 
 interface DrinkItem {
   jp: string;
@@ -184,7 +183,6 @@ function DrinkSection({ section, index }: { section: DrinkSection; index: number
 export default function DrinksMenuPage() {
   return (
     <main className="min-h-screen bg-ink">
-      <SwipeHome />
       {/* Hero section */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <div className="pointer-events-none absolute inset-0 grid-lines opacity-20" />

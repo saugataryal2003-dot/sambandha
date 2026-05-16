@@ -32,7 +32,7 @@ export function About() {
           <div className="relative lg:col-span-5">
             <motion.div
               style={{ y: imgY }}
-              className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/[0.08]"
+              className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/[0.12] shadow-ios-lg"
             >
               <img
                 src="/images/naan.jpg"
@@ -102,7 +102,7 @@ export function About() {
                     delay: 0.4 + i * 0.08,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="group relative overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 transition-colors hover:border-white/15 hover:bg-white/[0.04]"
+                  className="group relative overflow-hidden rounded-2xl glass-card-light p-5 transition-all duration-300 hover:glass-card-medium hover:-translate-y-1 hover:shadow-ios-md"
                 >
                   <pillar.icon
                     className="h-5 w-5 text-saffron-300 transition-transform group-hover:scale-110"

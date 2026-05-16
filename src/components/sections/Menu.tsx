@@ -261,7 +261,7 @@ function BentoCard({
         href={href}
         target={external ? '_blank' : undefined}
         rel={external ? 'noreferrer' : undefined}
-        className={`group relative block overflow-hidden rounded-2xl border border-white/[0.08] ${className}`}
+        className={`group relative block overflow-hidden rounded-3xl border border-white/[0.12] shadow-ios-md transition-all duration-300 hover:shadow-ios-lg hover:-translate-y-1 ${className}`}
       >
         {children}
       </a>

@@ -36,3 +36,4 @@ screenshot.js
 
 # TypeScript incremental build cache
 *.tsbuildinfo
+__pycache__/

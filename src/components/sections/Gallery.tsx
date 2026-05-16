@@ -118,7 +118,7 @@ function GalleryItem({
         delay: index * 0.07,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className={`group relative overflow-hidden rounded-2xl border border-white/[0.06] ${rowSpanClass}`}
+      className={`group relative overflow-hidden rounded-3xl border border-white/[0.12] shadow-ios-md transition-all duration-300 hover:shadow-ios-lg ${rowSpanClass}`}
     >
       <img
         src={photo.src}

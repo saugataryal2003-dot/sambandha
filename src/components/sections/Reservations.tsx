@@ -171,7 +171,7 @@ export function Reservations() {
         </div>
 
         <Reveal delay={0.2}>
-          <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.02] p-6 backdrop-blur-xl md:p-12">
+          <div className="glass-card relative overflow-hidden p-6 shadow-ios-lg md:p-12">
             <AnimatePresence mode="wait">
               {!submitted ? (
                 <motion.form
@@ -321,7 +321,7 @@ function Field({
   children,
 }: FieldProps) {
   const baseStyle =
-    'peer w-full appearance-none rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 pl-11 text-sm text-cream placeholder-cream/30 transition-colors focus:border-saffron-300/60 focus:bg-white/[0.05] focus:outline-none';
+    'peer w-full appearance-none rounded-2xl border border-white/15 bg-white/[0.08] backdrop-blur px-4 py-3.5 pl-11 text-sm text-cream placeholder-cream/40 transition-all duration-200 focus:border-saffron-300/60 focus:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-saffron-300/20';
 
   return (
     <label className="relative block">

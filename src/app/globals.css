@@ -64,14 +64,11 @@
   }
 
   .text-gradient-gold {
-    @apply bg-gradient-to-r from-saffron-200 via-saffron-300 to-saffron-500 bg-clip-text text-transparent;
+    color: #D4A574;
   }
 
   .text-gradient-warm {
-    background: linear-gradient(135deg, #F5E5D0 0%, #D4A574 40%, #9A7B2E 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #D4A574;
   }
 
   .glass {
@@ -79,7 +76,7 @@
   }
 
   .glass-dark {
-    @apply backdrop-blur-2xl bg-black/40 border border-white/[0.06];
+    @apply backdrop-blur-2xl bg-ink/40 border border-white/[0.06];
   }
 
   .grain {

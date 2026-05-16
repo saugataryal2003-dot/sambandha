@@ -32,7 +32,7 @@ export function PageLoader() {
               className="relative h-14 w-14"
             >
               <span className="absolute inset-0 rounded-full border border-white/10" />
-              <span className="absolute inset-0 rounded-full border-t-2 border-saffron-300" />
+              <span className="absolute inset-0 rounded-full border border-transparent border-t-saffron-300" />
             </motion.div>
             <p className="font-display text-2xl font-light tracking-wide text-cream/90">
               Sambandha

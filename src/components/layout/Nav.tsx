@@ -60,7 +60,7 @@ export function Nav() {
           'fixed left-1/2 top-4 z-50 -translate-x-1/2 transition-all duration-500',
           'w-[calc(100%-2rem)] max-w-6xl rounded-full',
           scrolled
-            ? 'border border-white/[0.08] bg-black/40 backdrop-blur-2xl shadow-2xl shadow-black/40'
+            ? 'border border-white/[0.08] bg-ink/40 backdrop-blur-2xl shadow-2xl shadow-ink/40'
             : 'border border-transparent bg-transparent'
         )}
       >

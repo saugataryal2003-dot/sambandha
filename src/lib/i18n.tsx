@@ -65,9 +65,11 @@ interface TranslationShape {
       hours: string;
       parking: string;
       email: string;
+      delivery: string;
     };
     openDaily: string;
     bookByPhone: string;
+    orderOnUberEats: string;
   };
   footer: {
     tagline: string;
@@ -171,9 +173,11 @@ export const translations: Record<Lang, TranslationShape> = {
         hours: '営業時間',
         parking: '駐車場',
         email: 'メール',
+        delivery: 'デリバリー',
       },
       openDaily: '毎日営業 · Open Daily',
       bookByPhone: '電話でご予約',
+      orderOnUberEats: 'Uber Eatsで注文',
     },
     footer: {
       tagline: '文化と味の繋がり。インドから直輸入したスパイスと、変わらぬ伝統で、心を込めて手作りした本場のインド料理。',
@@ -275,9 +279,11 @@ export const translations: Record<Lang, TranslationShape> = {
         hours: 'Hours',
         parking: 'Parking',
         email: 'Email',
+        delivery: 'Delivery',
       },
       openDaily: 'Open Daily',
       bookByPhone: 'Call to Book',
+      orderOnUberEats: 'Order on Uber Eats',
     },
     footer: {
       tagline: 'A connection of cultures and flavors. Spices imported from India, prepared with timeless tradition — authentic Indian cuisine, handmade with heart.',

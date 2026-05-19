@@ -150,7 +150,7 @@ export default function LunchMenuPage() {
   return (
     <main className="min-h-screen bg-ink">
       {/* Hero section */}
-      <section className="relative overflow-hidden py-24 md:py-32">
+      <section className="relative overflow-hidden py-32">
         <div className="pointer-events-none absolute inset-0 grid-lines opacity-20" />
         <div className="container mx-auto max-w-4xl px-6 relative z-10">
           <Reveal>
@@ -161,7 +161,7 @@ export default function LunchMenuPage() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h1 className="font-jp text-5xl md:text-6xl font-light leading-[1.1] text-cream mb-6">
+            <h1 className="font-jp text-6xl font-light leading-[1.1] text-cream mb-6">
               {labels.title1}<br />
               <span className="text-gradient-warm">{labels.title2}</span>
             </h1>
@@ -176,7 +176,7 @@ export default function LunchMenuPage() {
       </section>
 
       {/* Lunch sets grid */}
-      <section className="py-20 md:py-28">
+      <section className="py-28">
         <div className="container mx-auto max-w-5xl px-6">
           <div className="grid gap-6 md:grid-cols-2">
             {LUNCH_SETS.map((set, i) => (
@@ -187,7 +187,7 @@ export default function LunchMenuPage() {
       </section>
 
       {/* PDF menu section */}
-      <section className="py-20 md:py-28 border-t border-white/[0.06]">
+      <section className="py-28 border-t border-white/[0.06]">
         <div className="container mx-auto max-w-5xl px-6">
           <Reveal>
             <div className="mb-10 text-center">
@@ -196,7 +196,7 @@ export default function LunchMenuPage() {
                 {labels.pdfEyebrow}
                 <span className="h-px w-8 bg-saffron-300" />
               </p>
-              <h2 className="font-jp text-3xl md:text-4xl font-light text-cream">
+              <h2 className="font-jp text-4xl font-light text-cream">
                 {labels.pdfTitle}
               </h2>
               <p className="font-jp text-sm text-cream/60 mt-2">
@@ -250,11 +250,11 @@ export default function LunchMenuPage() {
       </section>
 
       {/* Info section */}
-      <section className="py-20 md:py-28 border-t border-white/[0.06]">
+      <section className="py-28 border-t border-white/[0.06]">
         <div className="container mx-auto max-w-4xl px-6">
           <Reveal>
             <div className="text-center">
-              <h2 className="font-jp text-3xl font-light text-cream mb-6">
+              <h2 className="font-jp text-4xl font-light text-cream mb-6">
                 {labels.visitTitle}
               </h2>
               <div className="grid gap-8 md:grid-cols-2">

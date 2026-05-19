@@ -61,13 +61,13 @@ export function Menu() {
   const dessertLabel = lang === 'ja' ? 'デザートメニュー' : 'Dessert Menu';
 
   return (
-    <section id="menu" className="relative overflow-hidden bg-ink py-24 md:py-36">
+    <section id="menu" className="relative overflow-hidden bg-ink py-36">
       {/* Background accents */}
       <div className="pointer-events-none absolute right-0 top-32 h-[500px] w-[500px] rounded-full bg-saffron-500/[0.06] blur-3xl" />
       <div className="pointer-events-none absolute left-0 bottom-32 h-[400px] w-[400px] rounded-full bg-flame/[0.05] blur-3xl" />
 
       <div className="container relative mx-auto max-w-7xl px-6">
-        <div className="mb-16 flex flex-wrap items-end justify-between gap-6 md:mb-24">
+        <div className="mb-24 flex flex-wrap items-end justify-between gap-6">
           <div>
             <Reveal>
               <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
@@ -75,7 +75,7 @@ export function Menu() {
                 {t.menu.eyebrow}
               </p>
             </Reveal>
-            <h2 className="font-jp text-4xl font-light leading-[1.2] text-cream md:text-5xl lg:text-6xl">
+            <h2 className="font-jp text-5xl font-light leading-[1.2] text-cream lg:text-6xl">
               <RevealText>{t.menu.title1}</RevealText>
               <br />
               <RevealText delay={0.15} className="text-gradient-warm">
@@ -84,14 +84,14 @@ export function Menu() {
             </h2>
           </div>
           <Reveal delay={0.4} className="max-w-md">
-            <p className="font-jp text-base leading-relaxed text-cream/60 md:text-lg">
+            <p className="font-jp text-lg leading-relaxed text-cream/60">
               {t.menu.description}
             </p>
           </Reveal>
         </div>
 
         {/* Bento grid */}
-        <div className="grid auto-rows-[180px] grid-cols-2 gap-3 md:auto-rows-[200px] md:grid-cols-4 md:gap-4 lg:auto-rows-[220px] lg:grid-cols-6">
+        <div className="grid auto-rows-[220px] grid-cols-2 gap-4 lg:grid-cols-6">
           {/* Featured Lunch — large */}
           <BentoCard
             className="col-span-2 row-span-2 md:col-span-2 md:row-span-2 lg:col-span-3 lg:row-span-2"
@@ -147,7 +147,7 @@ export function Menu() {
         </div>
 
         {/* Lunch Menu Section */}
-        <div className="mt-20 md:mt-28">
+        <div className="mt-28">
           <Reveal>
             <div className="mb-12 text-center">
               <p className="mb-3 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
@@ -155,10 +155,10 @@ export function Menu() {
                 {t.menu.lunch.label}
                 <span className="h-px w-8 bg-saffron-300" />
               </p>
-              <h3 className="font-jp text-3xl font-light text-cream md:text-4xl">
+              <h3 className="font-jp text-4xl font-light text-cream">
                 {lunchLabel}
               </h3>
-              <p className="font-jp text-sm text-cream/60 mt-2">
+              <p className="font-jp text-base text-cream/60 mt-2">
                 {lunchHours}
               </p>
             </div>
@@ -166,7 +166,7 @@ export function Menu() {
         </div>
 
         {/* Lunch sets grid */}
-        <div className="grid gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-4">
+        <div className="grid gap-4 lg:grid-cols-4">
           {LUNCH_SETS.map((set, i) => (
             <motion.div
               key={set.name}
@@ -178,7 +178,7 @@ export function Menu() {
                 delay: i * 0.08,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className={`group relative overflow-hidden rounded-2xl border p-6 transition-colors md:p-8 ${
+              className={`group relative overflow-hidden rounded-2xl border p-8 transition-colors ${
                 set.flagship
                   ? 'border-saffron-300/30 bg-gradient-to-br from-saffron-500/10 to-transparent hover:border-saffron-300/60'
                   : 'border-white/[0.08] bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]'
@@ -191,12 +191,12 @@ export function Menu() {
                 </div>
               )}
               <p className="text-xs uppercase tracking-wider text-cream/50">{set.name}</p>
-              <h3 className="mt-2 font-jp text-2xl font-light text-cream md:text-3xl">
+              <h3 className="mt-2 font-jp text-3xl font-light text-cream">
                 {lang === 'ja' ? set.nameJp : set.name}
               </h3>
               <div className="mt-8 flex items-end justify-between">
                 <div>
-                  <p className="font-display text-4xl font-light text-gradient-warm md:text-5xl">
+                  <p className="font-display text-5xl font-light text-gradient-warm">
                     {set.price}
                   </p>
                   <p className="mt-1 text-xs text-cream/40">{set.tax}</p>
@@ -208,9 +208,9 @@ export function Menu() {
         </div>
 
         {/* CTA row */}
-        <Reveal className="mt-16 flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/[0.08] bg-white/[0.02] p-8 md:flex-row md:p-10">
+        <Reveal className="mt-16 flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/[0.08] bg-white/[0.02] p-10 lg:flex-row">
           <div>
-            <p className="font-jp text-2xl font-light text-cream md:text-3xl">
+            <p className="font-jp text-3xl font-light text-cream">
               {ctaTitle}
             </p>
             <p className="mt-2 font-jp text-sm text-cream/60">
@@ -303,7 +303,7 @@ function BentoCard({
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
       <div
         className={`absolute inset-0 flex flex-col justify-between ${
-          small ? 'p-4' : 'p-6 md:p-8'
+          small ? 'p-5' : 'p-8'
         }`}
       >
         <div className="flex items-center justify-between">
@@ -320,13 +320,13 @@ function BentoCard({
           <p className="text-[10px] uppercase tracking-wider text-cream/50">{labelEn}</p>
           <h3
             className={`mt-1 font-jp font-light leading-tight text-cream ${
-              small ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl lg:text-4xl'
+              small ? 'text-2xl' : 'text-3xl lg:text-4xl'
             }`}
           >
             {title}
           </h3>
           {description && (
-            <p className="mt-2 font-jp text-xs text-cream/60 md:text-sm">{description}</p>
+            <p className="mt-2 font-jp text-sm text-cream/60">{description}</p>
           )}
         </div>
       </div>

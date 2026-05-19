@@ -25,15 +25,15 @@ const LUNCH_SETS = [
   {
     name: 'Tandoori Set',
     nameJp: 'タンドリーセット',
-    price: '¥1,400',
-    tax: '税込 ¥1,540',
+    price: '¥1,580',
+    tax: '税込 ¥1,738',
     flagship: false,
   },
   {
     name: 'Sambandha Set',
     nameJp: 'サンバンダセット',
-    price: '¥1,580',
-    tax: '税込 ¥1,738',
+    price: '¥1,680',
+    tax: '税込 ¥1,848',
     flagship: true,
   },
 ];

@@ -158,7 +158,7 @@ export function Hero() {
               className="absolute right-0 top-6 h-[340px] w-[230px] overflow-hidden rounded-3xl border border-white/15 lg:h-[380px] lg:w-[260px]"
               style={{ boxShadow: '0 20px 60px rgba(10,8,7,0.5)' }}
             >
-              <img src={FOOD_IMAGES[2]} alt="" className="h-full w-full object-cover" loading="lazy" />
+              <img src={FOOD_IMAGES[2]} alt="Sambandha butter chicken curry" className="h-full w-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
             </motion.div>
 
@@ -170,7 +170,7 @@ export function Hero() {
               className="absolute bottom-4 left-0 h-[300px] w-[200px] overflow-hidden rounded-3xl border border-white/15 lg:h-[340px] lg:w-[230px]"
               style={{ boxShadow: '0 20px 60px rgba(10,8,7,0.5)' }}
             >
-              <img src={FOOD_IMAGES[1]} alt="" className="h-full w-full object-cover" loading="lazy" />
+              <img src={FOOD_IMAGES[1]} alt="Sambandha Indian food spread" className="h-full w-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
             </motion.div>
 

@@ -296,7 +296,7 @@ function BentoCard({
     <Wrapper>
       <motion.img
         src={image}
-        alt=""
+        alt={title}
         loading={priority ? 'eager' : 'lazy'}
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
       />

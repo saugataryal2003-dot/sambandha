@@ -311,6 +311,14 @@ interface FieldProps {
   children?: React.ReactNode;
 }
 
+const inputModeMap: Record<string, React.HTMLAttributes<HTMLInputElement>['inputMode']> = {
+  tel: 'tel',
+  email: 'email',
+  date: 'numeric',
+  time: 'numeric',
+  number: 'numeric',
+};
+
 function Field({
   icon,
   label,
@@ -321,11 +329,11 @@ function Field({
   children,
 }: FieldProps) {
   const baseStyle =
-    'peer w-full appearance-none rounded-2xl border border-white/15 bg-white/[0.08] backdrop-blur px-4 py-3.5 pl-11 text-sm text-cream placeholder-cream/40 transition-all duration-200 focus:border-saffron-300/60 focus:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-saffron-300/20';
+    'peer w-full appearance-none rounded-2xl border border-white/15 bg-white/[0.08] backdrop-blur px-4 py-4 pl-11 text-base text-cream placeholder-cream/40 transition-all duration-200 focus:border-saffron-300/60 focus:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-saffron-300/20 min-h-[52px]';
 
   return (
-    <label className="relative block">
-      <span className="mb-2 block font-jp text-xs font-medium tracking-wider text-cream/50">
+    <label className="relative block cursor-pointer">
+      <span className="mb-2 block font-jp text-sm font-medium tracking-wider text-cream/60">
         {label}
         {required && <span className="ml-1 text-saffron-300">*</span>}
       </span>
@@ -334,7 +342,7 @@ function Field({
           {icon}
         </span>
         {type === 'select' ? (
-          <select name={name} required={required} className={baseStyle} defaultValue="">
+          <select name={name} required={required} className={`${baseStyle} cursor-pointer`} defaultValue="">
             {children}
           </select>
         ) : type === 'textarea' ? (
@@ -342,13 +350,14 @@ function Field({
             name={name}
             required={required}
             placeholder={placeholder}
-            rows={3}
+            rows={4}
             className={`${baseStyle} resize-none`}
           />
         ) : (
           <input
             name={name}
             type={type}
+            inputMode={inputModeMap[type]}
             required={required}
             placeholder={placeholder}
             className={baseStyle}

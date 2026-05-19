@@ -79,7 +79,7 @@ export function FloatingActionButton() {
         transition={{ duration: 0.5, delay: 0.1 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 right-6 z-50 flex items-center justify-center h-14 w-14 rounded-full bg-saffron-300 text-ink shadow-lg shadow-saffron-500/40 transition-colors md:hidden"
+        className="fixed bottom-6 right-6 z-50 flex cursor-pointer items-center justify-center h-14 w-14 rounded-full bg-saffron-300 text-ink shadow-lg shadow-saffron-500/40 transition-colors md:hidden"
         aria-label={open ? 'Close menu' : 'Open quick actions'}
       >
         <AnimatePresence mode="wait">

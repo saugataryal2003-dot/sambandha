@@ -8,6 +8,8 @@ const DESSERTS = [
   {
     name: 'Chocolate Cheese Naan',
     nameJp: 'チョコレートチーズナン',
+    price: '¥800',
+    tax: '税込 ¥880',
     description: 'ふわふわのナン生地にとろけるチーズとリッチなチョコレートを包み込んだ、当店自慢のデザート。',
     descriptionEn: 'Our signature dessert — fluffy naan dough filled with melted cheese and rich chocolate. A must-try.',
     flagship: true,
@@ -112,6 +114,14 @@ export default function DessertMenuPage() {
               <p className="mt-4 font-jp text-sm leading-relaxed text-cream/70">
                 {lang === 'ja' ? item.description : item.descriptionEn}
               </p>
+              <div className="mt-6 flex items-baseline justify-between border-t border-white/[0.06] pt-6">
+                <div>
+                  <p className="font-display text-4xl font-light text-saffron-300">
+                    {item.price}
+                  </p>
+                  <p className="font-jp text-xs text-cream/40">{item.tax}</p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

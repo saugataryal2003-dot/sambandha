@@ -23,6 +23,18 @@
     @apply bg-ink text-cream font-sans antialiased overflow-x-hidden;
     background-color: #0A0807;
     color: #FAFAF7;
+    touch-action: manipulation;
+  }
+
+  /* Eliminate 300ms tap delay on all interactive elements */
+  a, button, [role="button"], input, select, textarea, label {
+    touch-action: manipulation;
+  }
+
+  /* Ensure all interactive elements have pointer cursor */
+  a, button, [role="button"], [onclick], select,
+  label[for], summary {
+    cursor: pointer;
   }
 
   /* Selection */

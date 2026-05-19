@@ -168,14 +168,14 @@ export function Nav() {
               type="button"
               onClick={() => setLang(lang === 'ja' ? 'en' : 'ja')}
               aria-label="Toggle language"
-              className="flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-cream/70 transition hover:border-saffron-300/40 hover:text-saffron-300"
+              className="flex min-h-[44px] min-w-[44px] cursor-pointer items-center justify-center gap-1.5 rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-cream/70 transition hover:border-saffron-300/40 hover:text-saffron-300"
             >
               <Globe className="h-3.5 w-3.5" />
               <span className="font-medium">{lang === 'ja' ? 'EN' : '日本語'}</span>
             </button>
             <a
               href={`tel:${RESTAURANT.phoneRaw}`}
-              className="hidden items-center gap-2 rounded-full border border-white/10 px-3.5 py-1.5 text-xs font-medium text-cream/80 transition hover:border-saffron-300/40 hover:text-saffron-300 sm:flex"
+              className="hidden min-h-[44px] cursor-pointer items-center gap-2 rounded-full border border-white/10 px-3.5 py-1.5 text-xs font-medium text-cream/80 transition hover:border-saffron-300/40 hover:text-saffron-300 sm:flex"
             >
               <Phone className="h-3.5 w-3.5" />
               <span>{RESTAURANT.phone}</span>

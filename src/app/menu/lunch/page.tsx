@@ -208,14 +208,14 @@ export default function LunchMenuPage() {
           <Reveal delay={0.1}>
             <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02]">
               <object
-                data="/menus/lunch-menu.pdf#view=FitH"
+                data="/menus/lunch-menu.pdf?v=2#view=FitH"
                 type="application/pdf"
                 className="block h-[80vh] min-h-[600px] w-full"
                 aria-label={labels.pdfTitle}
               >
                 <div className="flex h-[400px] items-center justify-center p-8 text-center">
                   <a
-                    href="/menus/lunch-menu.pdf"
+                    href="/menus/lunch-menu.pdf?v=2"
                     target="_blank"
                     rel="noreferrer"
                     className="font-jp text-saffron-300 underline"
@@ -230,7 +230,7 @@ export default function LunchMenuPage() {
           <Reveal delay={0.2}>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <a
-                href="/menus/lunch-menu.pdf"
+                href="/menus/lunch-menu.pdf?v=2"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-saffron-300 px-6 py-3 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200"
@@ -238,7 +238,7 @@ export default function LunchMenuPage() {
                 {labels.pdfOpen}
               </a>
               <a
-                href="/menus/lunch-menu.pdf"
+                href="/menus/lunch-menu.pdf?v=2"
                 download
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 font-jp text-sm font-medium text-cream backdrop-blur transition hover:border-white/30 hover:bg-white/[0.06]"
               >

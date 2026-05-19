@@ -1,6 +1,6 @@
 'use client';
 
-import { MapPin, Phone, Mail, Clock, Car } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Car, Zap } from 'lucide-react';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import { RESTAURANT } from '@/lib/utils';
@@ -129,13 +129,22 @@ export function Contact() {
               );
             })}
 
-            <Reveal delay={0.5} className="mt-2">
+            <Reveal delay={0.5} className="mt-2 grid gap-3 sm:grid-cols-2">
               <MagneticButton href={`tel:${RESTAURANT.phoneRaw}`}>
                 <span className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-saffron-300 px-6 py-4 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
                   {t.contact.bookByPhone}
                   <Phone className="h-4 w-4 transition group-hover:rotate-12" />
                 </span>
               </MagneticButton>
+              <a
+                href={RESTAURANT.uberEatsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center justify-center gap-2 rounded-2xl border border-saffron-300/40 bg-saffron-300/5 px-6 py-4 font-jp text-sm font-semibold text-saffron-300 transition hover:border-saffron-300/60 hover:bg-saffron-300/10"
+              >
+                {t.contact.orderOnUberEats}
+                <Zap className="h-4 w-4 transition group-hover:scale-110" />
+              </a>
             </Reveal>
           </div>
         </div>

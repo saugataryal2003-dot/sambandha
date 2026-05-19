@@ -36,8 +36,8 @@ const LUNCH_SETS: LunchSet[] = [
   {
     name: 'Tandoori Set',
     nameJp: 'タンドリーセット',
-    price: '¥1,400',
-    tax: '税込 ¥1,540',
+    price: '¥1,580',
+    tax: '税込 ¥1,738',
     description: 'タンドール窯で焼いた、香ばしいタンドーリチキンが主役。',
     descriptionEn: 'Charred tandoori chicken from the clay oven takes center stage.',
     flagship: false,
@@ -45,8 +45,8 @@ const LUNCH_SETS: LunchSet[] = [
   {
     name: 'Sambandha Set',
     nameJp: 'サンバンダセット',
-    price: '¥1,580',
-    tax: '税込 ¥1,738',
+    price: '¥1,680',
+    tax: '税込 ¥1,848',
     description: '当店の旗艦メニュー。シェフおすすめの6種の料理と2種のカレー。最高のひとときを。',
     descriptionEn: 'Our flagship menu — 6 chef-selected dishes and 2 curries. A complete experience.',
     flagship: true,

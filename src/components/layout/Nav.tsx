@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useMemo } from 'react';
 import { AnimatePresence, motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import { Menu, X, Phone, Globe } from 'lucide-react';
 import { RESTAURANT } from '@/lib/utils';
@@ -16,7 +16,7 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const router = useRouter();
-  const pathname = usePathname();
+  const pathname = usePathname() || '/';
   const isSubPage = pathname !== '/';
 
   const x = useMotionValue(0);
@@ -33,7 +33,7 @@ export function Nav() {
     } else {
       animate(x, 0, { type: 'spring', stiffness: 300, damping: 28 });
     }
-  }, [x, router]);
+  }, [router]);
 
   const handleLogoClick = useCallback(() => {
     if (isSubPage) {
@@ -43,15 +43,14 @@ export function Nav() {
     }
   }, [isSubPage, router]);
 
-  const navLinks = [
+  const navLinks = useMemo(() => [
     { label: t.nav.home, href: '#home' },
     { label: t.nav.menu, href: '#menu' },
-    { label: t.nav.lunch, href: '/menu/lunch' },
     { label: t.nav.about, href: '#about' },
     { label: t.nav.gallery, href: '#gallery' },
     { label: t.nav.reservations, href: '#reservations' },
     { label: t.nav.contact, href: '#contact' },
-  ];
+  ], [t]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -71,7 +70,7 @@ export function Nav() {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [navLinks]);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';

@@ -44,6 +44,7 @@ const SIGNATURE_IMAGES = {
   tandoori: '/images/tandoori-chicken.jpg',
   naan: '/images/naan.jpg',
   curry: '/images/butter-chicken.jpg',
+  dessert: '/images/IMG_2356.jpeg',
 };
 
 export function Menu() {
@@ -57,6 +58,7 @@ export function Menu() {
     : 'A wide variety of drinks available. For groups or special requests, please call us.';
   const drinksLabel = lang === 'ja' ? 'ドリンクメニュー' : 'Drinks Menu';
   const lunchPdfLabel = lang === 'ja' ? 'ランチメニュー' : 'Lunch Menu (PDF)';
+  const dessertLabel = lang === 'ja' ? 'デザートメニュー' : 'Dessert Menu';
 
   return (
     <section id="menu" className="relative overflow-hidden bg-ink py-24 md:py-36">
@@ -130,6 +132,17 @@ export function Menu() {
             labelEn={t.menu.curry.labelEn}
             title={t.menu.curry.title}
             small
+          />
+
+          {/* Dessert — Chocolate Cheese Naan */}
+          <BentoCard
+            className="col-span-2 row-span-1 md:col-span-4 lg:col-span-6"
+            image={SIGNATURE_IMAGES.dessert}
+            label={lang === 'ja' ? 'デザート · NEW' : 'Dessert · NEW'}
+            labelEn={lang === 'ja' ? 'Dessert' : 'デザート'}
+            title={lang === 'ja' ? 'チョコレートチーズナン' : 'Chocolate Cheese Naan'}
+            description={lang === 'ja' ? '新登場！チョコとチーズの絶妙な組み合わせ。' : 'New! A perfect blend of chocolate and cheese in fresh naan.'}
+            href="/menu/dessert"
           />
         </div>
 
@@ -220,6 +233,12 @@ export function Menu() {
             <MagneticButton href="/menus/lunch-menu.pdf">
               <span className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm font-medium text-cream backdrop-blur transition hover:border-white/30 hover:bg-white/[0.06]">
                 {lunchPdfLabel}
+                <ExternalLink className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
+              </span>
+            </MagneticButton>
+            <MagneticButton href="/menu/dessert">
+              <span className="group inline-flex items-center gap-2 rounded-full border border-saffron-300/40 bg-saffron-300/5 px-6 py-3 font-jp text-sm font-medium text-saffron-300 transition hover:border-saffron-300/60 hover:bg-saffron-300/10">
+                {dessertLabel}
                 <ExternalLink className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
               </span>
             </MagneticButton>

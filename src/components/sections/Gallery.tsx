@@ -37,6 +37,12 @@ const PHOTOS = [
     titleJp: 'タンドリーチキン',
     rowSpan: 2,
   },
+  {
+    src: '/images/IMG_2356.jpeg',
+    title: 'Chocolate Cheese Naan',
+    titleJp: 'チョコレートチーズナン',
+    rowSpan: 2,
+  },
 ];
 
 export function Gallery() {

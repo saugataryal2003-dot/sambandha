@@ -23,5 +23,6 @@ export const RESTAURANT = {
   hoursDetailed: '毎日営業 · Open Daily',
   parking: '無料駐車場あり（5台分・徒歩すぐ）',
   parkingEn: 'Free parking available nearby (5 spaces)',
+  uberEatsUrl: 'https://www.ubereats.com/store-browse-uuid/c099a3a4-7eae-4f3a-8329-3128e1e2ae2a?diningMode=DELIVERY',
 } as const;
 

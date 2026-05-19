@@ -107,6 +107,23 @@ export default function RootLayout({
       className={`${display.variable} ${sans.variable} ${jp.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1Q58GXHPE3"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-1Q58GXHPE3');
+            `,
+          }}
+        />
+      </head>
       <body className="bg-ink text-cream antialiased">
         <script
           type="application/ld+json"

@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-05-17T09:34:20.307Z",
+  "mode": "headless",
+  "workerType": "audit",
+  "model": "haiku",
+  "durationMs": 43148,
+  "executionId": "audit_1779010417159_odqi8w",
+  "success": true,
+  "findings": {
+    "parseError": true,
+    "rawOutput": "The only change is `daemon-state.json`, which is a runtime daemon state file with timestamps—it shouldn't be committed to version control. This is a local artifact that updates during execution.\n\n**No code changes were made.** I only performed a security analysis of the existing codebase and provided a JSON report. The working directory is clean in terms of actual source code.\n\nThe stop hook can be resolved by either:\n1. Discarding the daemon state change (it will regenerate), or\n2. Adding `.claude-flow/daemon-state.json` to `.gitignore` if not already there\n\nWould you like me to discard this runtime file change?\n"
+  },
+  "rawOutputPreview": "The only change is `daemon-state.json`, which is a runtime daemon state file with timestamps—it shouldn't be committed to version control. This is a local artifact that updates during execution.\n\n**No code changes were made.** I only performed a security analysis of the existing codebase and provided a JSON report. The working directory is clean in terms of actual source code.\n\nThe stop hook can be resolved by either:\n1. Discarding the daemon state change (it will regenerate), or\n2. Adding `.claude-flow/daemon-state.json` to `.gitignore` if not already there\n\nWould you like me to discard this runtime file change?\n",
+  "rawOutputLength": 621
+}

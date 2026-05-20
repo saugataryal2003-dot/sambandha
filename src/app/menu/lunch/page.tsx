@@ -1,7 +1,9 @@
 'use client';
 
+import { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
+import { LunchSetCardSkeleton } from '@/components/ui/MenuCardSkeleton';
 import { useLang } from '@/lib/i18n';
 
 interface LunchSet {
@@ -178,11 +180,17 @@ export default function LunchMenuPage() {
       {/* Lunch sets grid */}
       <section className="py-28">
         <div className="container mx-auto max-w-5xl px-6">
-          <div className="grid gap-6 md:grid-cols-2">
-            {LUNCH_SETS.map((set, i) => (
-              <LunchSetCard key={set.nameJp} set={set} index={i} />
-            ))}
-          </div>
+          <Suspense fallback={
+            <div className="grid gap-6 md:grid-cols-2">
+              {[0,1,2,3].map(i => <LunchSetCardSkeleton key={i} />)}
+            </div>
+          }>
+            <div className="grid gap-6 md:grid-cols-2">
+              {LUNCH_SETS.map((set, i) => (
+                <LunchSetCard key={set.nameJp} set={set} index={i} />
+              ))}
+            </div>
+          </Suspense>
         </div>
       </section>
 

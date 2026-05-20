@@ -1,9 +1,11 @@
 'use client';
 
+import { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, ExternalLink, Phone } from 'lucide-react';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
 import { MagneticButton } from '@/components/ui/MagneticButton';
+import { MenuCardSkeleton } from '@/components/ui/MenuCardSkeleton';
 import { RESTAURANT } from '@/lib/utils';
 import { useLang } from '@/lib/i18n';
 
@@ -166,6 +168,11 @@ export function Menu() {
         </div>
 
         {/* Lunch sets grid */}
+        <Suspense fallback={
+          <div className="grid gap-4 lg:grid-cols-4">
+            {[0,1,2,3].map(i => <MenuCardSkeleton key={i} />)}
+          </div>
+        }>
         <div className="grid gap-4 lg:grid-cols-4">
           {LUNCH_SETS.map((set, i) => (
             <motion.div
@@ -206,6 +213,7 @@ export function Menu() {
             </motion.div>
           ))}
         </div>
+        </Suspense>
 
         {/* CTA row */}
         <Reveal className="mt-16 flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/[0.08] bg-white/[0.02] p-10 lg:flex-row">

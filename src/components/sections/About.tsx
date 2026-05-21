@@ -68,13 +68,10 @@ export function About() {
           {/* Content */}
           <div className="lg:col-span-7">
             <Reveal>
-              <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
-                <span className="h-px w-8 bg-saffron-300" />
-                {t.about.eyebrow}
-              </p>
+              <p className="apple-eyebrow mb-4">{t.about.eyebrow}</p>
             </Reveal>
 
-            <h2 className="font-jp text-4xl font-light leading-[1.2] text-cream md:text-5xl lg:text-6xl">
+            <h2 className="apple-subhead font-jp text-cream">
               <RevealText>{t.about.title1}</RevealText>
               <br />
               <RevealText delay={0.15} className="text-gradient-warm">
@@ -102,7 +99,7 @@ export function About() {
                     delay: 0.4 + i * 0.08,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="group relative overflow-hidden rounded-2xl glass-card-light p-5 transition-all duration-300 hover:glass-card-medium hover:-translate-y-1 hover:shadow-ios-md"
+                  className="apple-card group relative overflow-hidden p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-ios-md"
                 >
                   <pillar.icon
                     className="h-5 w-5 text-saffron-300 transition-transform group-hover:scale-110"

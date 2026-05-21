@@ -14,7 +14,7 @@ export function Footer() {
       <div className="container mx-auto max-w-7xl px-6 py-20 md:py-28">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <h3 className="font-display text-5xl font-light leading-none text-cream md:text-6xl">
+            <h3 className="apple-subhead font-display text-cream">
               Sambandha
             </h3>
             <p className="mt-2 font-jp text-base text-saffron-300/80">サンバンダ</p>

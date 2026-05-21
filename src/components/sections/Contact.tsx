@@ -50,12 +50,9 @@ export function Contact() {
       <div className="container mx-auto max-w-7xl px-6">
         <div className="mb-12 md:mb-20">
           <Reveal>
-            <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
-              <span className="h-px w-8 bg-saffron-300" />
-              {t.contact.eyebrow}
-            </p>
+            <p className="apple-eyebrow mb-4">{t.contact.eyebrow}</p>
           </Reveal>
-          <h2 className="font-jp text-4xl font-light leading-[1.2] text-cream md:text-5xl lg:text-6xl">
+          <h2 className="apple-subhead font-jp text-cream">
             <RevealText>{t.contact.title1}</RevealText>
             <br />
             <RevealText delay={0.15} className="text-gradient-warm">
@@ -84,7 +81,7 @@ export function Contact() {
           <div className="grid gap-4 lg:col-span-5">
             {INFO_BLOCKS.map((block, i) => {
               const content = (
-                <div className="glass-card-light flex items-start gap-4 p-6 transition-all duration-300 group-hover:glass-card-medium group-hover:-translate-y-1 group-hover:shadow-ios-md">
+                <div className="apple-card flex items-start gap-4 p-6 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-ios-md">
                   <span className="grid h-10 w-10 flex-none place-items-center rounded-xl bg-saffron-300/10 text-saffron-300 ring-1 ring-saffron-300/20">
                     <block.icon className="h-4 w-4" strokeWidth={1.6} />
                   </span>

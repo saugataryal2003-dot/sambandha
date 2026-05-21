@@ -6,11 +6,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Keep existing for backward compat
         ink: {
-          DEFAULT: '#0A0807',
-          50: '#1A1410',
-          100: '#221A14',
-          200: '#2A2420',
+          DEFAULT: '#000000',
+          50: '#111111',
+          100: '#161616',
+          200: '#1d1d1f',
         },
         saffron: {
           DEFAULT: '#D4A574',
@@ -26,14 +27,30 @@ const config: Config = {
           light: '#F26F4C',
         },
         cream: {
-          DEFAULT: '#FAFAF7',
-          dim: '#F0EBE3',
+          DEFAULT: '#F5F5F7',
+          dim: '#E8E8ED',
+        },
+        // Apple design tokens
+        apple: {
+          black: '#000000',
+          dark: '#1d1d1f',
+          muted: '#6e6e73',
+          secondary: '#86868b',
+          light: '#f5f5f7',
+          white: '#ffffff',
+          gold: '#D4A574',
         },
       },
       fontFamily: {
         display: ['var(--font-display)', 'serif'],
-        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-sans)', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
         jp: ['var(--font-jp)', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['clamp(3.5rem, 9vw, 8rem)', { lineHeight: '1.04', letterSpacing: '-0.025em', fontWeight: '600' }],
+        'display-lg': ['clamp(2.5rem, 6vw, 5.5rem)', { lineHeight: '1.06', letterSpacing: '-0.02em', fontWeight: '600' }],
+        'display-md': ['clamp(2rem, 4vw, 3.5rem)', { lineHeight: '1.08', letterSpacing: '-0.018em', fontWeight: '600' }],
+        'apple-body': ['17px', { lineHeight: '1.65', fontWeight: '400' }],
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out forwards',

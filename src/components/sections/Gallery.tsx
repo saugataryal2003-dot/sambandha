@@ -64,14 +64,11 @@ export function Gallery() {
         <div className="mb-16 flex flex-wrap items-end justify-between gap-6 md:mb-20">
           <div>
             <Reveal>
-              <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
-                <span className="h-px w-8 bg-saffron-300" />
-                {eyebrow}
-              </p>
+              <p className="apple-eyebrow mb-4">{eyebrow}</p>
             </Reveal>
             <motion.h2
               style={{ x: headlineX }}
-              className={`${lang === 'ja' ? 'font-jp' : 'font-display'} text-5xl font-light leading-[0.95] text-cream md:text-7xl lg:text-8xl`}
+              className={`apple-headline ${lang === 'ja' ? 'font-jp' : 'font-display'} text-cream`}
             >
               <RevealText>{title1}</RevealText>
               <br />

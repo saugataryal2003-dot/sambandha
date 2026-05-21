@@ -51,16 +51,16 @@ const SIGNATURE_IMAGES = {
 
 export function Menu() {
   const { t, lang } = useLang();
-  const lunchLabel = lang === 'ja' ? 'ランチセット' : 'Lunch Sets';
-  const lunchHours = lang === 'ja' ? '毎日 11:00 — 15:00 でご提供' : 'Available daily 11:00 — 15:00';
-  const flagshipBadge = lang === 'ja' ? '人気' : 'Popular';
-  const ctaTitle = lang === 'ja' ? '本格インド料理と共に、世界の味わいを' : 'Authentic Indian cuisine, flavors of the world';
+  const lunchLabel = lang === 'ja' ? 'ランチセット' : 'Lunch sets';
+  const lunchHours = lang === 'ja' ? '毎日 11:00 — 15:00' : 'Daily · 11:00 — 15:00';
+  const flagshipBadge = lang === 'ja' ? '定番' : 'The one';
+  const ctaTitle = lang === 'ja' ? 'まだ迷っていますか？' : 'Still deciding?';
   const ctaDesc = lang === 'ja'
-    ? '豊富なドリンクメニューをご用意しています。団体様や特別なご要望はお電話にてご相談ください。'
-    : 'A wide variety of drinks available. For groups or special requests, please call us.';
-  const drinksLabel = lang === 'ja' ? 'ドリンクメニュー' : 'Drinks Menu';
-  const lunchPdfLabel = lang === 'ja' ? 'ランチメニュー' : 'Lunch Menu (PDF)';
-  const dessertLabel = lang === 'ja' ? 'デザートメニュー' : 'Dessert Menu';
+    ? 'ドリンクも豊富にご用意。大人数や特別なご要望はお電話で。'
+    : 'Drinks, desserts, the full menu — or just call us.';
+  const drinksLabel = lang === 'ja' ? 'ドリンクを見る' : 'See drinks';
+  const lunchPdfLabel = lang === 'ja' ? 'ランチPDF' : 'Lunch PDF';
+  const dessertLabel = lang === 'ja' ? 'デザート' : 'Desserts';
 
   return (
     <section id="menu" className="relative overflow-hidden bg-ink py-36">

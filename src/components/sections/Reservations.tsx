@@ -150,13 +150,9 @@ export function Reservations() {
       <div className="container relative mx-auto max-w-5xl px-6">
         <div className="mb-12 text-center md:mb-16">
           <Reveal>
-            <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
-              <span className="h-px w-8 bg-saffron-300" />
-              {labels.eyebrow}
-              <span className="h-px w-8 bg-saffron-300" />
-            </p>
+            <p className="apple-eyebrow mb-4">{labels.eyebrow}</p>
           </Reveal>
-          <h2 className="font-jp text-4xl font-light leading-[1.2] text-cream md:text-5xl lg:text-6xl">
+          <h2 className="apple-subhead font-jp text-cream">
             <RevealText>{labels.title1}</RevealText>
             <br />
             <RevealText delay={0.15} className="text-gradient-warm">
@@ -171,7 +167,7 @@ export function Reservations() {
         </div>
 
         <Reveal delay={0.2}>
-          <div className="glass-card relative overflow-hidden p-6 shadow-ios-lg md:p-12">
+          <div className="apple-card relative overflow-hidden p-6 shadow-ios-lg md:p-12">
             <AnimatePresence mode="wait">
               {!submitted ? (
                 <motion.form

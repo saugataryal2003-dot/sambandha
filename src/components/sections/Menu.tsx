@@ -72,12 +72,9 @@ export function Menu() {
         <div className="mb-24 flex flex-wrap items-end justify-between gap-6">
           <div>
             <Reveal>
-              <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
-                <span className="h-px w-8 bg-saffron-300" />
-                {t.menu.eyebrow}
-              </p>
+              <p className="apple-eyebrow mb-4">{t.menu.eyebrow}</p>
             </Reveal>
-            <h2 className="font-jp text-5xl font-light leading-[1.2] text-cream lg:text-6xl">
+            <h2 className="apple-subhead font-jp text-cream">
               <RevealText>{t.menu.title1}</RevealText>
               <br />
               <RevealText delay={0.15} className="text-gradient-warm">
@@ -152,12 +149,8 @@ export function Menu() {
         <div className="mt-28">
           <Reveal>
             <div className="mb-12 text-center">
-              <p className="mb-3 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
-                <span className="h-px w-8 bg-saffron-300" />
-                {t.menu.lunch.label}
-                <span className="h-px w-8 bg-saffron-300" />
-              </p>
-              <h3 className="font-jp text-4xl font-light text-cream">
+              <p className="apple-eyebrow mb-3">{t.menu.lunch.label}</p>
+              <h3 className="apple-title font-jp text-cream">
                 {lunchLabel}
               </h3>
               <p className="font-jp text-base text-cream/60 mt-2">
@@ -185,10 +178,10 @@ export function Menu() {
                 delay: i * 0.08,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className={`group relative overflow-hidden rounded-2xl border p-8 transition-colors ${
+              className={`apple-card group relative overflow-hidden p-8 transition-colors ${
                 set.flagship
-                  ? 'border-saffron-300/30 bg-gradient-to-br from-saffron-500/10 to-transparent hover:border-saffron-300/60'
-                  : 'border-white/[0.08] bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]'
+                  ? '!border-apple-gold/30 bg-gradient-to-br from-apple-gold/10 to-transparent hover:!border-apple-gold/60'
+                  : ''
               }`}
             >
               {set.flagship && (
@@ -216,7 +209,7 @@ export function Menu() {
         </Suspense>
 
         {/* CTA row */}
-        <Reveal className="mt-16 flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/[0.08] bg-white/[0.02] p-10 lg:flex-row">
+        <Reveal className="apple-card mt-16 flex flex-col items-center justify-between gap-6 rounded-3xl p-10 lg:flex-row">
           <div>
             <p className="font-jp text-3xl font-light text-cream">
               {ctaTitle}

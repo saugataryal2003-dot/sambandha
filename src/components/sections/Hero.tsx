@@ -64,7 +64,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...SPRING, delay: 0.2 }}
-            className="glass-card-light mb-8 inline-flex w-fit items-center gap-2 px-4 py-1.5 text-xs font-medium tracking-wide text-cream/70"
+            className="apple-card mb-8 inline-flex w-fit items-center gap-2 px-4 py-1.5 text-xs font-medium tracking-wide text-apple-secondary"
           >
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-saffron-300 opacity-75" />
@@ -78,7 +78,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="font-display text-[clamp(3.5rem,8vw,8rem)] font-light leading-[0.95] tracking-tight text-cream"
+            className="apple-headline font-display text-cream"
           >
             <SplitWord word="Sambandha" delay={0.4} />
           </motion.h1>
@@ -98,7 +98,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...SPRING, delay: 1.45 }}
-            className="mt-6 max-w-sm font-jp text-base font-light leading-relaxed text-cream/60 md:text-lg"
+            className="apple-body mt-6 max-w-sm font-jp"
           >
             {t.hero.tagline}
           </motion.p>

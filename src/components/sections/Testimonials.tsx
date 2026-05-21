@@ -74,14 +74,10 @@ export function Testimonials() {
       <div className="container mx-auto max-w-7xl px-6">
         <div className="mb-12 text-center md:mb-16">
           <Reveal>
-            <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
-              <span className="h-px w-8 bg-saffron-300" />
-              {t.testimonials.eyebrow}
-              <span className="h-px w-8 bg-saffron-300" />
-            </p>
+            <p className="apple-eyebrow mb-4">{t.testimonials.eyebrow}</p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="font-jp text-3xl font-light leading-[1.2] text-cream md:text-5xl">
+            <h2 className="apple-subhead font-jp text-cream">
               {lang === 'ja' ? (
                 <>地元で15年以上、 <span className="text-gradient-warm">愛され続ける味。</span></>
               ) : (
@@ -90,7 +86,7 @@ export function Testimonials() {
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
-            <div className="glass-card-light mt-6 inline-flex items-center gap-3 px-5 py-2">
+            <div className="apple-card mt-6 inline-flex items-center gap-3 px-5 py-2">
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
                   <Star
@@ -118,7 +114,7 @@ export function Testimonials() {
                 delay: i * 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="group relative overflow-hidden rounded-2xl glass-card-light p-6 transition-all duration-300 hover:glass-card-medium hover:-translate-y-1 hover:shadow-ios-md"
+              className="apple-card group relative overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-ios-md"
             >
               <div className="flex items-center justify-between">
                 <Quote
@@ -158,7 +154,7 @@ export function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-12 flex flex-col items-center gap-4 rounded-3xl border border-white/[0.08] bg-white/[0.02] p-8 text-center md:mt-16 md:p-10"
+          className="apple-card mt-12 flex flex-col items-center gap-4 rounded-3xl p-8 text-center md:mt-16 md:p-10"
         >
           <p className="font-jp text-xl font-light text-cream md:text-2xl">
             {reviewCtaTitle}<br className="md:hidden" />

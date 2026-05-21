@@ -42,12 +42,12 @@ export function Hero() {
         aria-hidden
       />
 
-      {/* Radial spotlight — left-biased to match asymmetric layout */}
+      {/* Radial spotlight — warm amber glow */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(700px circle at 30% 40%, rgba(212, 165, 116, 0.15), transparent 60%)',
+            'radial-gradient(700px circle at 30% 40%, rgba(194, 141, 84, 0.18), transparent 60%)',
         }}
         aria-hidden
       />
@@ -213,7 +213,7 @@ export function Hero() {
 
       {/* Bottom fade */}
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#000000] to-transparent"
         aria-hidden
       />
 

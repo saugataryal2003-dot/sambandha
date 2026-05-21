@@ -64,9 +64,9 @@ export function Menu() {
 
   return (
     <section id="menu" className="relative overflow-hidden bg-ink py-36">
-      {/* Background accents */}
-      <div className="pointer-events-none absolute right-0 top-32 h-[500px] w-[500px] rounded-full bg-saffron-500/[0.06] blur-3xl" />
-      <div className="pointer-events-none absolute left-0 bottom-32 h-[400px] w-[400px] rounded-full bg-flame/[0.05] blur-3xl" />
+      {/* Background accents — warm amber glows */}
+      <div className="pointer-events-none absolute right-0 top-32 h-[500px] w-[500px] rounded-full bg-apple-gold/[0.07] blur-3xl" />
+      <div className="pointer-events-none absolute left-0 bottom-32 h-[400px] w-[400px] rounded-full bg-apple-gold/[0.04] blur-3xl" />
 
       <div className="container relative mx-auto max-w-7xl px-6">
         <div className="mb-24 flex flex-wrap items-end justify-between gap-6">

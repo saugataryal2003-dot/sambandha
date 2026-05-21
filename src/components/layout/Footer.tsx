@@ -9,7 +9,7 @@ export function Footer() {
   const { t, lang } = useLang();
   return (
     <footer className="relative overflow-hidden border-t border-white/[0.06] bg-ink">
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-[400px] w-[800px] -translate-x-1/2 bg-gradient-radial from-saffron-500/10 to-transparent blur-3xl" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 h-[400px] w-[800px] -translate-x-1/2 bg-gradient-radial from-apple-gold/[0.12] to-transparent blur-3xl" />
 
       <div className="container mx-auto max-w-7xl px-6 py-20 md:py-28">
         <div className="grid gap-12 md:grid-cols-12">

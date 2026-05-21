@@ -89,7 +89,7 @@ export function Nav() {
           'fixed left-1/2 top-4 z-50 -translate-x-1/2 transition-all duration-500',
           'w-[calc(100%-2rem)] max-w-6xl rounded-full',
           scrolled
-            ? 'border border-white/[0.07] bg-black/[0.72] [backdrop-filter:saturate(180%)_blur(20px)] [-webkit-backdrop-filter:saturate(180%)_blur(20px)] shadow-2xl shadow-black/60'
+            ? 'border border-apple-gold/[0.12] bg-[rgba(8,5,2,0.78)] [backdrop-filter:saturate(180%)_blur(20px)] [-webkit-backdrop-filter:saturate(180%)_blur(20px)] shadow-2xl shadow-black/60'
             : 'border border-transparent bg-transparent'
         )}
       >
@@ -209,7 +209,7 @@ export function Nav() {
             className="fixed inset-0 z-40 lg:hidden"
             data-lenis-prevent
           >
-            <div className="absolute inset-0 bg-black/[0.96] [backdrop-filter:saturate(180%)_blur(30px)] [-webkit-backdrop-filter:saturate(180%)_blur(30px)]" />
+            <div className="absolute inset-0 bg-[rgba(8,5,2,0.97)] [backdrop-filter:saturate(180%)_blur(30px)] [-webkit-backdrop-filter:saturate(180%)_blur(30px)]" />
             <motion.ul
               initial="closed"
               animate="open"

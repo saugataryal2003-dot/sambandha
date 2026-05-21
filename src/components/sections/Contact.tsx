@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Car, Zap } from 'lucide-react';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
 import { MagneticButton } from '@/components/ui/MagneticButton';
@@ -63,7 +64,13 @@ export function Contact() {
 
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
           {/* Map */}
-          <Reveal delay={0.1} className="lg:col-span-7">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-7"
+          >
             <div className="relative h-[420px] overflow-hidden rounded-3xl border border-white/[0.08] md:h-[520px]">
               <iframe
                 src={mapSrc}
@@ -75,7 +82,7 @@ export function Contact() {
               />
               <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/[0.06]" />
             </div>
-          </Reveal>
+          </motion.div>
 
           {/* Info */}
           <div className="grid gap-4 lg:col-span-5">

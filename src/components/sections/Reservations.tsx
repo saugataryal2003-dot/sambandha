@@ -88,13 +88,13 @@ export function Reservations() {
       const form = e.currentTarget;
       const formData = new FormData(form);
 
-      const customerName = formData.get('name') as string;
-      const customerEmail = formData.get('email') as string;
-      const customerPhone = formData.get('phone') as string;
-      const guestCount = formData.get('guests') as string;
-      const reservationDate = formData.get('date') as string;
-      const reservationTime = formData.get('time') as string;
-      const customerRequests = (formData.get('requests') as string) || labels.none;
+      const customerName = String(formData.get('name') ?? '');
+      const customerEmail = String(formData.get('email') ?? '');
+      const customerPhone = String(formData.get('phone') ?? '');
+      const guestCount = String(formData.get('guests') ?? '');
+      const reservationDate = String(formData.get('date') ?? '');
+      const reservationTime = String(formData.get('time') ?? '');
+      const customerRequests = String(formData.get('requests') ?? '') || labels.none;
 
       const templateParams = {
         customer_name: customerName,
@@ -297,11 +297,13 @@ export function Reservations() {
   );
 }
 
+type FieldType = 'text' | 'email' | 'tel' | 'date' | 'time' | 'number' | 'select' | 'textarea';
+
 interface FieldProps {
   icon: React.ReactNode;
   label: string;
   name: string;
-  type: string;
+  type: FieldType;
   required?: boolean;
   placeholder?: string;
   children?: React.ReactNode;

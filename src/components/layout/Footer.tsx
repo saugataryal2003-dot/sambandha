@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Instagram, Facebook, Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Instagram, Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { RESTAURANT } from '@/lib/utils';
 import { useLang } from '@/lib/i18n';
 
@@ -31,13 +31,6 @@ export function Footer() {
                 className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-cream/70 transition hover:border-saffron-300/40 hover:text-saffron-300"
               >
                 <Instagram className="h-4 w-4" />
-              </a>
-              <a
-                href="#"
-                aria-label="Facebook"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-cream/70 transition hover:border-saffron-300/40 hover:text-saffron-300"
-              >
-                <Facebook className="h-4 w-4" />
               </a>
             </div>
           </div>

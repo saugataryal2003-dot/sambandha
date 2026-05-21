@@ -6,7 +6,14 @@ import { Instagram } from 'lucide-react';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
 import { useLang } from '@/lib/i18n';
 
-const PHOTOS = [
+interface Photo {
+  src: string;
+  title: string;
+  titleJp: string;
+  rowSpan: 1 | 2;
+}
+
+const PHOTOS: Photo[] = [
   {
     src: '/images/naan.jpg',
     title: 'Giant Naan',

@@ -5,13 +5,15 @@ import Lenis from 'lenis';
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     const lenis = new Lenis({
-      duration: 1.15,
+      duration: prefersReducedMotion ? 0.01 : 1.15,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
+      smoothWheel: !prefersReducedMotion,
       touchMultiplier: 1.6,
       wheelMultiplier: 1.0,
-      lerp: 0.1,
+      lerp: prefersReducedMotion ? 1 : 0.1,
     });
 
     function raf(time: number) {
@@ -20,7 +22,6 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     }
     const id = requestAnimationFrame(raf);
 
-    // Smooth anchor handling
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest('a[href^="#"]') as HTMLAnchorElement | null;
@@ -30,7 +31,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       const el = document.querySelector(href);
       if (el) {
         e.preventDefault();
-        lenis.scrollTo(el as HTMLElement, { offset: -80, duration: 1.4 });
+        lenis.scrollTo(el as HTMLElement, { offset: -80, duration: prefersReducedMotion ? 0.01 : 1.4 });
       }
     };
     document.addEventListener('click', handleClick);

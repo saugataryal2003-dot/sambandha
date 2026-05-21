@@ -161,9 +161,9 @@ function DrinkSection({ section, index }: { section: DrinkSection; index: number
       className="mb-12"
     >
       <div className="mb-6 pb-4 border-b border-saffron-300/40">
-        <h3 className="font-jp text-2xl font-light text-cream mb-1">
+        <h2 className="font-jp text-2xl font-light text-cream mb-1">
           {section.titleJp}
-        </h3>
+        </h2>
         <p className="font-display text-sm font-light tracking-widest text-saffron-300 uppercase">
           {section.titleEn}
         </p>
@@ -182,7 +182,7 @@ function DrinkSection({ section, index }: { section: DrinkSection; index: number
 
 export default function DrinksMenuPage() {
   return (
-    <main className="min-h-screen bg-ink">
+    <div className="min-h-screen bg-ink">
       {/* Hero section */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <div className="pointer-events-none absolute inset-0 grid-lines opacity-20" />
@@ -227,6 +227,6 @@ export default function DrinksMenuPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -28,7 +28,7 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-cream/70 transition hover:border-saffron-300/40 hover:text-saffron-300"
+                className="grid h-11 w-11 place-items-center rounded-full border border-white/10 text-cream/70 transition hover:border-saffron-300/40 hover:text-saffron-300"
               >
                 <Instagram className="h-4 w-4" />
               </a>

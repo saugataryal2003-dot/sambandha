@@ -78,11 +78,20 @@ export const metadata: Metadata = {
     title: '幸手市のインド料理 サンバンダ | 本格カレー・タンドリー・ナン',
     description:
       '【幸手市 インド料理】ランチ¥900〜、本場のカレー・タンドリー・ナン。毎日 11:00〜22:00 営業。ご予約：0480-44-2323',
+    images: [
+      {
+        url: '/images/hero-spread.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'サンバンダ — 幸手市の本格インド料理',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: '幸手市のインド料理 サンバンダ',
     description: '幸手市の本格インド料理。ランチ¥900〜、カレー・タンドリー・ナン。',
+    images: ['/images/hero-spread.jpg'],
   },
   robots: {
     index: true,

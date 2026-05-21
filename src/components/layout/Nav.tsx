@@ -121,7 +121,7 @@ export function Nav() {
               onDragEnd={handleDragEnd}
               onClick={handleLogoClick}
               aria-label={isSubPage ? 'Drag left or tap to go home' : 'Scroll to top'}
-              className="relative h-9 w-9 cursor-grab overflow-hidden rounded-full ring-1 ring-saffron-300/30 transition hover:ring-saffron-300/60 active:cursor-grabbing"
+              className="relative h-11 w-11 cursor-grab overflow-hidden rounded-full ring-1 ring-saffron-300/30 transition hover:ring-saffron-300/60 active:cursor-grabbing"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-saffron-200 via-saffron-300 to-saffron-500" />
               <span className="relative flex h-full w-full items-center justify-center font-display text-base font-bold text-ink">
@@ -191,7 +191,7 @@ export function Nav() {
               aria-label="Toggle menu"
               aria-expanded={open}
               onClick={() => setOpen((s) => !s)}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-cream transition hover:border-white/30 lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-cream transition hover:border-white/30 lg:hidden"
             >
               {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>

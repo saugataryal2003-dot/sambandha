@@ -150,7 +150,7 @@ export default function LunchMenuPage() {
   };
 
   return (
-    <main className="min-h-screen bg-ink">
+    <div className="min-h-screen bg-ink">
       {/* Hero section */}
       <section className="relative overflow-hidden py-32">
         <div className="pointer-events-none absolute inset-0 grid-lines opacity-20" />
@@ -309,6 +309,6 @@ export default function LunchMenuPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

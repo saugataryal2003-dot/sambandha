@@ -78,6 +78,7 @@ export function Contact() {
                 className="absolute inset-0 h-full w-full grayscale-[40%] invert-[8%] [color-scheme:dark]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                sandbox="allow-scripts allow-same-origin"
                 allowFullScreen
               />
               <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/[0.06]" />

@@ -45,9 +45,9 @@ export function LanguageSelector() {
               </div>
             </motion.div>
 
-            <h1 className="font-display text-5xl font-light tracking-tight text-cream md:text-7xl">
+            <p className="font-display text-5xl font-light tracking-tight text-cream md:text-7xl">
               Sambandha
-            </h1>
+            </p>
             <p className="mt-2 font-jp text-base text-saffron-300/90 md:text-lg">
               サンバンダ
             </p>

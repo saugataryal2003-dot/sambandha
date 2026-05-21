@@ -125,7 +125,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-ink text-cream antialiased">
+      <body className="antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

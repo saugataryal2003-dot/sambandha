@@ -3,18 +3,22 @@
 import { Marquee } from '@/components/ui/Marquee';
 
 const DISHES = [
+  'Giant Naan',
+  '伝説のナン',
   'Butter Chicken',
   'バターチキン',
-  'Tandoori Mixed Grill',
-  'タンドリーチキン',
-  'Sambandha Set',
-  'サンバンダセット',
-  'Garlic Naan',
+  'Clay Oven · Tandoori',
+  'タンドール窯',
+  'Cheese Naan',
   'チーズナン',
   'Mutton Sag',
   'マトンサーグ',
-  'Matki Chicken Masala',
+  'Sambandha Set',
+  'サンバンダセット',
+  'Prawn Curry',
   'プローンカレー',
+  'Slow Fire · Deep Spice',
+  '深いスパイス',
 ];
 
 export function SignatureMarquee() {

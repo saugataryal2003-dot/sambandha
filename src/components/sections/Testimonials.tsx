@@ -62,10 +62,10 @@ const REVIEWS = [
 
 export function Testimonials() {
   const { t, lang } = useLang();
-  const reviewCtaTitle = lang === 'ja' ? 'サンバンダがお気に入りなら、' : 'If you love Sambandha,';
-  const reviewCtaHighlight = lang === 'ja' ? 'レビューをお願いします' : 'please leave us a review';
-  const reviewCtaSub = lang === 'ja' ? 'お客様の声が、私たちの励みになります。' : 'Your words mean the world to us.';
-  const reviewBtnLabel = lang === 'ja' ? 'Googleでレビューを書く' : 'Write a Google Review';
+  const reviewCtaTitle = lang === 'ja' ? '気に入ってくれたなら、' : 'Tell someone.';
+  const reviewCtaHighlight = lang === 'ja' ? '一言だけ残してください。' : 'Leave us a word.';
+  const reviewCtaSub = lang === 'ja' ? 'あなたの声が、次の誰かの背中を押します。' : 'Your words bring the next guest through the door.';
+  const reviewBtnLabel = lang === 'ja' ? 'Googleでレビューを書く' : 'Write a Google review';
   return (
     <section
       aria-label="Guest reviews"
@@ -79,9 +79,9 @@ export function Testimonials() {
           <Reveal delay={0.1}>
             <h2 className="apple-subhead font-jp text-cream">
               {lang === 'ja' ? (
-                <>地元で15年以上、 <span className="text-gradient-warm">愛され続ける味。</span></>
+                <>勧めたくなる店が、<span className="text-gradient-warm">ここにある。</span></>
               ) : (
-                <>Loved by locals for <span className="text-gradient-warm">over 15 years.</span></>
+                <>Some places you recommend <span className="text-gradient-warm">without being asked.</span></>
               )}
             </h2>
           </Reveal>

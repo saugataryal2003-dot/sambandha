@@ -33,7 +33,8 @@ export function Hero() {
     <section
       id="home"
       ref={ref}
-      className="relative isolate min-h-[100dvh] w-full overflow-hidden bg-ink"
+      className="relative isolate min-h-[100dvh] w-full overflow-hidden"
+      style={{ backgroundColor: 'var(--apple-black)' }}
     >
       {/* Grid backdrop */}
       <motion.div
@@ -42,12 +43,12 @@ export function Hero() {
         aria-hidden
       />
 
-      {/* Radial spotlight — warm amber glow */}
+      {/* Radial spotlight */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(700px circle at 30% 40%, rgba(194, 141, 84, 0.18), transparent 60%)',
+            'radial-gradient(700px circle at 30% 40%, rgb(var(--saffron-300-rgb) / 0.15), transparent 60%)',
         }}
         aria-hidden
       />
@@ -159,7 +160,7 @@ export function Hero() {
               style={{ boxShadow: '0 20px 60px rgba(10,8,7,0.5)' }}
             >
               <img src={FOOD_IMAGES[2]} alt="Sambandha butter chicken curry" className="h-full w-full object-cover" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             </motion.div>
 
             {/* Middle card */}
@@ -171,7 +172,7 @@ export function Hero() {
               style={{ boxShadow: '0 20px 60px rgba(10,8,7,0.5)' }}
             >
               <img src={FOOD_IMAGES[1]} alt="Sambandha Indian food spread" className="h-full w-full object-cover" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             </motion.div>
 
             {/* Front card — dominant */}
@@ -188,7 +189,7 @@ export function Hero() {
                 className="h-full w-full object-cover"
                 loading="eager"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </motion.div>
           </motion.div>
         </div>
@@ -213,7 +214,8 @@ export function Hero() {
 
       {/* Bottom fade */}
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#000000] to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-32"
+        style={{ background: 'linear-gradient(to top, var(--apple-black), transparent)' }}
         aria-hidden
       />
 

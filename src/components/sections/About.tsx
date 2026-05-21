@@ -41,14 +41,14 @@ export function About() {
                 loading="lazy"
               />
               {/* Naan badge */}
-              <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 rounded-xl bg-ink/80 px-4 py-3 backdrop-blur">
-                <Wheat className="h-5 w-5 flex-none text-saffron-300" strokeWidth={1.5} />
+              <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 rounded-xl bg-black/80 px-4 py-3 backdrop-blur">
+                <Wheat className="h-5 w-5 flex-none text-[#D4A574]" strokeWidth={1.5} />
                 <div>
-                  <p className="font-jp text-sm font-semibold text-saffron-300">{t.about.naanBadge}</p>
-                  <p className="font-jp text-xs text-cream/60">{t.about.naanCaption}</p>
+                  <p className="font-jp text-sm font-semibold text-[#D4A574]">{t.about.naanBadge}</p>
+                  <p className="font-jp text-xs text-white/60">{t.about.naanCaption}</p>
                 </div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             </motion.div>
 
             {/* Stats card */}

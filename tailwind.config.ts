@@ -8,17 +8,17 @@ const config: Config = {
       colors: {
         // Keep existing for backward compat
         ink: {
-          DEFAULT: '#000000',
-          50: '#100C08',
-          100: '#1C1510',
-          200: '#1a1108',
+          DEFAULT: 'rgb(var(--ink-rgb) / <alpha-value>)',
+          50: 'rgb(var(--ink-50-rgb) / <alpha-value>)',
+          100: 'rgb(var(--ink-100-rgb) / <alpha-value>)',
+          200: 'rgb(var(--ink-200-rgb) / <alpha-value>)',
         },
         saffron: {
-          DEFAULT: '#D4A574',
+          DEFAULT: 'rgb(var(--saffron-300-rgb) / <alpha-value>)',
           50: '#F5E5D0',
           100: '#EBD0A8',
           200: '#E1BC85',
-          300: '#D4A574',
+          300: 'rgb(var(--saffron-300-rgb) / <alpha-value>)',
           400: '#C28D54',
           500: '#9A7B2E',
         },
@@ -27,19 +27,19 @@ const config: Config = {
           light: '#F26F4C',
         },
         cream: {
-          DEFAULT: '#FAF7F2',
-          dim: '#EDE8E0',
+          DEFAULT: 'rgb(var(--cream-rgb) / <alpha-value>)',
+          dim: 'rgb(var(--cream-dim-rgb) / <alpha-value>)',
         },
-        // Sambandha warm design tokens
+        // Sambandha design tokens (also CSS-var backed)
         apple: {
-          black: '#000000',
-          dark: '#1a1108',
-          card: '#1C1510',
-          muted: '#8A7B6E',
-          secondary: '#A8998A',
-          light: '#FAF7F2',
+          black: 'var(--apple-black)',
+          dark: 'var(--apple-dark)',
+          card: 'var(--apple-card)',
+          muted: 'var(--apple-muted)',
+          secondary: 'var(--apple-secondary)',
+          light: 'var(--apple-text)',
           white: '#ffffff',
-          gold: '#D4A574',
+          gold: 'var(--apple-gold)',
         },
       },
       fontFamily: {

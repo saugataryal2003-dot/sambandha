@@ -129,10 +129,10 @@ function GalleryItem({
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-110"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent opacity-90 transition-opacity group-hover:opacity-100" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 transition-opacity group-hover:opacity-100" />
       <figcaption className="absolute inset-x-0 bottom-0 p-5 md:p-6">
-        <p className="font-jp text-xs text-cream/50">{photo.titleJp}</p>
-        <p className="mt-1 font-display text-xl font-light text-cream md:text-2xl">
+        <p className="font-jp text-xs text-white/60">{photo.titleJp}</p>
+        <p className="mt-1 font-display text-xl font-light text-white md:text-2xl">
           {photo.title}
         </p>
       </figcaption>

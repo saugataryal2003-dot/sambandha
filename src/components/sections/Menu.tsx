@@ -301,33 +301,33 @@ function BentoCard({
         loading={priority ? 'eager' : 'lazy'}
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
       <div
         className={`absolute inset-0 flex flex-col justify-between ${
           small ? 'p-5' : 'p-8'
         }`}
       >
         <div className="flex items-center justify-between">
-          <p className="font-jp text-xs font-medium tracking-[0.2em] text-saffron-300">
+          <p className="font-jp text-xs font-medium tracking-[0.2em] text-[#D4A574]">
             {label}
           </p>
           {href && (
-            <span className="grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-white/5 text-cream backdrop-blur transition group-hover:border-saffron-300/60 group-hover:bg-saffron-300/20">
+            <span className="grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur transition group-hover:border-[#D4A574]/60 group-hover:bg-[#D4A574]/20">
               <ArrowUpRight className="h-4 w-4" />
             </span>
           )}
         </div>
         <div>
-          <p className="text-[10px] uppercase tracking-wider text-cream/50">{labelEn}</p>
+          <p className="text-[10px] uppercase tracking-wider text-white/60">{labelEn}</p>
           <h3
-            className={`mt-1 font-jp font-light leading-tight text-cream ${
+            className={`mt-1 font-jp font-light leading-tight text-white ${
               small ? 'text-2xl' : 'text-3xl lg:text-4xl'
             }`}
           >
             {title}
           </h3>
           {description && (
-            <p className="mt-2 font-jp text-sm text-cream/60">{description}</p>
+            <p className="mt-2 font-jp text-sm text-white/70">{description}</p>
           )}
         </div>
       </div>

@@ -9,9 +9,9 @@ const config: Config = {
         // Keep existing for backward compat
         ink: {
           DEFAULT: '#000000',
-          50: '#111111',
-          100: '#161616',
-          200: '#1d1d1f',
+          50: '#100C08',
+          100: '#1C1510',
+          200: '#1a1108',
         },
         saffron: {
           DEFAULT: '#D4A574',
@@ -27,16 +27,17 @@ const config: Config = {
           light: '#F26F4C',
         },
         cream: {
-          DEFAULT: '#F5F5F7',
-          dim: '#E8E8ED',
+          DEFAULT: '#FAF7F2',
+          dim: '#EDE8E0',
         },
-        // Apple design tokens
+        // Sambandha warm design tokens
         apple: {
           black: '#000000',
-          dark: '#1d1d1f',
-          muted: '#6e6e73',
-          secondary: '#86868b',
-          light: '#f5f5f7',
+          dark: '#1a1108',
+          card: '#1C1510',
+          muted: '#8A7B6E',
+          secondary: '#A8998A',
+          light: '#FAF7F2',
           white: '#ffffff',
           gold: '#D4A574',
         },

@@ -1,6 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
+import { useReducedMotion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 interface MarqueeProps {
@@ -18,6 +19,8 @@ export function Marquee({
   pauseOnHover = false,
   speed = 40,
 }: MarqueeProps) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <div
       className={cn(
@@ -28,14 +31,18 @@ export function Marquee({
       <div
         className={cn(
           'flex shrink-0 items-center justify-around gap-12 will-change-transform',
-          pauseOnHover && 'group-hover:[animation-play-state:paused]'
+          !prefersReducedMotion && pauseOnHover && 'group-hover:[animation-play-state:paused]'
         )}
-        style={{
-          animation: `marquee ${speed}s linear infinite ${reverse ? 'reverse' : 'normal'}`,
-        }}
+        style={
+          prefersReducedMotion
+            ? undefined
+            : {
+                animation: `marquee ${speed}s linear infinite ${reverse ? 'reverse' : 'normal'}`,
+              }
+        }
       >
         {children}
-        {children}
+        {!prefersReducedMotion && children}
       </div>
     </div>
   );

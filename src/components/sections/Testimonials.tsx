@@ -102,17 +102,19 @@ export function Testimonials() {
           </Reveal>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {REVIEWS.map((review, i) => (
+        <motion.div
+          className="grid gap-5 md:grid-cols-2 lg:grid-cols-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-40px' }}
+          variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } }}
+        >
+          {REVIEWS.map((review) => (
             <motion.figure
               key={review.author}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={{
-                duration: 0.8,
-                delay: i * 0.1,
-                ease: [0.22, 1, 0.36, 1],
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
               }}
               className="apple-card group relative overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-ios-md"
             >
@@ -146,7 +148,7 @@ export function Testimonials() {
               </figcaption>
             </motion.figure>
           ))}
-        </div>
+        </motion.div>
 
         {/* Write a Review CTA */}
         <motion.div
@@ -164,7 +166,7 @@ export function Testimonials() {
             {reviewCtaSub}
           </p>
           <a
-            href="https://search.google.com/local/writereview?placeid=ChIJ&q=Sambandha+Restaurant+Satte"
+            href="https://maps.app.goo.gl/jRHQbbAxDAqAJ2az5"
             target="_blank"
             rel="noreferrer"
             className="group inline-flex items-center gap-3 rounded-full bg-saffron-300 px-7 py-3.5 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200"

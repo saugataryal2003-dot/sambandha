@@ -173,3 +173,40 @@ npx @claude-flow/cli@latest doctor --fix
 ```
 
 **Agent tool** handles execution (agents, files, code, git). **MCP tools** handle coordination (swarm, memory, hooks). **CLI** is the same via Bash.
+
+## Design System
+
+This is a premium cinematic restaurant website (Sambandha, Satte, Saitama).
+Always respect the existing Apple-inspired design language.
+
+- **Aesthetic**: dark luxury, OLED black (#000000) dark mode, warm cream (#FAFAF8) light mode
+- **Transitions**: cinematic — 300–600ms ease, `[0.22, 1, 0.36, 1]` cubic-bezier
+- **Hover**: smooth opacity/border shifts, never layout-shifting scale
+- **Animations**: stagger children (0.06–0.1s delay), reveal on scroll via Framer Motion
+- **GSAP**: use only when Framer Motion cannot achieve the effect (complex SVG paths, scroll-scrub)
+- **Avoid**: generic card grids, stock gradients, startup buzzwords, AI-template layouts
+- **Typography**: `apple-headline` / `apple-subhead` / `apple-eyebrow` utility classes — never raw px sizes
+- **Colors**: use CSS variables (`--apple-gold`, `--apple-text`, `--apple-card`) — never hardcode hex
+- **Cards**: `apple-card` class — warm brown-black with gold-tinted borders
+- **Image overlays**: always `from-black` (never `from-ink`) to preserve readability in both modes
+
+## Code Rules
+
+- **No `any` types** — use proper TypeScript interfaces
+- **Modular components** — one responsibility per file, under 500 lines
+- **Mobile-first** — base styles for mobile, `md:` / `lg:` for larger screens
+- **CSS variables for theming** — light/dark via `prefers-color-scheme`, never JS toggling
+- **Accessibility**: all images need `alt`, interactive elements need `aria-label`, min 44×44px touch targets
+- **Performance**: images use `loading="lazy"` (except above-fold hero), dynamic imports for heavy libs
+- **SEO**: semantic HTML (`<section>`, `<article>`, `<main>`), descriptive page titles, structured data
+
+## QA Checklist (run before every commit)
+
+- [ ] `npm run build` passes
+- [ ] No TypeScript `any` types introduced
+- [ ] All new images have alt text
+- [ ] Touch targets ≥ 44×44px
+- [ ] Light mode tested (system light preference)
+- [ ] Dark mode tested (system dark preference)
+- [ ] Mobile layout checked at 375px
+- [ ] No hardcoded hex colors (use CSS vars or tailwind tokens)

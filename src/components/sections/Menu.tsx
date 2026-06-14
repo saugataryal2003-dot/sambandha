@@ -275,26 +275,8 @@ function BentoCard({
   small,
   priority,
 }: BentoCardProps) {
-  const Wrapper = ({ children }: { children: React.ReactNode }) =>
-    href ? (
-      <a
-        href={href}
-        target={external ? '_blank' : undefined}
-        rel={external ? 'noreferrer' : undefined}
-        className={`group relative block overflow-hidden rounded-3xl border border-white/[0.12] shadow-ios-md transition-all duration-300 hover:shadow-ios-lg hover:-translate-y-1 ${className}`}
-      >
-        {children}
-      </a>
-    ) : (
-      <div
-        className={`group relative overflow-hidden rounded-2xl border border-white/[0.08] ${className}`}
-      >
-        {children}
-      </div>
-    );
-
-  return (
-    <Wrapper>
+  const inner = (
+    <>
       <motion.img
         src={image}
         alt={title}
@@ -331,6 +313,27 @@ function BentoCard({
           )}
         </div>
       </div>
-    </Wrapper>
+    </>
+  );
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target={external ? '_blank' : undefined}
+        rel={external ? 'noreferrer' : undefined}
+        className={`group relative block overflow-hidden rounded-3xl border border-white/[0.12] shadow-ios-md transition-all duration-300 hover:shadow-ios-lg hover:-translate-y-1 ${className}`}
+      >
+        {inner}
+      </a>
+    );
+  }
+
+  return (
+    <div
+      className={`group relative overflow-hidden rounded-2xl border border-white/[0.08] ${className}`}
+    >
+      {inner}
+    </div>
   );
 }

@@ -48,7 +48,7 @@ export default function DessertMenuPage() {
   };
 
   return (
-    <main className="min-h-screen bg-ink">
+    <div className="min-h-screen bg-ink">
       {/* Hero */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <div className="pointer-events-none absolute inset-0 grid-lines opacity-20" />
@@ -185,6 +185,6 @@ export default function DessertMenuPage() {
           </Reveal>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

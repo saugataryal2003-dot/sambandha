@@ -6,7 +6,14 @@ import { Instagram } from 'lucide-react';
 import { Reveal, RevealText } from '@/components/ui/Reveal';
 import { useLang } from '@/lib/i18n';
 
-const PHOTOS = [
+interface Photo {
+  src: string;
+  title: string;
+  titleJp: string;
+  rowSpan: 1 | 2;
+}
+
+const PHOTOS: Photo[] = [
   {
     src: '/images/naan.jpg',
     title: 'Giant Naan',
@@ -93,7 +100,7 @@ export function Gallery() {
 
         <div className="grid auto-rows-[200px] grid-cols-2 gap-3 md:auto-rows-[240px] md:grid-cols-4 md:gap-4 lg:auto-rows-[260px]">
           {PHOTOS.map((photo, i) => (
-            <GalleryItem key={photo.src} photo={photo} index={i} />
+            <GalleryItem key={photo.src} photo={photo} index={i} lang={lang} />
           ))}
         </div>
       </div>
@@ -104,9 +111,11 @@ export function Gallery() {
 function GalleryItem({
   photo,
   index,
+  lang,
 }: {
   photo: (typeof PHOTOS)[number];
   index: number;
+  lang: string;
 }) {
   const rowSpanClass =
     photo.rowSpan === 2 ? 'row-span-2' : 'row-span-1';
@@ -125,7 +134,7 @@ function GalleryItem({
     >
       <img
         src={photo.src}
-        alt={photo.title}
+        alt={lang === 'ja' ? photo.titleJp : photo.title}
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-110"
       />

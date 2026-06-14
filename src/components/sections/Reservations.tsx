@@ -88,13 +88,13 @@ export function Reservations() {
       const form = e.currentTarget;
       const formData = new FormData(form);
 
-      const customerName = formData.get('name') as string;
-      const customerEmail = formData.get('email') as string;
-      const customerPhone = formData.get('phone') as string;
-      const guestCount = formData.get('guests') as string;
-      const reservationDate = formData.get('date') as string;
-      const reservationTime = formData.get('time') as string;
-      const customerRequests = (formData.get('requests') as string) || labels.none;
+      const customerName = String(formData.get('name') ?? '');
+      const customerEmail = String(formData.get('email') ?? '');
+      const customerPhone = String(formData.get('phone') ?? '');
+      const guestCount = String(formData.get('guests') ?? '');
+      const reservationDate = String(formData.get('date') ?? '');
+      const reservationTime = String(formData.get('time') ?? '');
+      const customerRequests = String(formData.get('requests') ?? '') || labels.none;
 
       const templateParams = {
         customer_name: customerName,
@@ -126,14 +126,13 @@ export function Reservations() {
           EMAILJS_CUSTOMER_TEMPLATE_ID,
           templateParams
         );
-      } catch (customerEmailError) {
-        console.warn('Customer confirmation email failed, but reservation was sent to restaurant', customerEmailError);
+      } catch {
+        // customer confirmation is optional — restaurant already notified
       }
 
       setSubmitting(false);
       setSubmitted(true);
-    } catch (error) {
-      console.error('Failed to send reservation to restaurant:', error);
+    } catch {
       setSubmitting(false);
       alert(labels.errorAlert);
     }
@@ -262,6 +261,8 @@ export function Reservations() {
               ) : (
                 <motion.div
                   key="success"
+                  role="status"
+                  aria-live="polite"
                   initial={{ opacity: 0, scale: 0.96 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -297,11 +298,13 @@ export function Reservations() {
   );
 }
 
+type FieldType = 'text' | 'email' | 'tel' | 'date' | 'time' | 'number' | 'select' | 'textarea';
+
 interface FieldProps {
   icon: React.ReactNode;
   label: string;
   name: string;
-  type: string;
+  type: FieldType;
   required?: boolean;
   placeholder?: string;
   children?: React.ReactNode;
@@ -315,6 +318,12 @@ const inputModeMap: Record<string, React.HTMLAttributes<HTMLInputElement>['input
   number: 'numeric',
 };
 
+const autocompleteMap: Record<string, string> = {
+  name: 'name',
+  email: 'email',
+  phone: 'tel',
+};
+
 function Field({
   icon,
   label,
@@ -324,25 +333,27 @@ function Field({
   placeholder,
   children,
 }: FieldProps) {
+  const id = `field-${name}`;
   const baseStyle =
-    'peer w-full appearance-none rounded-2xl border border-white/15 bg-white/[0.08] backdrop-blur px-4 py-4 pl-11 text-base text-cream placeholder-cream/40 transition-all duration-200 focus:border-saffron-300/60 focus:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-saffron-300/20 min-h-[52px]';
+    'peer w-full appearance-none rounded-2xl border border-white/15 bg-white/[0.08] backdrop-blur px-4 py-4 pl-11 text-base text-cream placeholder-cream/40 transition-all duration-200 focus:border-saffron-300/60 focus:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-saffron-300/40 min-h-[52px]';
 
   return (
-    <label className="relative block cursor-pointer">
-      <span className="mb-2 block font-jp text-sm font-medium tracking-wider text-cream/60">
+    <div className="relative">
+      <label htmlFor={id} className="mb-2 block cursor-pointer font-jp text-sm font-medium tracking-wider text-cream/60">
         {label}
-        {required && <span className="ml-1 text-saffron-300">*</span>}
-      </span>
+        {required && <span className="ml-1 text-saffron-300" aria-hidden>*</span>}
+      </label>
       <div className="relative">
         <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-cream/40 peer-focus:text-saffron-300">
           {icon}
         </span>
         {type === 'select' ? (
-          <select name={name} required={required} className={`${baseStyle} cursor-pointer`} defaultValue="">
+          <select id={id} name={name} required={required} className={`${baseStyle} cursor-pointer`} defaultValue="">
             {children}
           </select>
         ) : type === 'textarea' ? (
           <textarea
+            id={id}
             name={name}
             required={required}
             placeholder={placeholder}
@@ -351,15 +362,17 @@ function Field({
           />
         ) : (
           <input
+            id={id}
             name={name}
             type={type}
             inputMode={inputModeMap[type]}
+            autoComplete={autocompleteMap[name]}
             required={required}
             placeholder={placeholder}
             className={baseStyle}
           />
         )}
       </div>
-    </label>
+    </div>
   );
 }

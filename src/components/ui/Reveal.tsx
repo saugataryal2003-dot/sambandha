@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { motion, Variants } from 'framer-motion';
+import { motion, Variants, useReducedMotion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 interface RevealProps {
@@ -26,6 +26,11 @@ const variants: Variants = {
   }),
 };
 
+const noMotionVariants: Variants = {
+  hidden: { opacity: 0, y: 0 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.01 } },
+};
+
 export function Reveal({
   children,
   delay = 0,
@@ -34,12 +39,13 @@ export function Reveal({
   duration = 0.9,
   once = true,
 }: RevealProps) {
+  const prefersReducedMotion = useReducedMotion();
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
       viewport={{ once, margin: '-50px' }}
-      variants={variants}
+      variants={prefersReducedMotion ? noMotionVariants : variants}
       custom={{ delay, duration, y }}
       className={cn(className)}
     >
@@ -49,7 +55,7 @@ export function Reveal({
 }
 
 interface RevealTextProps {
-  children: string;
+  children: string | ReactNode;
   className?: string;
   delay?: number;
   stagger?: number;
@@ -63,6 +69,22 @@ export function RevealText({
   stagger = 0.04,
   once = true,
 }: RevealTextProps) {
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion || typeof children !== 'string') {
+    return (
+      <motion.span
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once, margin: '-30px' }}
+        transition={{ duration: 0.01, delay }}
+        className={cn('inline-block', className)}
+      >
+        {children}
+      </motion.span>
+    );
+  }
+
   const words = children.split(' ');
 
   return (

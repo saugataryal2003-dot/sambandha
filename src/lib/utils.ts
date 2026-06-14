@@ -23,6 +23,6 @@ export const RESTAURANT = {
   hoursDetailed: '毎日営業 · Open Daily',
   parking: '無料駐車場あり（5台分・徒歩すぐ）',
   parkingEn: 'Free parking available nearby (5 spaces)',
-  uberEatsUrl: 'https://www.ubereats.com/store-browse-uuid/c099a3a4-7eae-4f3a-8329-3128e1e2ae2a?diningMode=DELIVERY',
+  uberEatsUrl: 'https://www.order.store/store/%E3%82%B5%E3%83%B3%E3%83%8F%E3%83%B3%E3%82%BF-%E5%B9%B8%E6%89%8B%E6%9C%AC%E5%BA%97-sambandha-sattehonten/wJmjpH6uTzqDKTEo4eKuKg',
 } as const;
 

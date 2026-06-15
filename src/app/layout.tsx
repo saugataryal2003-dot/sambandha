@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Cormorant_Garamond, Inter, Noto_Sans_JP } from 'next/font/google';
+import { Cormorant_Garamond, Hanken_Grotesk, Shippori_Mincho } from 'next/font/google';
 import './globals.css';
 import '@/styles/ios-design-system.css';
 import { SmoothScroll } from '@/components/layout/SmoothScroll';
@@ -19,16 +19,17 @@ const display = Cormorant_Garamond({
   display: 'swap',
 });
 
-const sans = Inter({
+const sans = Hanken_Grotesk({
   subsets: ['latin'],
   variable: '--font-sans',
+  weight: ['300', '400', '500', '600'],
   display: 'swap',
 });
 
-const jp = Noto_Sans_JP({
+const jp = Shippori_Mincho({
   subsets: ['latin'],
   variable: '--font-jp',
-  weight: ['300', '400', '500', '700'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
 });
 

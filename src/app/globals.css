@@ -107,26 +107,29 @@
 @layer utilities {
   /* Apple typography — all text uses CSS variables */
   .apple-headline {
-    font-size: clamp(2.5rem, 7vw, 7rem);
-    font-weight: 600;
-    letter-spacing: -0.025em;
-    line-height: 1.05;
+    font-family: var(--font-display), Georgia, serif;
+    font-size: clamp(2.75rem, 7.5vw, 7.5rem);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.02;
     color: var(--apple-text);
   }
 
   .apple-subhead {
-    font-size: clamp(1.5rem, 3.5vw, 3rem);
-    font-weight: 600;
-    letter-spacing: -0.018em;
-    line-height: 1.1;
+    font-family: var(--font-display), Georgia, serif;
+    font-size: clamp(1.75rem, 4vw, 3.25rem);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    line-height: 1.12;
     color: var(--apple-text);
   }
 
   .apple-title {
-    font-size: clamp(1.2rem, 2.5vw, 2rem);
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    line-height: 1.15;
+    font-family: var(--font-display), Georgia, serif;
+    font-size: clamp(1.35rem, 2.5vw, 2rem);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.18;
     color: var(--apple-text);
   }
 
@@ -138,39 +141,57 @@
   }
 
   .apple-eyebrow {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     color: var(--apple-gold);
   }
 
-  /* Apple card — switches light/dark via CSS vars */
+  /* Liquid Glass card (iOS 27) — translucent, blurred, specular edge */
   .apple-card {
-    background: var(--apple-card);
+    position: relative;
+    background: rgb(var(--ink-100-rgb) / 0.55);
     border: 1px solid var(--apple-border);
     border-radius: var(--apple-radius);
-    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow:
+      inset 0 1px 0 0 rgb(var(--cream-rgb) / 0.14),   /* specular top highlight */
+      inset 0 -1px 0 0 rgb(var(--cream-rgb) / 0.04),
+      0 10px 40px var(--apple-shadow);
+    transition: border-color 0.4s cubic-bezier(0.22,1,0.36,1),
+      background 0.4s cubic-bezier(0.22,1,0.36,1),
+      box-shadow 0.4s cubic-bezier(0.22,1,0.36,1),
+      transform 0.4s cubic-bezier(0.22,1,0.36,1);
   }
   .apple-card:hover {
     border-color: var(--apple-border-hover);
-    background: var(--apple-card-hover);
+    background: rgb(var(--ink-100-rgb) / 0.72);
+    box-shadow:
+      inset 0 1px 0 0 rgb(var(--cream-rgb) / 0.22),
+      inset 0 -1px 0 0 rgb(var(--cream-rgb) / 0.05),
+      0 16px 56px var(--apple-shadow);
   }
 
-  /* Nav scrolled state — light: frosted cream, dark: frosted black */
+  /* Nav scrolled state — Liquid Glass top bar */
   .nav-scrolled {
     background: var(--apple-nav-bg);
     border-color: var(--apple-nav-border) !important;
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(200%) blur(28px);
+    -webkit-backdrop-filter: saturate(200%) blur(28px);
+    box-shadow:
+      inset 0 1px 0 0 rgb(var(--cream-rgb) / 0.16),
+      0 8px 32px var(--apple-shadow);
   }
 
-  /* Apple nav glass */
+  /* Apple nav glass — Liquid Glass */
   .apple-nav {
     background: var(--apple-nav-bg);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(200%) blur(28px);
+    -webkit-backdrop-filter: saturate(200%) blur(28px);
     border-bottom: 1px solid var(--apple-nav-border);
+    box-shadow: inset 0 1px 0 0 rgb(var(--cream-rgb) / 0.14);
   }
 
   /* Apple section */
@@ -210,8 +231,20 @@
 
   /* Keep legacy classes working */
   .text-balance { text-wrap: balance; }
-  .glass { @apply backdrop-blur-xl bg-white/[0.04] border border-white/[0.08]; }
-  .glass-dark { @apply backdrop-blur-2xl bg-black/60 border border-white/[0.06]; }
+  .glass {
+    background: rgb(var(--cream-rgb) / 0.06);
+    border: 1px solid rgb(var(--cream-rgb) / 0.12);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: inset 0 1px 0 0 rgb(var(--cream-rgb) / 0.18), 0 8px 32px var(--apple-shadow);
+  }
+  .glass-dark {
+    background: rgb(0 0 0 / 0.55);
+    border: 1px solid rgb(var(--cream-rgb) / 0.08);
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    box-shadow: inset 0 1px 0 0 rgb(var(--cream-rgb) / 0.12), 0 8px 32px var(--apple-shadow);
+  }
   .glass-card { @apply apple-card; }
   .glass-card-light { @apply apple-card; }
   .glass-card-medium { @apply apple-card; }

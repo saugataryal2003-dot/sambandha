@@ -1,17 +1,10 @@
 import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, Hanken_Grotesk, Shippori_Mincho } from 'next/font/google';
 import './globals.css';
-import '@/styles/ios-design-system.css';
-import { SmoothScroll } from '@/components/layout/SmoothScroll';
 import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';
-import { ScrollProgress } from '@/components/layout/ScrollProgress';
-import { CursorGlow } from '@/components/layout/CursorGlow';
-import { FloatingActionButton } from '@/components/layout/FloatingActionButton';
 import { CookieConsent } from '@/components/layout/CookieConsent';
 import { LanguageProvider } from '@/lib/i18n';
-import { LanguageSelector } from '@/components/layout/LanguageSelector';
-import { PageTransition } from '@/components/ui/PageTransition';
 
 const display = Cormorant_Garamond({
   subsets: ['latin'],
@@ -35,7 +28,7 @@ const jp = Shippori_Mincho({
 });
 
 export const viewport: Viewport = {
-  themeColor: '#0A0807',
+  themeColor: '#FAFAF8',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -193,18 +186,10 @@ export default function RootLayout({
           }}
         />
         <LanguageProvider>
-          <LanguageSelector />
-          <SmoothScroll>
-            <ScrollProgress />
-            <CursorGlow />
-            <Nav />
-            <main className="relative">
-              <PageTransition>{children}</PageTransition>
-            </main>
-            <Footer />
-            <FloatingActionButton />
-            <CookieConsent />
-          </SmoothScroll>
+          <Nav />
+          <main className="relative">{children}</main>
+          <Footer />
+          <CookieConsent />
         </LanguageProvider>
       </body>
     </html>

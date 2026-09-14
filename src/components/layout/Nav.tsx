@@ -1,14 +1,12 @@
 'use client';
 
 import { useEffect, useState, useCallback, useMemo } from 'react';
-import { AnimatePresence, motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X, Phone, Globe } from 'lucide-react';
 import { RESTAURANT } from '@/lib/utils';
 import { cn } from '@/lib/utils';
 import { useLang } from '@/lib/i18n';
 import { useRouter, usePathname } from 'next/navigation';
-
-const DRAG_THRESHOLD = 100;
 
 export function Nav() {
   const { lang, setLang, t } = useLang();
@@ -19,27 +17,11 @@ export function Nav() {
   const pathname = usePathname() || '/';
   const isSubPage = pathname !== '/';
 
-  const x = useMotionValue(0);
-  const trailOpacity = useTransform(x, [-DRAG_THRESHOLD, -30, 0], [1, 0.4, 0]);
-  const chipScale = useTransform(x, [-DRAG_THRESHOLD, 0], [0.85, 1]);
-  const overlayOpacity = useTransform(x, [-DRAG_THRESHOLD, 0], [0.4, 0]);
-
-  const handleDragEnd = useCallback(() => {
-    if (x.get() < -DRAG_THRESHOLD) {
-      animate(x, -600, {
-        type: 'spring', stiffness: 200, damping: 30,
-        onComplete: () => { router.push('/'); x.set(0); },
-      });
-    } else {
-      animate(x, 0, { type: 'spring', stiffness: 300, damping: 28 });
-    }
-  }, [router]);
-
   const handleLogoClick = useCallback(() => {
     if (isSubPage) {
       router.push('/');
     } else {
-      document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [isSubPage, router]);
 
@@ -55,7 +37,6 @@ export function Nav() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 30);
-
       const sections = navLinks.map((l) => l.href.slice(1));
       for (const id of sections) {
         const el = document.getElementById(id);
@@ -74,60 +55,34 @@ export function Nav() {
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
+    return () => { document.body.style.overflow = ''; };
   }, [open]);
 
   return (
     <>
-      <motion.header
-        initial={{ y: -40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      <header
         className={cn(
-          'fixed left-1/2 top-4 z-50 -translate-x-1/2 transition-all duration-500',
-          'w-[calc(100%-2rem)] max-w-6xl rounded-full',
+          'fixed left-1/2 top-4 z-50 w-[calc(100%-2rem)] -translate-x-1/2 rounded-full transition-all duration-300',
+          'max-w-6xl',
           scrolled
-            ? 'nav-scrolled border shadow-2xl'
+            ? 'nav-scrolled'
             : 'border border-transparent bg-transparent'
         )}
       >
         <nav className="flex items-center justify-between px-5 py-3 md:px-7 md:py-3.5">
-          {/* Logo — draggable S circle + static text */}
+          {/* Logo */}
           <div className="group flex items-center gap-3">
-            {/* Overlay dims page during drag on sub-pages */}
-            {isSubPage && (
-              <motion.div
-                className="pointer-events-none fixed inset-0 z-40 bg-ink"
-                style={{ opacity: overlayOpacity }}
-                aria-hidden
-              />
-            )}
-            {/* "← Home" trail that appears while dragging */}
-            <motion.span
-              style={{ opacity: trailOpacity }}
-              className="pointer-events-none absolute left-12 font-jp text-xs text-cream/70 select-none"
-              aria-hidden
-            >
-              ← Home
-            </motion.span>
-            {/* Draggable S circle */}
-            <motion.button
-              drag="x"
-              dragConstraints={{ left: -600, right: 0 }}
-              dragElastic={{ left: 0.15, right: 0.05 }}
-              style={{ x, scale: chipScale }}
-              onDragEnd={handleDragEnd}
+            <button
+              type="button"
               onClick={handleLogoClick}
-              aria-label={isSubPage ? 'Drag left or tap to go home' : 'Scroll to top'}
-              className="relative h-11 w-11 cursor-grab overflow-hidden rounded-full ring-1 ring-saffron-300/30 transition hover:ring-saffron-300/60 active:cursor-grabbing"
+              aria-label={isSubPage ? 'Go home' : 'Scroll to top'}
+              className="relative h-11 w-11 overflow-hidden rounded-full ring-1 ring-hairline transition hover:ring-hairline-strong"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-saffron-200 via-saffron-300 to-saffron-500" />
               <span className="relative flex h-full w-full items-center justify-center font-display text-base font-bold text-ink">
                 S
               </span>
-            </motion.button>
+            </button>
             <div className="hidden flex-col leading-none sm:flex">
               <span className="font-display text-lg font-medium tracking-wide text-cream">
                 Sambandha
@@ -136,6 +91,7 @@ export function Nav() {
             </div>
           </div>
 
+          {/* Desktop links */}
           <ul className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => {
               const id = link.href.slice(1);
@@ -145,37 +101,31 @@ export function Nav() {
                   <a
                     href={link.href}
                     className={cn(
-                      'relative rounded-full px-4 py-1.5 font-jp text-sm font-medium transition-colors',
+                      'rounded-full px-4 py-1.5 font-jp text-sm font-medium transition-colors',
                       isActive ? 'text-cream' : 'text-cream/60 hover:text-cream'
                     )}
                   >
-                    {isActive && (
-                      <motion.span
-                        layoutId="nav-active"
-                        className="absolute inset-0 rounded-full bg-white/[0.08] ring-1 ring-white/[0.06]"
-                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                    <span className="relative">{link.label}</span>
+                    {link.label}
                   </a>
                 </li>
               );
             })}
           </ul>
 
+          {/* Right actions */}
           <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={() => setLang(lang === 'ja' ? 'en' : 'ja')}
               aria-label="Toggle language"
-              className="flex min-h-[44px] min-w-[44px] cursor-pointer items-center justify-center gap-1.5 rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-cream/70 transition hover:border-saffron-300/40 hover:text-saffron-300"
+              className="flex min-h-[44px] min-w-[44px] cursor-pointer items-center justify-center gap-1.5 rounded-full border border-hairline px-3 py-1.5 text-xs font-medium text-cream/70 transition hover:border-hairline-strong hover:text-saffron-300"
             >
               <Globe className="h-3.5 w-3.5" />
               <span className="font-medium">{lang === 'ja' ? 'EN' : '日本語'}</span>
             </button>
             <a
               href={`tel:${RESTAURANT.phoneRaw}`}
-              className="hidden min-h-[44px] cursor-pointer items-center gap-2 rounded-full border border-white/10 px-3.5 py-1.5 text-xs font-medium text-cream/80 transition hover:border-saffron-300/40 hover:text-saffron-300 sm:flex"
+              className="hidden min-h-[44px] cursor-pointer items-center gap-2 rounded-full border border-hairline px-3.5 py-1.5 text-xs font-medium text-cream/80 transition hover:border-hairline-strong hover:text-saffron-300 sm:flex"
             >
               <Phone className="h-3.5 w-3.5" />
               <span>{RESTAURANT.phone}</span>
@@ -191,13 +141,13 @@ export function Nav() {
               aria-label="Toggle menu"
               aria-expanded={open}
               onClick={() => setOpen((s) => !s)}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-cream transition hover:border-white/30 lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline text-cream transition hover:border-hairline-strong lg:hidden"
             >
               {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
           </div>
         </nav>
-      </motion.header>
+      </header>
 
       <AnimatePresence>
         {open && (
@@ -205,46 +155,23 @@ export function Nav() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.25 }}
             className="fixed inset-0 z-40 lg:hidden"
-            data-lenis-prevent
           >
-            <div className="absolute inset-0 bg-[var(--apple-black)]/[0.97] [backdrop-filter:saturate(180%)_blur(30px)] [-webkit-backdrop-filter:saturate(180%)_blur(30px)]" />
-            <motion.ul
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={{
-                open: { transition: { staggerChildren: 0.06, delayChildren: 0.15 } },
-                closed: { transition: { staggerChildren: 0.04, staggerDirection: -1 } },
-              }}
-              className="relative flex h-full flex-col items-center justify-center gap-2 px-6"
-            >
+            <div className="absolute inset-0 bg-apple-black/98 [backdrop-filter:blur(24px)]" />
+            <ul className="relative flex h-full flex-col items-center justify-center gap-2 px-6">
               {navLinks.map((link) => (
-                <motion.li
-                  key={link.href}
-                  variants={{
-                    open: { opacity: 1, y: 0 },
-                    closed: { opacity: 0, y: 20 },
-                  }}
-                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                >
+                <li key={link.href}>
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block font-jp text-4xl font-light text-cream/90 transition hover:text-saffron-300 sm:text-5xl"
+                    className="block py-3 font-jp text-4xl font-light text-cream/90 transition hover:text-saffron-300 sm:text-5xl"
                   >
                     {link.label}
                   </a>
-                </motion.li>
+                </li>
               ))}
-              <motion.li
-                variants={{
-                  open: { opacity: 1, y: 0 },
-                  closed: { opacity: 0, y: 20 },
-                }}
-                className="mt-8 flex flex-col items-center gap-3"
-              >
+              <li className="mt-8 flex flex-col items-center gap-3">
                 <a
                   href={`tel:${RESTAURANT.phoneRaw}`}
                   className="text-sm text-cream/60"
@@ -265,13 +192,13 @@ export function Nav() {
                     setLang(lang === 'ja' ? 'en' : 'ja');
                     setOpen(false);
                   }}
-                  className="mt-2 flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-xs text-cream/70"
+                  className="mt-2 flex items-center gap-2 rounded-full border border-hairline px-4 py-2 text-xs text-cream/70"
                 >
                   <Globe className="h-3.5 w-3.5" />
                   <span>{lang === 'ja' ? 'Switch to English' : '日本語に切替'}</span>
                 </button>
-              </motion.li>
-            </motion.ul>
+              </li>
+            </ul>
           </motion.div>
         )}
       </AnimatePresence>

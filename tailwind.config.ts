@@ -41,6 +41,10 @@ const config: Config = {
           white: '#ffffff',
           gold: 'var(--apple-gold)',
         },
+        hairline: {
+          DEFAULT: 'var(--apple-border)',
+          strong: 'var(--apple-border-hover)',
+        },
       },
       fontFamily: {
         display: ['var(--font-display)', 'serif'],

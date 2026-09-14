@@ -21,12 +21,6 @@ interface TranslationShape {
     contact: string;
     reserve: string;
   };
-  welcome: {
-    title: string;
-    subtitle: string;
-    tagline: string;
-    enter: string;
-  };
   hero: {
     badge: string;
     hours: string;
@@ -129,12 +123,6 @@ export const translations: Record<Lang, TranslationShape> = {
       contact: '場所',
       reserve: '席を予約',
     },
-    welcome: {
-      title: 'ようこそ',
-      subtitle: '言語をお選びください',
-      tagline: '幸手市の本格インド料理',
-      enter: '入る',
-    },
     hero: {
       badge: '本日営業中',
       hours: 'ランチ 11:00 · ディナー 17:00',
@@ -235,12 +223,6 @@ export const translations: Record<Lang, TranslationShape> = {
       contact: 'Find Us',
       reserve: 'Reserve a table',
     },
-    welcome: {
-      title: 'Welcome',
-      subtitle: 'Choose your language',
-      tagline: 'Indian cuisine in Satte, Saitama',
-      enter: 'Enter',
-    },
     hero: {
       badge: 'Open today',
       hours: 'Lunch 11:00 · Dinner 17:00',
@@ -338,8 +320,6 @@ interface LangContextValue {
   lang: Lang;
   setLang: (l: Lang) => void;
   t: Translations;
-  hasSelected: boolean;
-  selectLang: (l: Lang) => void;
 }
 
 const LangContext = createContext<LangContextValue | null>(null);
@@ -348,7 +328,6 @@ const STORAGE_KEY = 'sambandha-lang';
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>('ja');
-  const [hasSelected, setHasSelected] = useState(true);
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
@@ -357,13 +336,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       const stored = localStorage.getItem(STORAGE_KEY) as Lang | null;
       if (stored === 'ja' || stored === 'en') {
         setLangState(stored);
-        setHasSelected(true);
-      } else {
-        setHasSelected(false);
       }
-    } catch {
-      setHasSelected(false);
-    }
+    } catch {}
   }, []);
 
   const setLang = (l: Lang) => {
@@ -374,11 +348,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     if (typeof document !== 'undefined') {
       document.documentElement.lang = l;
     }
-  };
-
-  const selectLang = (l: Lang) => {
-    setLang(l);
-    setHasSelected(true);
   };
 
   useEffect(() => {
@@ -393,8 +362,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         lang,
         setLang,
         t: translations[lang],
-        hasSelected: hydrated ? hasSelected : true,
-        selectLang,
       }}
     >
       {children}

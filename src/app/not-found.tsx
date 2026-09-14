@@ -10,15 +10,6 @@ export const metadata = {
 export default function NotFound() {
   return (
     <div className="relative isolate flex min-h-[80dvh] items-center justify-center overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 grid-lines opacity-20" />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(600px circle at 50% 40%, rgb(var(--saffron-300-rgb) / 0.12), transparent 60%)',
-        }}
-      />
-
       <div className="relative z-10 mx-auto max-w-2xl px-6 py-32 text-center">
         <p
           className="font-display text-[32vw] font-light leading-none tracking-tighter text-saffron-300/[0.07] sm:text-[22vw]"
@@ -44,7 +35,7 @@ export default function NotFound() {
             </Link>
             <Link
               href="/menu/lunch"
-              className="glass-card-medium inline-flex items-center rounded-full px-7 py-3.5 font-jp text-sm font-medium text-cream transition hover:-translate-y-0.5"
+              className="inline-flex items-center rounded-full border border-hairline px-7 py-3.5 font-jp text-sm font-medium text-cream transition hover:border-hairline-strong hover:-translate-y-0.5"
             >
               メニューを見る
             </Link>

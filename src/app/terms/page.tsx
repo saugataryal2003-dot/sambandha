@@ -25,23 +25,20 @@ function LegalSection({ title, children }: { title: string; children: ReactNode 
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-ink">
-      <section className="relative overflow-hidden py-24 md:py-32">
-        <div className="pointer-events-none absolute inset-0 grid-lines opacity-20" />
-        <div className="container relative z-10 mx-auto max-w-4xl px-6">
-          <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
-            <span className="h-px w-8 bg-saffron-300" />
-            サンバンダ
-            <span className="h-px w-8 bg-saffron-300" />
-          </p>
-          <h1 className="font-jp text-5xl font-light leading-[1.1] text-cream md:text-6xl">
-            利用<span className="text-gradient-warm">規約</span>
+      <section className="px-6 pt-36 md:pt-44">
+        <div className="mx-auto max-w-4xl">
+          <p className="apple-eyebrow mb-4">サンバンダ</p>
+          <h1 className="font-jp text-4xl font-light leading-tight text-cream md:text-6xl">
+            利用
+            <br />
+            規約
           </h1>
           <p className="mt-6 font-jp text-lg text-cream/60">最終更新日：2026年9月14日</p>
         </div>
       </section>
 
-      <section className="pb-24 md:pb-32">
-        <div className="container mx-auto max-w-4xl px-6">
+      <section className="px-6 pb-24 pt-10 md:pb-32">
+        <div className="mx-auto max-w-4xl">
           <LegalSection title="1. 適用">
             <p>
               本利用規約は、サンバンダ（以下「当店」といいます）が運営するWebサイト（https://sambandharestaurant.com、以下「本サイト」といいます）の利用条件を定めるものです。本サイトをご利用いただくすべてのお客様に適用されます。

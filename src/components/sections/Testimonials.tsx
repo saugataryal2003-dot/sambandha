@@ -1,8 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Quote, Star } from 'lucide-react';
-import { Reveal } from '@/components/ui/Reveal';
 import { useLang } from '@/lib/i18n';
 
 const REVIEWS = [
@@ -15,9 +12,6 @@ const REVIEWS = [
     authorEn: 'Satte Resident',
     role: '地元のお客様',
     roleEn: 'Local Customer',
-    rating: 5,
-    highlight: '地域No.1',
-    highlightEn: '#1 in the area',
   },
   {
     quote:
@@ -28,9 +22,6 @@ const REVIEWS = [
     authorEn: 'Yuki Tanaka',
     role: '常連のお客様',
     roleEn: 'Regular Customer',
-    rating: 5,
-    highlight: '名物ナン',
-    highlightEn: 'Signature Naan',
   },
   {
     quote:
@@ -41,9 +32,6 @@ const REVIEWS = [
     authorEn: 'Aoi Kobayashi',
     role: 'リピーター',
     roleEn: 'Repeat Customer',
-    rating: 5,
-    highlight: 'チーズナン',
-    highlightEn: 'Cheese Naan',
   },
   {
     quote:
@@ -54,127 +42,58 @@ const REVIEWS = [
     authorEn: 'Marcus Chen',
     role: '15年以上の常連様',
     roleEn: '15+ Year Regular',
-    rating: 5,
-    highlight: '15年以上の信頼',
-    highlightEn: '15+ Years of Trust',
   },
 ];
 
 export function Testimonials() {
   const { t, lang } = useLang();
-  const reviewCtaTitle = lang === 'ja' ? '気に入ってくれたなら、' : 'Tell someone.';
-  const reviewCtaHighlight = lang === 'ja' ? '一言だけ残してください。' : 'Leave us a word.';
-  const reviewCtaSub = lang === 'ja' ? 'あなたの声が、次の誰かの背中を押します。' : 'Your words bring the next guest through the door.';
-  const reviewBtnLabel = lang === 'ja' ? 'Googleでレビューを書く' : 'Write a Google review';
-  return (
-    <section
-      aria-label="Guest reviews"
-      className="relative overflow-hidden bg-ink py-24 md:py-32"
-    >
-      <div className="container mx-auto max-w-7xl px-6">
-        <div className="mb-12 text-center md:mb-16">
-          <Reveal>
-            <p className="apple-eyebrow mb-4">{t.testimonials.eyebrow}</p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h2 className="apple-subhead font-jp text-cream">
-              {lang === 'ja' ? (
-                <>勧めたくなる店が、<span className="text-gradient-warm">ここにある。</span></>
-              ) : (
-                <>Some places you recommend <span className="text-gradient-warm">without being asked.</span></>
-              )}
-            </h2>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <div className="apple-card mt-6 inline-flex items-center gap-3 px-5 py-2">
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="h-4 w-4 fill-saffron-300 text-saffron-300"
-                  />
-                ))}
-              </div>
-              <span className="font-jp text-sm text-cream/80">
-                {t.testimonials.badge}
-              </span>
-            </div>
-          </Reveal>
-        </div>
+  const isJa = lang === 'ja';
 
-        <motion.div
-          className="grid gap-5 md:grid-cols-2 lg:grid-cols-4"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-40px' }}
-          variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } }}
-        >
-          {REVIEWS.map((review) => (
-            <motion.figure
-              key={review.author}
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
-              }}
-              className="apple-card group relative overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-ios-md"
-            >
-              <div className="flex items-center justify-between">
-                <Quote
-                  className="h-7 w-7 text-saffron-300/40 transition-colors group-hover:text-saffron-300/60"
-                  strokeWidth={1.5}
-                />
-                <span className="rounded-full bg-saffron-300/10 px-2.5 py-1 font-jp text-[10px] font-medium tracking-wider text-saffron-300">
-                  {lang === 'ja' ? review.highlight : review.highlightEn}
-                </span>
-              </div>
-              <div className="mt-3 flex gap-1">
-                {[...Array(review.rating)].map((_, j) => (
-                  <Star
-                    key={j}
-                    className="h-3.5 w-3.5 fill-saffron-300 text-saffron-300"
-                  />
-                ))}
-              </div>
-              <blockquote className="mt-3 font-jp text-sm leading-relaxed text-cream/80">
-                {lang === 'ja' ? `「${review.quote}」` : `"${review.quoteEn}"`}
+  return (
+    <section aria-label="Guest reviews" className="bg-ink py-24 md:py-36">
+      <div className="mx-auto max-w-4xl px-6">
+        <p className="apple-eyebrow mb-4 text-center">{t.testimonials.eyebrow}</p>
+        <h2 className="apple-subhead text-center font-jp text-cream">
+          {isJa ? (
+            <>勧めたくなる店が、<br className="md:hidden" />ここにある。</>
+          ) : (
+            <>Some places you recommend without being asked.</>
+          )}
+        </h2>
+
+        <div className="mt-16 grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-x-16 md:gap-y-20">
+          {REVIEWS.map((review, i) => (
+            <figure key={i} className="flex flex-col">
+              <p className="font-display text-7xl font-light leading-none text-saffron-300/40" aria-hidden>
+                &ldquo;
+              </p>
+              <blockquote className="mt-3 font-jp text-[15px] leading-relaxed text-cream/80">
+                {isJa ? review.quote : review.quoteEn}
               </blockquote>
-              <figcaption className="mt-5 border-t border-white/[0.06] pt-4">
+              <figcaption className="mt-6">
                 <p className="font-jp text-sm font-medium text-cream">
-                  {lang === 'ja' ? review.author : review.authorEn}
+                  {isJa ? review.author : review.authorEn}
                 </p>
-                <p className="mt-0.5 font-jp text-xs tracking-wider text-cream/40">
-                  {lang === 'ja' ? review.role : review.roleEn}
+                <p className="mt-0.5 font-jp text-xs text-cream/40">
+                  {isJa ? review.role : review.roleEn}
                 </p>
               </figcaption>
-            </motion.figure>
+            </figure>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Write a Review CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="apple-card mt-12 flex flex-col items-center gap-4 rounded-3xl p-8 text-center md:mt-16 md:p-10"
-        >
-          <p className="font-jp text-xl font-light text-cream md:text-2xl">
-            {reviewCtaTitle}<br className="md:hidden" />
-            <span className="text-saffron-300">{reviewCtaHighlight}</span>
-          </p>
-          <p className="font-jp text-sm text-cream/60">
-            {reviewCtaSub}
-          </p>
+        <div className="mx-auto mt-16 max-w-2xl rounded-3xl border border-hairline bg-apple-card p-8 text-center md:p-10">
+          <p className="text-sm text-saffron-300">★★★★★</p>
+          <p className="mt-3 font-jp text-base text-cream/80">{t.testimonials.badge}</p>
           <a
             href="https://maps.app.goo.gl/jRHQbbAxDAqAJ2az5"
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-3 rounded-full bg-saffron-300 px-7 py-3.5 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200"
+            className="mt-6 inline-flex items-center gap-3 rounded-full bg-saffron-300 px-7 py-3 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200"
           >
-            <Star className="h-4 w-4 fill-ink" strokeWidth={2.5} />
-            {reviewBtnLabel}
+            {t.testimonials.writeReview}
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

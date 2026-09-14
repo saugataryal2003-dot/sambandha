@@ -8,6 +8,7 @@ import { Footer } from '@/components/layout/Footer';
 import { ScrollProgress } from '@/components/layout/ScrollProgress';
 import { CursorGlow } from '@/components/layout/CursorGlow';
 import { FloatingActionButton } from '@/components/layout/FloatingActionButton';
+import { CookieConsent } from '@/components/layout/CookieConsent';
 import { LanguageProvider } from '@/lib/i18n';
 import { LanguageSelector } from '@/components/layout/LanguageSelector';
 import { PageTransition } from '@/components/ui/PageTransition';
@@ -118,23 +119,7 @@ export default function RootLayout({
       className={`${display.variable} ${sans.variable} ${jp.variable}`}
       suppressHydrationWarning
     >
-      <head>
-        {/* Google Analytics */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-1Q58GXHPE3"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-1Q58GXHPE3');
-            `,
-          }}
-        />
-      </head>
+      <head></head>
       <body className="antialiased">
         <script
           type="application/ld+json"
@@ -218,6 +203,7 @@ export default function RootLayout({
             </main>
             <Footer />
             <FloatingActionButton />
+            <CookieConsent />
           </SmoothScroll>
         </LanguageProvider>
       </body>

@@ -111,16 +111,16 @@ export function Hero() {
             transition={{ ...SPRING, delay: 1.6 }}
             className="mt-10 flex flex-wrap gap-3"
           >
-            <MagneticButton href="tel:0480442323" strength={0.3}>
+            <MagneticButton href="#reservations" strength={0.3}>
               <span className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-saffron-300 px-7 py-3.5 font-jp text-sm font-semibold text-ink transition-all duration-200 hover:-translate-y-0.5 hover:bg-saffron-200 active:translate-y-[1px] active:shadow-none">
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-                <span className="relative">{t.hero.bookNow}</span>
+                <span className="relative">{t.hero.reserveForm}</span>
               </span>
             </MagneticButton>
 
-            <MagneticButton href="#reservations" strength={0.3}>
+            <MagneticButton href="tel:0480442323" strength={0.3}>
               <span className="glass-card-medium inline-flex items-center gap-2 px-7 py-3.5 font-jp text-sm font-medium text-cream transition-all duration-200 hover:-translate-y-0.5 active:translate-y-[1px]">
-                {t.hero.reserveForm}
+                {t.hero.bookNow}
               </span>
             </MagneticButton>
 

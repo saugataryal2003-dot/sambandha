@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Instagram, Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { RESTAURANT } from '@/lib/utils';
 import { useLang } from '@/lib/i18n';
@@ -93,6 +94,15 @@ export function Footer() {
               <span aria-hidden>·</span>
               <span>{t.footer.heart2}</span>
             </p>
+          </div>
+          <div className="mt-4 flex items-center justify-center gap-5 font-jp text-xs text-cream/40">
+            <Link href="/privacy" className="transition hover:text-saffron-300">
+              プライバシーポリシー
+            </Link>
+            <span aria-hidden className="text-cream/20">·</span>
+            <Link href="/terms" className="transition hover:text-saffron-300">
+              利用規約
+            </Link>
           </div>
         </motion.div>
       </div>

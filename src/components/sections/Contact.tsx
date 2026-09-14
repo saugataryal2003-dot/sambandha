@@ -1,98 +1,157 @@
 'use client';
 
-import { MapPin, Phone, Mail, Clock, Car, Bike } from 'lucide-react';
-import { useLang } from '@/lib/i18n';
+import { motion } from 'framer-motion';
+import { MapPin, Phone, Mail, Clock, Car, Zap } from 'lucide-react';
+import { Reveal, RevealText } from '@/components/ui/Reveal';
+import { MagneticButton } from '@/components/ui/MagneticButton';
 import { RESTAURANT } from '@/lib/utils';
+import { useLang } from '@/lib/i18n';
 
 export function Contact() {
   const { t, lang } = useLang();
-  const c = t.contact;
-  const isJa = lang === 'ja';
-
-  const infoRows = [
-    { icon: <MapPin className="h-4 w-4" />, label: c.labels.address, value: isJa ? RESTAURANT.address : RESTAURANT.addressEn },
-    { icon: <Car className="h-4 w-4" />, label: c.labels.parking, value: isJa ? '専用駐車場あり' : 'Free parking on site' },
+  const INFO_BLOCKS = [
     {
-      icon: <Phone className="h-4 w-4" />,
-      label: c.labels.phone,
-      value: (
-        <a href={`tel:${RESTAURANT.phoneRaw}`} className="link-underline text-saffron-300">
-          {RESTAURANT.phone}
-        </a>
-      ),
+      icon: MapPin,
+      label: t.contact.labels.address,
+      lines: lang === 'ja' ? [RESTAURANT.address, RESTAURANT.addressEn] : [RESTAURANT.addressEn, RESTAURANT.address],
+      href: `https://maps.app.goo.gl/jRHQbbAxDAqAJ2az5?g_st=ic`,
     },
     {
-      icon: <Mail className="h-4 w-4" />,
-      label: c.labels.email,
-      value: (
-        <a href={`mailto:${RESTAURANT.email}`} className="link-underline text-saffron-300">
-          {RESTAURANT.email}
-        </a>
-      ),
+      icon: Phone,
+      label: t.contact.labels.phone,
+      lines: [RESTAURANT.phone],
+      href: `tel:${RESTAURANT.phoneRaw}`,
     },
-    { icon: <Clock className="h-4 w-4" />, label: c.labels.hours, value: isJa ? RESTAURANT.hours : 'Mon–Sun: Lunch 11–15 · Dinner 17–22' },
-    { icon: <Bike className="h-4 w-4" />, label: c.labels.delivery, value: c.labels.delivery === 'デリバリー' ? 'Uber Eats 配達あり' : 'Available on Uber Eats' },
+    {
+      icon: Clock,
+      label: t.contact.labels.hours,
+      lines: lang === 'ja'
+        ? [RESTAURANT.hoursLunch, RESTAURANT.hoursDinner, t.contact.openDaily]
+        : [RESTAURANT.hoursLunchEn, RESTAURANT.hoursDinnerEn, t.contact.openDaily],
+    },
+    {
+      icon: Car,
+      label: t.contact.labels.parking,
+      lines: lang === 'ja' ? [RESTAURANT.parking, RESTAURANT.parkingEn] : [RESTAURANT.parkingEn, RESTAURANT.parking],
+    },
+    {
+      icon: Mail,
+      label: t.contact.labels.email,
+      lines: [RESTAURANT.email],
+      href: `mailto:${RESTAURANT.email}`,
+    },
   ];
 
+  const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(
+    RESTAURANT.addressEn
+  )}&output=embed`;
+
   return (
-    <section id="contact" className="bg-ink py-24 md:py-36">
-      <div className="mx-auto max-w-7xl px-6">
-        <p className="apple-eyebrow mb-4 text-center">{c.eyebrow}</p>
-        <h2 className="apple-subhead text-center font-jp text-cream">
-          {c.title1}
-          <br />
-          {c.title2}
-        </h2>
-        <p className="mt-4 text-center font-jp text-sm text-cream/50">{c.openDaily}</p>
-
-        <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-12">
-          {/* Info list */}
-          <div className="lg:col-span-5">
-            <div className="divide-y divide-hairline rounded-2xl border border-hairline px-6">
-              {infoRows.map((row, i) => (
-                <div key={i} className="flex items-baseline justify-between gap-6 py-5">
-                  <span className="flex items-center gap-2.5 text-xs font-medium uppercase tracking-wide text-cream/40">
-                    <span className="text-saffron-300">{row.icon}</span>
-                    {row.label}
-                  </span>
-                  <span className="text-right font-jp text-sm text-cream/80">{row.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Map */}
-          <div className="lg:col-span-7">
-            <div className="h-full min-h-[280px] overflow-hidden rounded-2xl border border-hairline">
-              <iframe
-                src="https://www.google.com/maps?q=Satte+Saitama+Sambandha&output=embed"
-                title={c.labels.address}
-                className="h-full w-full"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-            </div>
-          </div>
+    <section id="contact" className="relative overflow-hidden bg-ink py-24 md:py-36">
+      <div className="container mx-auto max-w-7xl px-6">
+        <div className="mb-12 md:mb-20">
+          <Reveal>
+            <p className="apple-eyebrow mb-4">{t.contact.eyebrow}</p>
+          </Reveal>
+          <h2 className="apple-subhead font-jp text-cream">
+            <RevealText>{t.contact.title1}</RevealText>
+            <br />
+            <RevealText delay={0.15} className="text-gradient-warm">
+              {t.contact.title2}
+            </RevealText>
+          </h2>
         </div>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <a
-            href={`tel:${RESTAURANT.phoneRaw}`}
-            className="inline-flex items-center gap-2 rounded-full bg-saffron-300 px-7 py-3 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200"
+        <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
+          {/* Map */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-7"
           >
-            <Phone className="h-4 w-4" />
-            {c.bookByPhone}
-          </a>
-          <a
-            href={RESTAURANT.uberEatsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-hairline px-7 py-3 font-jp text-sm font-medium text-cream transition hover:border-hairline-strong"
-          >
-            <Bike className="h-4 w-4" />
-            {c.orderOnUberEats}
-          </a>
+            <div className="relative h-[420px] overflow-hidden rounded-3xl border border-white/[0.08] md:h-[520px]">
+              <iframe
+                src={mapSrc}
+                title="Sambandha location on Google Maps"
+                className="absolute inset-0 h-full w-full grayscale-[40%] invert-[8%] [color-scheme:dark]"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                sandbox="allow-scripts allow-same-origin"
+                allowFullScreen
+              />
+              <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/[0.06]" />
+            </div>
+          </motion.div>
+
+          {/* Info */}
+          <div className="grid gap-4 lg:col-span-5">
+            {INFO_BLOCKS.map((block, i) => {
+              const content = (
+                <div className="apple-card flex items-start gap-4 p-6 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-ios-md">
+                  <span className="grid h-10 w-10 flex-none place-items-center rounded-xl bg-saffron-300/10 text-saffron-300 ring-1 ring-saffron-300/20">
+                    <block.icon className="h-4 w-4" strokeWidth={1.6} />
+                  </span>
+                  <div>
+                    <p className="font-jp text-xs font-medium tracking-widest text-saffron-300/80">
+                      {block.label}
+                    </p>
+                    <div className="mt-2 space-y-1">
+                      {block.lines.map((line, j) => (
+                        <p
+                          key={j}
+                          className={`text-sm leading-relaxed ${
+                            j === 0 ? 'text-cream' : 'text-cream/50'
+                          } font-jp`}
+                        >
+                          {line}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+
+              if (block.href) {
+                return (
+                  <Reveal key={block.label} delay={0.15 + i * 0.07}>
+                    <a
+                      href={block.href}
+                      target={block.href.startsWith('http') ? '_blank' : undefined}
+                      rel={block.href.startsWith('http') ? 'noreferrer' : undefined}
+                      className="group block"
+                    >
+                      {content}
+                    </a>
+                  </Reveal>
+                );
+              }
+              return (
+                <Reveal key={block.label} delay={0.15 + i * 0.07}>
+                  <div className="group">{content}</div>
+                </Reveal>
+              );
+            })}
+
+            <Reveal delay={0.5} className="mt-2 grid gap-3 sm:grid-cols-2">
+              <MagneticButton href={`tel:${RESTAURANT.phoneRaw}`}>
+                <span className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-saffron-300 px-6 py-4 font-jp text-sm font-semibold text-ink transition hover:bg-saffron-200">
+                  {t.contact.bookByPhone}
+                  <Phone className="h-4 w-4 transition group-hover:rotate-12" />
+                </span>
+              </MagneticButton>
+              <a
+                href={RESTAURANT.uberEatsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center justify-center gap-2 rounded-2xl border border-saffron-300/40 bg-saffron-300/5 px-6 py-4 font-jp text-sm font-semibold text-saffron-300 transition hover:border-saffron-300/60 hover:bg-saffron-300/10"
+              >
+                {t.contact.orderOnUberEats}
+                <Zap className="h-4 w-4 transition group-hover:scale-110" />
+              </a>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>

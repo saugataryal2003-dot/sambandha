@@ -55,6 +55,7 @@ export function CookieConsent() {
       role="region"
       aria-label="Cookie consent"
       className="fixed inset-x-0 bottom-4 z-[60] px-4 sm:bottom-6 sm:px-6"
+      data-lenis-prevent
     >
       <div className="apple-card mx-auto flex max-w-2xl flex-col gap-4 p-5 sm:flex-row sm:items-center sm:gap-6">
         <div className="flex items-start gap-3">

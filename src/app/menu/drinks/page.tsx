@@ -1,5 +1,8 @@
 'use client';
 
+import { motion } from 'framer-motion';
+import { Reveal, RevealText } from '@/components/ui/Reveal';
+
 interface DrinkItem {
   jp: string;
   en: string;
@@ -118,78 +121,108 @@ const DRINKS_DATA: DrinkSection[] = [
   },
 ];
 
-function DrinkItem({ item }: { item: DrinkItem }) {
+function DrinkItem({ item, index }: { item: DrinkItem; index: number }) {
   return (
-    <div className="border-b border-hairline py-3 last:border-b-0">
+    <motion.div
+      initial={{ opacity: 0, x: -10 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
+      className="border-b border-white/[0.06] py-3 last:border-b-0"
+    >
       <div className="flex items-baseline justify-between gap-4">
-        <div className="min-w-0 flex-1">
+        <div className="flex-1 min-w-0">
           <p className="font-jp text-base font-medium text-cream">{item.jp}</p>
           <p className="font-jp text-sm text-cream/60 italic">{item.en}</p>
-          {item.note && <p className="mt-1 font-jp text-xs text-cream/40">{item.note}</p>}
+          {item.note && (
+            <p className="font-jp text-xs text-cream/40 mt-1">{item.note}</p>
+          )}
         </div>
         {item.price && (
           <div className="flex-shrink-0 text-right">
-            <p className="font-jp text-base font-semibold text-saffron-300">{item.price}</p>
+            <p className="font-jp text-base font-semibold text-saffron-300">
+              {item.price}
+            </p>
             <p className="font-jp text-xs text-cream/40">{item.priceTax}</p>
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
-function DrinkSection({ section }: { section: DrinkSection }) {
+function DrinkSection({ section, index }: { section: DrinkSection; index: number }) {
   return (
-    <div className="mb-12">
-      <div className="mb-6 border-b border-saffron-300/40 pb-4">
-        <h2 className="mb-1 font-jp text-2xl font-light text-cream">{section.titleJp}</h2>
-        <p className="font-display text-sm font-light uppercase tracking-widest text-saffron-300">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="mb-12"
+    >
+      <div className="mb-6 pb-4 border-b border-saffron-300/40">
+        <h2 className="font-jp text-2xl font-light text-cream mb-1">
+          {section.titleJp}
+        </h2>
+        <p className="font-display text-sm font-light tracking-widest text-saffron-300 uppercase">
           {section.titleEn}
         </p>
         {section.brand && (
-          <p className="mt-2 font-jp text-xs text-saffron-300/80">✦ {section.brand} ✦</p>
+          <p className="font-jp text-xs text-saffron-300/80 mt-2">✦ {section.brand} ✦</p>
         )}
       </div>
-      <div>
+      <div className="space-y-0">
         {section.items.map((item, i) => (
-          <DrinkItem key={i} item={item} />
+          <DrinkItem key={i} item={item} index={i} />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 export default function DrinksMenuPage() {
   return (
     <div className="min-h-screen bg-ink">
-      <section className="px-6 pb-8 pt-36 md:pt-44">
-        <div className="mx-auto max-w-4xl">
-          <p className="apple-eyebrow mb-4">ドリンク</p>
-          <h1 className="font-jp text-5xl font-light leading-tight text-cream md:text-6xl">
-            ドリンク
-            <br />
-            メニュー
-          </h1>
-          <p className="mt-6 max-w-2xl font-jp text-lg text-cream/60">
-            インドから日本まで、世界の味わいを。お食事と共に、厳選されたドリンクをお楽しみください。
-          </p>
+      {/* Hero section */}
+      <section className="relative overflow-hidden py-24 md:py-32">
+        <div className="pointer-events-none absolute inset-0 grid-lines opacity-20" />
+        <div className="container mx-auto max-w-4xl px-6 relative z-10">
+          <Reveal>
+            <p className="mb-4 inline-flex items-center gap-2 font-jp text-xs font-medium tracking-[0.25em] text-saffron-300">
+              <span className="h-px w-8 bg-saffron-300" />
+              メニュー
+              <span className="h-px w-8 bg-saffron-300" />
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h1 className="font-jp text-5xl md:text-6xl font-light leading-[1.1] text-cream mb-6">
+              ドリンク<span className="text-gradient-warm">メニュー</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="font-jp text-lg text-cream/60 max-w-2xl">
+              インドから日本まで、世界の味わいを。お食事と共に、厳選されたドリンクをお楽しみください。
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      <section className="px-6 py-16">
-        <div className="mx-auto max-w-4xl">
-          {DRINKS_DATA.map((section) => (
-            <DrinkSection key={section.titleEn} section={section} />
+      {/* Drinks menu */}
+      <section className="py-20 md:py-28">
+        <div className="container mx-auto max-w-4xl px-6">
+          {DRINKS_DATA.map((section, index) => (
+            <DrinkSection key={section.titleEn} section={section} index={index} />
           ))}
         </div>
       </section>
 
-      <section className="border-t border-hairline px-6 py-12">
-        <div className="mx-auto max-w-4xl text-center">
+      {/* Footer note */}
+      <section className="py-16 border-t border-white/[0.06]">
+        <div className="container mx-auto max-w-4xl px-6 text-center">
           <p className="font-jp text-sm text-cream/50">
             ご質問やご不明な点がございましたら、スタッフまでお気軽にお問い合わせください。
           </p>
-          <p className="mt-2 font-jp text-xs text-cream/40">
+          <p className="font-jp text-xs text-cream/40 mt-4">
             All prices include tax. 価格は税込み表示です。
           </p>
         </div>
